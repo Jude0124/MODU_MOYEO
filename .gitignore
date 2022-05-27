@@ -1,4 +1,7 @@
+<<<<<<< HEAD
+=======
 application.properties
+>>>>>>> 5739dc011d830b5426da5a6d594be8ebe9222e43
 HELP.md
 .gradle
 build/
@@ -20,7 +23,10 @@ bin/
 
 ### IntelliJ IDEA ###
 .idea
+<<<<<<< HEAD
+=======
 .idea/mixc.xml
+>>>>>>> 5739dc011d830b5426da5a6d594be8ebe9222e43
 *.iws
 *.iml
 *.ipr
