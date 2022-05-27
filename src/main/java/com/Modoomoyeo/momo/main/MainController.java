@@ -1,4 +1,4 @@
-package com.Modoomoyeo.momo;
+package com.Modoomoyeo.momo.main;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
