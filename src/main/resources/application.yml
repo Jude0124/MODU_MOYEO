@@ -1,0 +1,24 @@
+server:
+  port: 8090
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+#뷰
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+  datasource: #바이바티스
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url:
+    username:
+    password:
+
+
+  devtools: #자동실행
+    livereload:
+      enabled: true
