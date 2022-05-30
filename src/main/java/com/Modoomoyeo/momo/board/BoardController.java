@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class BoardController {
     @Inject
-    BoardService boser;
+    BoardServiceImpl boser;
     @GetMapping("/boardList")
     public ModelAndView boardList(BoardPagingVO bpvo, BoardVO bvo, HttpSession session) {
         ModelAndView mav = new ModelAndView();

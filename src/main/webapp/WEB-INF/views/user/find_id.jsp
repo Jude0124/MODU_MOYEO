@@ -19,7 +19,7 @@
     <div class="wrapped-findform">
         <h5>등록된 휴대전화 번호로 찾기</h5>
         <form class="d-flex justify-content-center align-items-center justify-content-start wrapped-find-input"
-              method="post" action="/user/findId/byTel" >
+              method="post" action="/findId/byTel" >
             <i class="bi bi-phone"></i>
             <h1 class="d-flex justify-content-center align-items-center find-param">전화번호</h1>
             <input type="text" class="find-input" placeholder="ex) 010-1234-5678" name="tel">
@@ -27,7 +27,7 @@
         </form>
         <h5>등록된 이메일 계정으로 찾기</h5>
         <form class="d-flex justify-content-center align-items-center justify-content-start wrapped-find-input"
-              method="post" action="/user/findId/byEmail">
+              method="post" action="/findId/byEmail">
             <i class="bi bi-envelope"></i>
             <h1 class="d-flex justify-content-center align-items-center find-param">이메일 계정</h1>
             <input type="text" class="find-input" placeholder="ex) momo@gmail.com" name="email">

@@ -20,7 +20,7 @@
     </div>
     <div class="justify-content-start wrapped-findform">
         <h5>비밀번호를 다시 설정해주세요</h5>
-        <form class="wrapped-find-input" style="height: 200px;" method="post" action="/user/changePw">
+        <form class="wrapped-find-input" style="height: 200px;" method="post" action="/changePw">
             <div class="d-flex justify-content-center align-items-center">
                 <i class="bi bi-lock"></i>
                 <h1 class="d-flex justify-content-center align-items-center find-param">비밀번호</h1>

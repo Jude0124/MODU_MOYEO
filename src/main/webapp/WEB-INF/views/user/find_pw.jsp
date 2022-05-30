@@ -18,7 +18,7 @@
     </div>
     <div class="wrapped-findform" style="height: 200px;">
         <h5>아이디를 입력해주세요</h5>
-        <form method="get" action="/user/findPw/byEmail" class="d-flex justify-content-center align-items-center justify-content-start wrapped-find-input">
+        <form method="get" action="/findPw/byEmail" class="d-flex justify-content-center align-items-center justify-content-start wrapped-find-input">
             <i class="bi bi-person"></i>
             <h1 class="d-flex justify-content-center align-items-center find-param">ID</h1>
             <input type="text" class="find-input" name="id">

@@ -6,8 +6,13 @@ import java.util.List;
 
 
 @Repository
-public interface BoardDAO {
-    public int totalRecordBoard(BoardPagingVO bpvo, BoardVO bvo);
-    public List<BoardVO> allList(BoardPagingVO bpvo, BoardVO bvo);
+public class BoardDAO {
+    public int totalRecordBoard(BoardPagingVO bpvo, BoardVO bvo) {
+        return 0;
+    }
+
+    public List<BoardVO> allList(BoardPagingVO bpvo, BoardVO bvo) {
+        return null;
+    }
 
 }

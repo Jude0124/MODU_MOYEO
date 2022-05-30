@@ -27,7 +27,7 @@
                 <button class="btn find-button" id="emailAuthReqBtn" type="button">인증번호 받기</button>
             </div>
             <form class="d-flex auth-form" style="padding-left: 21px;align-items: center" id="emailAuthForm" method="post"
-                  action="/user/findPw/reset">
+                  action="/findPw/reset">
                 <i class="bi bi-arrow-right-circle"></i>
                 <h1 class="d-flex find-param">인증번호</h1>
                 <input type="hidden" value="${userId}" name="id">

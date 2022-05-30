@@ -23,7 +23,7 @@ bin/
 
 
 .idea/modules.xml
-.idea/mixc.xml
+.idea/misc.xml
 
 *.iws
 *.iml
