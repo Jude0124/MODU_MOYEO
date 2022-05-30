@@ -1,219 +1,301 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-<html>
+
 <head>
     <meta charset="UTF-8">
-    <title>Insert title here</title>
+    <title>admin</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        .reset-a {
+            color: #fff;
+            text-decoration: none;
+            outline: none;
+        }
+        .reset-a:hover,
+        .reset-a:active {
+            text-decoration: none;
+            color: #fff;
+            cursor: pointer;
+        }
+        #brand > h1 {
+            color: #00C471;
+        }
+    </style>
 </head>
-
-<link rel="stylesheet" href="/css/base.css" type="text/css" />
-<link rel="stylesheet" href="/css/admin/adminMain.css" type="text/css" />
-<link rel="stylesheet" href="/css/admin/adminMenu.css" type="text/css" />
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script async src='/cdn-cgi/bm/cv/669835187/api.js'></script>
-<script type="text/javascript" src="/js/admin/adminSideTab.js"></script>
-<script type="text/javascript" src="/js/admin/adminCheckBox.js"></script>
-
-<style>
-
-    #listMenu>li:nth-child(8n+1) {
-        width:5%;
-    }
-    #listMenu>li:nth-child(8n+3)
-    {
-        width:20%;
-    }
-    #listMenu>li:nth-child(8n+6),
-    #listMenu>li:nth-child(8n+7),
-    #listMenu>li:nth-child(8n+8)
-    {
-        width:15%;
-    }
-
-    #listMenu>#listMenuFE>li:nth-child(8n+1) {
-        width:5%;
-    }
-    #listMenu>#listMenuFE>li:nth-child(8n+3)
-    {
-        width:20%;
-    }
-    #listMenu>#listMenuFE>li:nth-child(8n+6),
-    #listMenu>#listMenuFE>li:nth-child(8n+7),
-    #listMenu>#listMenuFE>li:nth-child(8n+8)
-    {
-        width:15%;
-    }
-
-</style>
-<!-- <script type="text/javascript">
-
-</script> -->
 <body>
-<div id="adminPage">
-    <%@ include file="/WEB-INF/views/admin/adminTop.jsp" %>
+<div class="container">
+    <div class="row m-4">
+        <div class="col-4"></div>
 
-    <div id="adminMainContent">
-
-        <ul id="sideTapFirst">
-            <li>
-                <div class='menu_img' id="menu1">
-                    <img src="/img/admin/adminLeftTap1/dash.PNG" class="menu_imgs" id="menu_img_dashBoard" />
-                    <img src="/img/admin/adminLeftTap1/members.PNG" class="menu_imgs" id="menu_img_members" />
-                    <img src="/img/admin/adminLeftTap1/campList.PNG" class="menu_imgs" id="menu_img_campList" />
-                    <img src="/img/admin/adminLeftTap1/addCamperList_red.PNG" class="menu_imgs" id="menu_img_addCamperList" />
-                    <img src="/img/admin/adminLeftTap1/autoCampList.PNG" class="menu_imgs" id="menu_img_autoCampList" />
-                    <img src="/img/admin/adminLeftTap1/shareList.PNG" class="menu_imgs" id="menu_img_shareList" />
-                    <img src="/img/admin/adminLeftTap1/reviewList.PNG" class="menu_imgs" id="menu_img_reviewList" />
-                    <img src="/img/admin/adminLeftTap1/commentList.PNG" class="menu_imgs" id="menu_img_commentList" />
-                </div>
-            </li>
-
-            <li class='menuExpansion'>
-                <div class='menu_img' id="menu2">
-                    <a class="menuATag" href="/admin/adminMain">
-                        <img src="/img/admin/adminLeftTap2/dashboard_none.PNG" class="menu2right" id="dashboard_img"/>
-                    </a><img src="/img/admin/adminLeftTap1/dash.PNG" class="menu2left" id="menu_img_dashBoard" />
-
-                    <a class="menuATag" href="/admin/adminMembers">
-                        <img src="/img/admin/adminLeftTap2/members_none.PNG" class="menu2right" id="members_img"/>
-                    </a><img src="/img/admin/adminLeftTap1/members.PNG" class="menu2left" id="menu_img_members" />
-
-                    <a class="menuATag" href="/admin/adminCampList">
-                        <img src="/img/admin/adminLeftTap2/campList_none.PNG" class="menu2right" id="campList_img"/>
-                    </a><img src="/img/admin/adminLeftTap1/campList.PNG" class="menu2left" id="menu_img_campList" />
-
-                    <a class="menuATag" href="/admin/adminAddCamperList">
-                        <img src="/img/admin/adminLeftTap2/addCamperList_bold.PNG" class="menu2right" id="addCamperList_img"/>
-                    </a><img src="/img/admin/adminLeftTap1/addCamperList_red.PNG" class="menu2left" id="menu_img_addCamperList" />
-
-                    <a class="menuATag" href="/admin/adminAutoCampList">
-                        <img src="/img/admin/adminLeftTap2/autoCampList_none.PNG" class="menu2right" id="autoCampList_img"/>
-                    </a><img src="/img/admin/adminLeftTap1/autoCampList.PNG" class="menu2left" id="menu_img_autoCampList" />
-
-                    <a class="menuATag" href="/admin/adminShareList">
-                        <img src="/img/admin/adminLeftTap2/shareList_none.PNG" class="menu2right" id="shareList_img"/>
-                    </a><img src="/img/admin/adminLeftTap1/shareList.PNG" class="menu2left" id="menu_img_shareList" />
-
-                    <a class="menuATag" href="/admin/adminReviewList">
-                        <img src="/img/admin/adminLeftTap2/reviewList_none.PNG" class="menu2right" id="reviewList_img"/>
-                    </a><img src="/img/admin/adminLeftTap1/reviewList.PNG" class="menu2left" id="menu_img_reviewList" />
-
-                    <a class="menuATag" href="/admin/adminGatherCommentList">
-                        <img src="/img/admin/adminLeftTap2/commentList_none.PNG" class="menu2right" id="commentList_img"/>
-                    </a><img src="/img/admin/adminLeftTap1/commentList.PNG" class="menu2left" id="menu_img_commentList" />
-                </div>
-            </li>
-        </ul>
-        <div id="adminMainContentTop">
-            <!-- <hr id="hr2px_red"> -->
-            캠퍼모집목록
+        <div class="col-4 d-flex justify-content-center">
+            <a href="/" class="col-md-3 d-inline-flex justify-content-center align-items-center reset-a" id="brand">
+                <h1>모두모여</h1>
+            </a>
         </div>
-        <hr id="hr2px">
-        <div class="containerList">
-            <!--<div>
-						총 레코드 수 : ${apvo.totalRecord} / 총 페이지 개수 : ${apvo.totalPage} / 현재 페이지 번호 : ${apvo.pageNum}
-					</div>  -->
-            <!-- 검색 -->
-            <div>
-                <form method="get" action="/admin/adminAddCamperList" id="searchFrm">
-                    <select name="searchKey">
-                        <option value="title">제목</option>
-                        <option value="nickname">작성자</option>
-                        <option value="place">위치</option>
-                    </select>
-                    <input type="text" name="searchWord" id="searchWord" />
-                    <input type="submit" value="Search" />
-                </form>
-            </div>
-            <div id="multiDeleteAllCheck">
-                &nbsp;<input type="checkbox" id="allCheck" />전체선택
-                <input type="button" value="선택삭제" id="multiDel"/>
-            </div>
-            <form method="post" action="/admin/adminAddCamperListDel" id="listMenuFrm">
-                <ul id="listMenu">
-                    <li>&nbsp;</li>
-                    <li>번호</li>
-                    <li>제목</li>
-                    <li>위치</li>
-                    <li>작성자</li>
-                    <li>시작일</li>
-                    <li>마감일</li>
-                    <li>작성일</li>
 
-                    <div id="listMenuFE">
-                        <c:forEach var="vo" items="${list}">
-                            <li><input type='checkbox' name='gathernoList' value='${vo.gatherno}' class="chk"/></li>
-                            <li>${vo.gatherno}</li>
-                            <li><a href="/gather/gatherView?gatherno=${vo.gatherno}">${vo.title}</a></li>
-                            <li>${vo.place}</li>
-                            <li>${vo.nickname}</li>
-                            <li>${vo.startdate}</li>
-                            <li>${vo.enddate}</li>
-                            <li>${vo.createdate}</li>
-                        </c:forEach>
-                    </div>
-                </ul>
-            </form>
-
-            <ul class="paging">
-                <!-- 이전페이지 -->
-                <c:if test="${apvo.pageNum==1}">
-                    <li id="prevBtn">◀</li>
-                </c:if>
-                <c:if test="${apvo.pageNum>1}">
-                    <li><a href="/admin/adminAddCamperList?pageNum=${apvo.pageNum-1}
-											<c:if test='${apvo.searchWord!=null}'>
-											&searchKey=${apvo.searchKey}
-											&searchWord=${apvo.searchWord}
-											</c:if>">
-                        ◀</a></li>
-                </c:if>
-
-                <!-- 페이지번호 -->
-                <!-- ${apvo.startPage} ${apvo.startPage+apvo.onePageCount-1}-->
-                <c:forEach var="p" begin="${apvo.startPage}" end="${apvo.startPage+apvo.onePageCount-1}">
-                    <!--  총 페이지수보다 출력할 페이지번호가 작을때 -->
-                    <c:if test="${p<=apvo.totalPage}">
-                        <c:if test="${p==apvo.pageNum}">
-                            <li id="pagingNumberStyle">
-                        </c:if>
-                        <c:if test="${p!=apvo.pageNum}">
-                            <li>
-                        </c:if>
-                        <a href="/admin/adminAddCamperList?pageNum=${p}
-											<c:if test='${apvo.searchWord!=null}'>
-											&searchKey=${apvo.searchKey}
-											&searchWord=${apvo.searchWord}
-											</c:if>">
-                                ${p}</a></li>
-                    </c:if>
-                </c:forEach>
-
-                <!-- 다음페이지 -->
-
-                <c:if test="${apvo.pageNum == apvo.totalPage}">
-                    <li id="nextBtn">▶</li>
-                </c:if>
-                <c:if test="${apvo.pageNum < apvo.totalPage}">
-                    <li><a href="/admin/adminAddCamperList?pageNum=${apvo.pageNum+1}
-											<c:if test='${apvo.searchWord!=null}'>
-											&searchKey=${apvo.searchKey}
-											&searchWord=${apvo.searchWord}
-											</c:if>">
-                        ▶</a></li>
-                </c:if>
-            </ul>
-
-
-        </div>
+        <div class="col-4"></div>
     </div>
 
+    <div class="row mb-3">
+        <div class="col-6 d-flex flex-column justify-content-start" style="height: 500px">
+            <div class="text-center">
+                <h2>
+                    유저 관리
+                </h2>
+            </div>
+            <form action="/admin/userSearch" method="get">
+                <div class="d-flex justify-content-start">
+                    <input class="w-75" type="search" name="searchId">
+                    <input class="w-25" type="submit" value="검색">
+                </div>
+            </form>
+            <div class="overflow-auto">
+                <table class="w-100">
+                    <thead>
+                    <tr class="text-center">
+                        <th>uid</th>
+                        <th>유저id</th>
+                        <th style="width: 15%">인증박탈</th>
+                        <th style="width: 15%">잠금/해제</th>
+                        <th style="width: 15%">삭제</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="user:${userList}">
+                        <td>
+                            <div class="w-100 text-center" th:text="${user.userIdx}"></div>
+                        </td>
+                        <td>
+                            <div class="w-100 text-center" th:text="${user.userId}"></div>
+                        </td>
+                        <td th:if="${user.role == 'ROLE_AUTH'}">
+                            <input class="userId" type="hidden" th:value="${user.userId}">
+                            <input class="w-100" type="button" th:onclick="roleDelete(event)" th:value="인증박탈">
+                        </td>
+                        <td th:unless="${user.role == 'ROLE_AUTH'}">
+                        </td>
+                        <td  th:with="text=${user.lockUser?'해제':'잠금'}">
+                            <div class="w-100 text-center" th:if="${user.role == 'ROLE_ADMIN'}">관리자</div>
+                            <div class="w-100" th:unless="${user.role == 'ROLE_ADMIN'}">
+                                <input type="hidden" th:value="${user.userId}">
+                                <input class="w-100" type="button" th:onclick="lockToggle(event, [[${user.lockUser}]])" th:value="${text}">
+                            </div>
+                        </td>
+                        <td>
+                            <input class="userId" type="hidden" th:value="${user.userId}">
+                            <input class="w-100" type="button" th:onclick="userDelete(event)" th:value="삭제">
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-6 d-flex flex-column justify-content-start" style="height: 500px">
+            <div class="text-center">
+                <h2>
+                    게시판 관리
+                </h2>
+            </div>
+            <div class="w-100">
+                <form class="w-100 d-flex justify-content-center w-100" action="/admin/boardSearchByUserId" method="get">
+                    <div class="row d-flex justify-content-center w-100">
+                        <input class="w-75 p-0" type="search" name="searchId">
+                        <input class="w-25" type="submit" value="작성자 검색">
+                    </div>
+                </form>
+                <form class="w-100 d-flex justify-content-center w-100" action="/admin/boardSearchByTitle" method="get">
+                    <div class="row d-flex justify-content-center w-100">
+                        <input class="w-75 p-0" type="search" name="searchTitle">
+                        <input class="w-25" type="submit" value="제목 검색">
+                    </div>
+                </form>
+            </div>
+            <div class="overflow-auto">
+                <table class="w-100">
+                    <thead>
+                    <tr class="text-center">
+                        <th>bid</th>
+                        <th>작성자</th>
+                        <th>제목</th>
+                        <th>숨기기</th>
+                        <th>삭제</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="board:${boardList}">
+                        <td>
+                            <div class="w-100 text-center" th:text="${board.bid}"></div>
+                        </td>
+                        <td>
+                            <div class="w-100 text-center" th:text="${board.author}"></div>
+                        </td>
+                        <td>
+                            <div class="w-100 text-center" th:text="${board.title}"></div>
+                        </td>
+                        <td th:with="text=${board.visible?'숨기기':'보이기'}">
+                            <input class="w-100" type="button" th:onclick="visibleToggle([[${board.bid}]], [[${board.visible}]])" th:value="${text}">
+                        </td>
+                        <td>
+                            <input class="w-100" type="button" th:onclick="boardDelete([[${board.bid}]])" th:value="삭제">
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6 d-flex flex-column justify-content-start" style="height: 500px">
+            <div class="text-center">
+                <h2>
+                    공지사항 관리
+                </h2>
+            </div>
+            <div class="d-flex w-100">
+                <form class="w-100" action="/admin/noticeSearchByTitle" method="get">
+                    <div class="d-flex justify-content-center">
+                        <input class="w-75" type="search" name="searchTitle">
+                        <input class="w-25" type="submit" value="공지사항 검색">
+                    </div>
+                </form>
+            </div>
+            <input type="button" onclick="location.href='/admin/noticeWrite'" value="공지사항 작성">
+            <div class="overflow-auto">
+                <table class="w-100">
+                    <thead>
+                    <tr class="text-center">
+                        <th>nid</th>
+                        <th>작성자</th>
+                        <th>제목</th>
+                        <th>수정</th>
+                        <th>삭제</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="notice:${noticeList}">
+                        <td>
+                            <div class="text-center" th:text="${notice.bid}"></div>
+                        </td>
+                        <td>
+                            <div class="text-center" th:text="${notice.author}"></div>
+                        </td>
+                        <td>
+                            <div class="text-center" th:text="${notice.title}"></div>
+                        </td>
+                        <td>
+                            <form class="w-100" th:action="@{/notice/rewrite}" th:method="GET">
+                                <input type="hidden" name="bid" th:value="${notice.bid}">
+                                <input class="w-100" type="submit" th:value="수정">
+                            </form>
+                        </td>
+                        <td>
+                            <form class="w-100" th:action="@{/notice/delete(bid=${notice.bid})}" th:method="POST">
+                                <input class="w-100" type="submit" th:value="삭제">
+                            </form>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-6 d-flex flex-column justify-content-start" style="height: 500px">
+            <div class="text-center">
+                <h2>
+                    인증 관리
+                </h2>
+            </div>
+            <div class="d-flex">
+                <form class="w-100" action="/admin/preAuthUserDataSearchByUserId" method="get">
+                    <div class="d-flex justify-content-center w-100">
+                        <input class="w-75" type="search" name="searchId">
+                        <input class="w-25" type="submit" value="아이디 검색">
+                    </div>
+                </form>
+            </div>
+            <div class="overflow-auto">
+                <table class="w-100">
+                    <thead>
+                    <tr class="text-center">
+                        <th>aid</th>
+                        <th>과정명</th>
+                        <th>유저id</th>
+                        <th>인증</th>
+                        <th>삭제</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="preAuthUserData:${preAuthUserDataList}">
+                        <td>
+                            <div class="text-center" th:text="${preAuthUserData.aid}"></div>
+                        </td>
+                        <td>
+                            <div class="text-center" th:text="${preAuthUserData.courseName}"></div>
+                        </td>
+                        <td>
+                            <div class="text-center" th:text="${preAuthUserData.userId}"></div>
+                        </td>
+                        <td>
+                            <input class="w-100" type="button" th:onclick="authPopUp([[${preAuthUserData.aid}]])" th:value="인증">
+                        </td>
+                        <td>
+                            <input class="w-100" type="button" th:onclick="denyAuth([[${preAuthUserData.aid}]])" th:value="거부">
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script th:inline="javascript" th:src="@{/js/admin/lock-toggle.js}">
+    </script>
+    <script th:inline="javascript" th:src="@{/js/admin/visible-toggle.js}">
+    </script>
+    <script th:inline="javascript" th:src="@{/js/admin/user-delete.js}">
+    </script>
+    <script th:inline="javascript" th:src="@{/js/admin/role-delete.js}">
+    </script>
+    <script th:inline="javascript" th:src="@{/js/admin/board-delete.js}">
+    </script>
+    <script th:inline="javascript" th:src="@{/js/admin/notice-delete.js}">
+    </script>
+    <script th:inline="javascript">
+        function authPopUp(authId){
+            let popUrl = "/admin/auth?authId="+authId;
+            var popWidth = 450;
+            var popHeight = 500;
+            var winHeight = document.body.clientHeight;	  // 현재창의 높이
+            var winWidth = document.body.clientWidth;	  // 현재창의 너비
+            var winX = window.screenLeft;	                          // 현재창의 x좌표
+            var winY = window.screenTop;	                          // 현재창의 y좌표
+            var popX = winX + (winWidth - popWidth)/2;
+            var popY = winY + (winHeight - popHeight)/2;
+            window.open(popUrl,"인증 허가","top="+popY+", left="+popX+",width="+popWidth+",height="+popHeight+", scrollbars=yes,resizable=yes");
+        }
+    </script>
+    <script th:inline="javascript">
+        function noticeModify(bid){
+            let params = {
+                bid: bid
+            };
+            $.ajax({
+                type: 'POST',
+                url: '/notice/rewrite',
+                dataType: 'json',
+                data: JSON.stringify(params),
+                contentType: 'application/json',
+                success: function (result) {
+                    if (result) {
+                        location.reload();
+                    }
+                },
+                error: function (request, status, error) {
+                }
+            });
+        }
+    </script>
+    <script th:inline="javascript" th:src="@{/js/admin/deny-auth.js}">
+    </script>
 </div>
-<%@ include file="/WEB-INF/views/admin/adminBottom.jsp" %>
 </body>
 </html>
