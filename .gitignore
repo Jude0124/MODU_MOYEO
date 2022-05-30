@@ -23,10 +23,9 @@ bin/
 
 ### IntelliJ IDEA ###
 .idea
-<<<<<<< HEAD
-=======
 .idea/mixc.xml
->>>>>>> 5739dc011d830b5426da5a6d594be8ebe9222e43
+.idea/modules.xml
+
 *.iws
 *.iml
 *.ipr
