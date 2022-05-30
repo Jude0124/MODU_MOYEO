@@ -1,4 +1,4 @@
 package com.Modoomoyeo.momo.board;
 
-public interface AdminDAO {
+public interface BoardDAO {
 }
