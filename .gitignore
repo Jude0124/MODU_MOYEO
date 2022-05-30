@@ -21,9 +21,9 @@ bin/
 ### IntelliJ IDEA ###
 .idea
 
+
 .idea/modules.xml
 .idea/mixc.xml
-
 
 *.iws
 *.iml

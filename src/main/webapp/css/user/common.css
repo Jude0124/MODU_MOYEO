@@ -1,0 +1,20 @@
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+@font-face {
+    font-family: 'BMDOHYEON';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMDOHYEON.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+.common-aligns-center{
+    justify-content: center;
+    align-items: center;
+}
+
+.reset-a{
+}
