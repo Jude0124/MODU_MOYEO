@@ -1,4 +1,3 @@
-
 application.properties
 HELP.md
 .gradle
@@ -21,8 +20,11 @@ bin/
 
 ### IntelliJ IDEA ###
 .idea
-.idea/mixc.xml
+
+
 .idea/modules.xml
+.idea/mixc.xml
+
 *.iws
 *.iml
 *.ipr
