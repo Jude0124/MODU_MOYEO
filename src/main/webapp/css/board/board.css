@@ -1,0 +1,55 @@
+@charset "UTF-8";
+/*container*/
+.gatherList{
+	border-left: 2px solid gray;
+ 	border-right: 2px solid gray;
+ 	font-family: 'Gowun Dodum', sans-serif;  /*메인페이지 타이틀 폰트*/
+	font-family: 'IBM Plex Sans', sans-serif; /* 본문 영문 폰트*/
+	font-family: 'IBM Plex Sans KR', sans-serif; /* 본문 한글폰트 */
+}
+
+.write{
+	text-align:right;
+	width:91%;
+}
+
+.writeBtn{
+	color:rgb(245, 130, 67);
+	border-bottom : 5px solid;
+   	padding: 5px;
+}
+
+/*리스트 박스*/
+#camperTitle{
+	font-size:2.0em;
+	margin-left:10px;	
+}
+
+#camperName{
+	float:right;
+	font-size:1.2em;
+	line-height:45px;
+}
+#camperTitle{
+	color:black;
+}
+
+#list img{
+	float:right;
+	height:190px;
+	width:300px;
+}
+
+.listContent>div{
+	margin:20px;
+}
+
+.listBox{
+    box-shadow: 5px 13px 10px 1px rgb(0 0 0 / 20%);
+    transition: all 250ms linear;
+	width:80%;
+}
+
+.listBox:hover {
+	background-color: rgba(245, 130, 67, 1);
+}
