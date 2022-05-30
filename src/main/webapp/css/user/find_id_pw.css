@@ -1,0 +1,105 @@
+#find-brand {
+    height: 200px;
+    width: auto;
+    padding-top: 20px;
+}
+
+#nav-find {
+    height: 50px;
+    border-bottom: 2px solid #000000;
+    width: auto;
+}
+
+#find-brand h1 {
+    font-weight: bold;
+}
+
+#wrapped-all {
+    width: 700px;
+    min-width: 700px;
+}
+
+.wrapped-findform > h1 {
+    font-size: 15px;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+
+#nav-find > h1 {
+    font-size: 20px;
+    margin-bottom: 0px;
+    border-bottom-style: solid;
+    border-bottom-color: #000000;
+    padding-bottom: 7px;
+    font-weight: bold;
+}
+
+.wrapped-findform {
+    height: 350px;
+    width: auto;
+    padding: 40px 100px 30px;
+}
+
+.wrapped-find-input {
+    margin: 0 0;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+.find-param {
+    font-size: 15px;
+    margin-left: 3px;
+    margin-bottom: 0;
+    width: 100px;
+    height: 28px;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+}
+
+.find-input {
+    width: 200px;
+    margin-right: 8px;
+    margin-left: 8px;
+    padding: 0 5px;
+}
+
+.find-button {
+    padding: 0;
+    height: 28px;
+    width: 100px;
+    background: rgb(255,255,255);
+    font-size: 10pt;
+    color: rgb(0,0,0);
+    border: solid 1px black;
+    border-radius: 0px;
+    font-weight: bold;
+}
+.find-button:hover{
+    background-color: #00C471;
+    color: white;
+}
+
+.auth-input {
+    width: 200px;
+    margin-right: 8px;
+    margin-left: 8px;
+    padding: 0 5px;
+    background-color: #f4f4f4;
+}
+.auth-form {
+    margin-top: 7px;
+    margin-bottom: 0;
+    padding-bottom: 30px;
+}
+.text-center{
+    margin-top: 100px;
+    font-size: 40pt;
+}
+#cancel:hover{
+    font-weight: bold;
+    color: #00C471;
+}
