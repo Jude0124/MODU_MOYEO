@@ -12,7 +12,7 @@ spring:
     view:
       prefix: /WEB-INF/views/
       suffix: .jsp
-  datasource: #마이바티스
+  datasource: #바이바티스
     driver-class-name: com.mysql.cj.jdbc.Driver
     url:
     username:

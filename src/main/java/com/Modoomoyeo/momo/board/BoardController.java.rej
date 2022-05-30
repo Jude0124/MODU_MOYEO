@@ -1,7 +1,0 @@
-diff a/src/main/java/com/Modoomoyeo/momo/board/BoardController.java b/src/main/java/com/Modoomoyeo/momo/board/BoardController.java	(rejected hunks)
-@@ -1,5 +1,4 @@
- package com.Modoomoyeo.momo.board;
- 
--public class AdminController {
- public class BoardController {
- }
