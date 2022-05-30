@@ -17,7 +17,7 @@
         <h1>아이디 찾기</h1>
     </div>
     <div class="wrapped-findform">
-        <h3 class="d-flex justify-content-center align-items-center justify-content-start" th:text="${message}"></h3>
+        <h3 class="d-flex justify-content-center align-items-center justify-content-start" text="${message}"></h3>
     </div>
     <div class="d-flex justify-content-center">
         <a class="btn" id="cancel" href="/loginForm" type="button"><b>확인</b></a>
