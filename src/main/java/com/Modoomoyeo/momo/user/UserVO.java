@@ -1,4 +1,4 @@
 package com.Modoomoyeo.momo.user;
 
-public interface AdminService {
+public class UserVO {
 }
