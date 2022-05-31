@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!doctype html>
@@ -11,10 +11,10 @@
     <title>모두모여</title>
 </head>
 <body>
-<div class="container justify-content-center align-items-center" id="wrapped-all">
-<header class="text-center" style="margin-bottom: 50px">
-    <a href="/" style="text-decoration: none;"><img src="/img/main/logo.png" style="width: 200px"/></a>
-</header>
+<div class="container">
+    <header class="text-center" style="margin-bottom: 50px">
+        <a href="/" style="text-decoration: none;"><img class="img-fluid" src="/img/main/logo.png" style="width: 200px"/></a>
+    </header>
 </div>
 </body>
 </html>

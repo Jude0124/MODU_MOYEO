@@ -11,9 +11,14 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class UserController {
   
-    @GetMapping("/login")
+    @GetMapping("/login") //로그인
     public String login() {
         return "user/login";
+    }
+
+    @GetMapping("/register") //회원가입
+    public String register() {
+        return "user/register";
     }
   
     @GetMapping("/findId")
@@ -55,6 +60,9 @@ public class UserController {
     public String changePw(){
         return "redirect:/";
     }
-
+    @GetMapping("/personalInfo")
+    public String goPersonalInfo(){
+        return "user/personal_info";
+    }
 }
 
