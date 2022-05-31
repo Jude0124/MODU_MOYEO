@@ -18,7 +18,7 @@
 <body>
     <div id="footer">
         <div class="footA"> MoMo </div>
-        <div class="footB"> Copyright © MoMo All Rights Reserved. </div>
+        <div class="footB"> Copyright 2022. MoMo. All Rights Reserved. </div>
     </div>
 
     <button type="button" class="mobile_menu"><i class="fas fa-bars"></i></button>
