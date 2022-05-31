@@ -6,7 +6,7 @@
     <title>로그인 - 모두모여</title>
     <link rel="shorcut icon" type="image/x-icon" href="/img/main/favicon.ico">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="/css/main/login.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/user/login.css"/>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 </head>
 
@@ -28,11 +28,11 @@
                     <input class="form_pwd" type="password" placeholder="비밀번호" name="password" maxlength="20"/>
                     <input type="submit" class="btn_login" value="로그인"></input>
                 <div class="loginUtil">
-                    <a href="/find/findId">아이디 찾기</a>
+                    <a href="/findId">아이디 찾기</a>
                     |
-                    <a href="/find/findPw">비밀번호 찾기 </a>
+                    <a href="/findPw">비밀번호 찾기 </a>
                     |
-                    <a href="#">회원가입</a>
+                    <a href="/register">회원가입</a>
                 </div>
                 </div>
 
