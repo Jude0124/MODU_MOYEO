@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ include file="../user/common.jsp" %>
 <%@ include file="../main/main_header.jsp" %>
@@ -13,13 +13,13 @@
     <title>비밀번호 찾기 - 모두모여</title>
 </head>
 <body>
-<div class="container justify-content-center align-items-center" id="wrapped-all">
+<div class="container common-aligns-center">
     <div class="d-flex align-items-end justify-content-start" id="nav-find">
         <h1>비밀번호 찾기</h1>
     </div>
-    <div class="wrapped-findform" style="height: 220px;">
-        <h5>회원정보에 등록한 이메일로 인증</h5>
-        <div class="justify-content-start wrapped-find-input">
+    <div class="wrapped-findform">
+        <h5 class="find-title">회원정보에 등록한 이메일로 인증</h5>
+        <div class="wrapped-find-input">
             <div class="d-flex common-aligns-center">
                 <i class="bi bi-envelope"></i>
                 <h1 class="d-flex common-aligns-center find-param">이메일 주소</h1>
@@ -27,7 +27,8 @@
                 <input type="text" class="find-input" name="email" id="email" placeholder="ex) momo@gmail.com">
                 <button class="btn find-button" id="emailAuthReqBtn" type="button">인증번호 받기</button>
             </div>
-            <form class="d-flex auth-form" style="padding-left: 21px;align-items: center" id="emailAuthForm" method="post"
+            <form class="d-flex auth-form common-aligns-center" id="emailAuthForm"
+                  method="post"
                   action="/findPw/reset">
                 <i class="bi bi-arrow-right-circle"></i>
                 <h1 class="d-flex find-param">인증번호</h1>
@@ -41,7 +42,6 @@
             </div>
         </div>
     </div>
-    <div replace="fragments/footer.html :: fragment-footer"></div>
 </div>
 <%@ include file="../main/main_footer.jsp" %>
 <script src="@{/js/user/find-pw-auth.js}"></script>
