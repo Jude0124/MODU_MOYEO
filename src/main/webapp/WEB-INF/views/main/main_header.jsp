@@ -24,7 +24,7 @@
             <div id="signup_box"><a href="#">회원가입</a></div>
             <div id="logout_box"><a href="#">로그아웃</a></div>
             <div id="mypage_box"><a href="#">마이페이지</a></div>
-            <div id="adminpage_box"><a href="#">관리자페이지</a></div>
+            <div id="adminpage_box"><a href="/admin">관리자페이지</a></div>
         </div>
     </div>
 
