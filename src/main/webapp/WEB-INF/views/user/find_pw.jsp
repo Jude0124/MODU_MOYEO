@@ -13,23 +13,22 @@
     <title>비밀번호 찾기 - 모두모여</title>
 </head>
 <body>
-<div class="container justify-content-center align-items-center" id="wrapped-all">
+<div class="container common-aligns-center">
     <div class="d-flex align-items-end justify-content-start" id="nav-find">
         <h1>비밀번호 찾기</h1>
     </div>
-    <div class="wrapped-findform" style="height: 200px;">
-        <h5>아이디를 입력해주세요</h5>
+    <div class="wrapped-findform">
+        <h5 class="find-title">아이디를 입력해주세요</h5>
         <form method="get" action="/findPw/byEmail"
-              class="d-flex justify-content-center align-items-center justify-content-start wrapped-find-input">
+              class="d-flex common-aligns-center wrapped-find-input">
             <i class="bi bi-person"></i>
-            <h1 class="d-flex justify-content-center align-items-center find-param">ID</h1>
-            <input type="text" class="find-input" name="id">
-            <button class="btn btn-primary find-button" type="submit">전송</button>
+            <h1 class="d-flex common-aligns-center find-param">ID</h1>
+            <input type="text" class="find-input" name="id"/>
+            <button class="btn find-button" type="submit">확인</button>
         </form>
         <div class="d-flex justify-content-center">
             <a class="btn" id="cancel" href="/" type="button"><b>취소</b></a>
         </div>
-
     </div>
 </div>
 <%@ include file="../main/main_footer.jsp" %>
