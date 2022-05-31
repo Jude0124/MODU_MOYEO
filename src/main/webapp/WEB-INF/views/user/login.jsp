@@ -28,9 +28,9 @@
                     <input class="form_pwd" type="password" placeholder="비밀번호" name="password" maxlength="20"/>
                     <input type="submit" class="btn_login" value="로그인"></input>
                 <div class="loginUtil">
-                    <a href="/find/findId">아이디 찾기</a>
+                    <a href="/findId">아이디 찾기</a>
                     |
-                    <a href="/find/findPw">비밀번호 찾기 </a>
+                    <a href="/findPw">비밀번호 찾기 </a>
                     |
                     <a href="/register">회원가입</a>
                 </div>
