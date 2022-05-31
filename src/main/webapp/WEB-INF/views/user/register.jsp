@@ -16,6 +16,7 @@
     <title>회원가입 - 모두모여</title>
 </head>
 <body>
+<%@ include file="../main/main_header.jsp" %>
 <header class="text-center" style="margin-bottom: 50px">
     <div class="title"><a href="/">
         <img src="/img/main/logo.png" height="150px"></a>
