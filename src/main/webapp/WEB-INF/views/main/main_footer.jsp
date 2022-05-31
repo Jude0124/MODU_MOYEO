@@ -29,7 +29,7 @@
             </div>
 
             <div id="mo_menu">
-                <div id="login_box"><a href="#">로그인</a></div>
+                <div id="login_box"><a href="/login">로그인</a></div>
                 <div id="signup_box"><a href="#">회원가입</a></div>
             </div>
 

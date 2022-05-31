@@ -21,7 +21,7 @@
 
 <div id="main">
     <div id="main_box">
-        <img id="main_logo" src="/img/main/logomain.png"/>
+        <img id="main_logo" src="/img/main/logomain2.png"/>
         <form id="search_box">
             <input type="text" placeholder="찾으시고자 하는 동네를 입력해 주세요"/>
             <button>
