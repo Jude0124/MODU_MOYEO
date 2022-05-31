@@ -30,7 +30,7 @@
             </button>
         </form>
         <div id="tag_box">
-            <a href="#"> #전체 </a>
+            <a href="/boardList"> #전체 </a>
             <a href="#"> #강남구 </a>
         </div>
     </div>

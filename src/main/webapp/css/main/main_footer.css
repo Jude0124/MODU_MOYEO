@@ -8,7 +8,7 @@
     bottom: 0;
     margin-top: 50px;
     text-align: right;
-
+    z-index: -99;
 }
 .footA, .footB{
     height: 25px;
@@ -83,11 +83,11 @@ a:link, a:visited {
 }
 #mo_menu div:nth-child(1){
     float: left;
-    margin-left: 30px;
+    margin-left: 20px;
 }
 #mo_menu div:nth-child(2){
     float: right;
-    margin-right: 30px;
+    margin-right: 20px;
 }
 
 #login_box_footer{
@@ -116,12 +116,15 @@ a:link, a:visited {
     color: #000;
     font-weight: 700;
 }
-.category_list li{
+.category_list{
+    padding-left: 0;
+}
+.category_list>li{
     line-height: 40px;
     padding-left: 15px;
     font-size: 18px;
 }
-.category_list li a:hover{
+.category_list>li a:hover{
     color: #00C471;
     font-weight: 700;
 }
@@ -163,6 +166,6 @@ a:link, a:visited {
         display: none;
     }
     #footer{
-        font-size: 80%;
+        display: none;
     }
 }
