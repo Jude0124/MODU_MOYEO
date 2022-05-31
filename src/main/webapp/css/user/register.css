@@ -22,6 +22,7 @@ body * {
     padding: 100px;
     border-radius: 4px;
     color: gray;
+    box-shadow: 5px 5px 5px rgb(0 0 0 / 10%);
 }
 .input-border{
     background-color: #f7f9fc;
