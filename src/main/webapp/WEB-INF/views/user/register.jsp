@@ -1,27 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ include file="../main/main_header.jsp" %>
-<%@ include file="../user/common.jsp" %>
-<%@ include file="../user/common_header.jsp" %>
-<!doctype html>
-<html lang="ko">
+<!DOCTYPE html>
+<html lang="ko" >
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>회원정보 수정 - 모두모여</title>
-    <link rel="stylesheet" href="/css/user/mypage.css" type="text/css"/>
-    <script src="/js/main/header.js"></script>
-    <script src="/js/user/mypage-validation.js"></script>
-    <style>
-        .field-error {
-            border-color: #dc3545 !important;
-            color: #dc3545 !important;
-        }
-    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%--<link rel="stylesheet" type="text/css" href="/css/user/register.css" />--%>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" />
+   <script src="@{/js/user/register.js}"></script>
+    <title>회원가입 - 모두모여</title>
 </head>
 <body>
+<header class="text-center" style="margin-bottom: 50px">
+    <div class="title"><a href="/">
+        <img src="/img/main/logo.png" height="150px"></a>
+    </div>
+</header>
 <div class="container form-wrap" style="max-width: 540px">
     <form
             id="signUp-form"
@@ -37,6 +36,7 @@
                         class="form-control"
                         id="userId"
                         name="userId"
+                        required
                 />
                 <input
                         type="button"
@@ -49,7 +49,7 @@
             </div>
         </div>
         <div class="pw-form mt-2">
-            <label for="password" class="form-label">비밀번호</label>
+            <label for="password" class="form-label">비밀번호 변경</label>
             <input
                     type="password"
                     class="form-control"
@@ -58,6 +58,7 @@
                     minlength="6"
                     maxlength="12"
                     placeholder="비밀번호는 최소 6자 최대 12자까지 입력해주세요."
+                    required
             />
             <div id="passwordError" class="error"></div>
             <div class="feedback-pw"></div>
@@ -71,6 +72,7 @@
                     minlength="6"
                     maxlength="12"
                     placeholder="동일한 비밀번호를 입력해주세요."
+                    required
             />
             <div id="passwordCheckError" class="error"></div>
             <div class="feedback-pwcheck"></div>
@@ -110,7 +112,7 @@
         <div class="region-form mt-2">
             <label for="region" class="form-label">내 지역</label>
             <div>
-                <select class="form-select" id="region">
+                <select class="form-select" id="region" required>
                     <option disabled selected>-- 내 지역 선택 --</option>
                     <option value="1">강남구</option>
                     <option value="2">강동구</option>
@@ -144,7 +146,7 @@
                 type="submit"
                 class="btn w-100 mt-3"
                 style="background-color: #00C471; color: white"
-                value="가입하기"
+                value="회원가입"
                 id="submit"
         />
     </form>
