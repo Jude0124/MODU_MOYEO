@@ -55,6 +55,9 @@ public class UserController {
     public String changePw(){
         return "redirect:/";
     }
-
+    @GetMapping("/personalInfo")
+    public String goPersonalInfo(){
+        return "user/personal_info";
+    }
 }
 

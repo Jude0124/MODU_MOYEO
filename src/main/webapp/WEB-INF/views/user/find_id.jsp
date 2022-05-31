@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ include file="../user/common.jsp" %>
+<%@ include file="../main/main_header.jsp" %>
 <%@ include file="../user/common_header.jsp" %>
 <!doctype html>
 <html lang="ko">
@@ -9,7 +10,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>모두모여</title>
+    <title>아이디 찾기 - 모두모여</title>
 </head>
 <body>
 <div class="container justify-content-center align-items-center" id="wrapped-all">
@@ -37,7 +38,7 @@
             <a class="btn" id="cancel" href="/loginForm" type="button"><b>취소</b></a>
         </div>
     </div>
-    <div th:replace="fragments/footer.html :: fragment-footer"></div>
 </div>
+<%@ include file="../main/main_footer.jsp" %>
 </body>
 </html>
