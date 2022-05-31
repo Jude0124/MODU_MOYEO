@@ -13,29 +13,33 @@
     <title>아이디 찾기 - 모두모여</title>
 </head>
 <body>
-<div class="container justify-content-center align-items-center" id="wrapped-all">
+<div class="container common-aligns-center">
     <div class="d-flex align-items-end justify-content-start" id="nav-find">
         <h1>아이디 찾기</h1>
     </div>
     <div class="wrapped-findform">
-        <h5>등록된 휴대전화 번호로 찾기</h5>
-        <form class="d-flex justify-content-center align-items-center justify-content-start wrapped-find-input"
-              method="post" action="/findId/byTel" >
-            <i class="bi bi-phone"></i>
-            <h1 class="d-flex justify-content-center align-items-center find-param">전화번호</h1>
-            <input type="text" class="find-input" placeholder="ex) 010-1234-5678" name="tel">
-            <button class="btn find-button" type="submit">전송</button>
-        </form>
-        <h5>등록된 이메일 계정으로 찾기</h5>
-        <form class="d-flex justify-content-center align-items-center justify-content-start wrapped-find-input"
-              method="post" action="/findId/byEmail">
-            <i class="bi bi-envelope"></i>
-            <h1 class="d-flex justify-content-center align-items-center find-param">이메일 계정</h1>
-            <input type="text" class="find-input" placeholder="ex) momo@gmail.com" name="email">
-            <button class="btn find-button" type="submit">전송</button>
-        </form>
+        <div>
+            <h5 class="find-title">등록된 휴대전화 번호로 찾기</h5>
+            <form class="d-flex common-aligns-center wrapped-find-input"
+                  method="post" action="/findId/byTel" >
+                <i class="bi bi-phone"></i>
+                <h1 class="d-flex common-aligns-center find-param">전화번호</h1>
+                <input type="text" class="find-input" placeholder="ex) 010-1234-5678" name="tel">
+                <button class="btn find-button" type="submit">찾기</button>
+            </form>
+        </div>
+        <div style="margin-top: 40px;">
+            <h5 class="find-title">등록된 이메일 계정으로 찾기</h5>
+            <form class="d-flex common-aligns-center wrapped-find-input"
+                  method="post" action="/findId/byEmail">
+                <i class="bi bi-envelope"></i>
+                <h1 class="d-flex common-aligns-center find-param">이메일 계정</h1>
+                <input type="text" class="find-input" placeholder="ex) momo@gmail.com" name="email">
+                <button class="btn find-button" type="submit">찾기</button>
+            </form>
+        </div>
         <div class="d-flex justify-content-center">
-            <a class="btn" id="cancel" href="/loginForm" type="button"><b>취소</b></a>
+            <a class="btn" id="cancel" href="/login" type="button"><b>취소</b></a>
         </div>
     </div>
 </div>
