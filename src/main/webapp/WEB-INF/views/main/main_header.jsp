@@ -20,7 +20,7 @@
         </div>
 
         <div id="header_menu">
-            <div id="login_box"><a href="#">로그인</a></div>
+            <div id="login_box"><a href="/login">로그인</a></div>
             <div id="signup_box"><a href="#">회원가입</a></div>
             <div id="logout_box"><a href="#">로그아웃</a></div>
             <div id="mypage_box"><a href="#">마이페이지</a></div>

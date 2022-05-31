@@ -23,7 +23,7 @@ a:link, a:visited {
     margin: 30px auto 10px;
     width: 520px;
     height: 46px;
-    border: 2px solid #03cf5d;
+    border: 2px solid #00C471;
     display: flex;
 }
 #search_box input {
@@ -41,7 +41,7 @@ a:link, a:visited {
     margin: 0;
     padding: 0;
     border: none;
-    background: #03cf5d;
+    background: #00C471;
 }
 #search_box i {
     color: white;
@@ -66,12 +66,19 @@ a:link, a:visited {
 /* 모바일 */
 @media screen and (max-width:767px) {
     #main_box{
-        width: 320px;
+        width: 300px;
     }
     #search_box{
-        width: 320px;
+        width: 300px;
     }
+
+    #search_box>input::-webkit-input-placeholder { font-size: 80%; }
+    #search_box>input::-moz-placeholder { font-size: 80%; }
+    #search_box>input:-ms-input-placeholder { font-size: 80%; }
+    #search_box>input:-moz-placeholder { font-size: 80%; }
+    #search_box>input::placeholder { font-size: 80%; }
+
     #main_logo{
-        width: 320px;
+        width: 300px;
     }
 }
