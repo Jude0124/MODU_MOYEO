@@ -6,6 +6,15 @@
     <meta charset="UTF-8">
     <title>admin</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
     <style>
         .reset-a {
             color: #fff;
@@ -18,9 +27,11 @@
             color: #fff;
             cursor: pointer;
         }
-        #brand > h1 {
+        h5 {
             color: #00C471;
+            font-family: 'Do Hyeon', sans-serif;
         }
+
     </style>
 </head>
 <body>
@@ -29,8 +40,8 @@
         <div class="col-4"></div>
 
         <div class="col-4 d-flex justify-content-center">
-            <a href="/" class="col-md-3 d-inline-flex justify-content-center align-items-center reset-a" id="brand">
-                <h1>모두모여</h1>
+            <a href="/" class="d-inline-flex justify-content-center align-items-center reset-a" id="brand">
+                <img src="/img/main/logo2.png" style="max-width: 70%; height: auto;">
             </a>
         </div>
 
@@ -39,10 +50,10 @@
 
     <div class="row mb-3">
         <div class="col-6 d-flex flex-column justify-content-start" style="height: 500px">
-            <div class="text-center">
-                <h2>
+            <div>
+                <h5>
                     유저 관리
-                </h2>
+                </h5>
             </div>
             <form action="/admin/userSearch" method="get">
                 <div class="d-flex justify-content-start">
@@ -92,10 +103,10 @@
             </div>
         </div>
         <div class="col-6 d-flex flex-column justify-content-start" style="height: 500px">
-            <div class="text-center">
-                <h2>
-                    게시판 관리
-                </h2>
+            <div>
+                <h5>
+                    게시판관리
+                </h5>
             </div>
             <div class="w-100">
                 <form class="w-100 d-flex justify-content-center w-100" action="/admin/boardSearchByUserId" method="get">
@@ -147,10 +158,10 @@
     </div>
     <div class="row">
         <div class="col-6 d-flex flex-column justify-content-start" style="height: 500px">
-            <div class="text-center">
-                <h2>
-                    공지사항 관리
-                </h2>
+            <div>
+                <h5>
+                    참여모임 관리
+                </h5>
             </div>
             <div class="d-flex w-100">
                 <form class="w-100" action="/admin/noticeSearchByTitle" method="get">
@@ -200,10 +211,10 @@
             </div>
         </div>
         <div class="col-6 d-flex flex-column justify-content-start" style="height: 500px">
-            <div class="text-center">
-                <h2>
-                    인증 관리
-                </h2>
+            <div>
+                <h5>
+                    댓글관리
+                </h5>
             </div>
             <div class="d-flex">
                 <form class="w-100" action="/admin/preAuthUserDataSearchByUserId" method="get">
