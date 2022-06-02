@@ -31,7 +31,7 @@ html, body {
 
 .title img{
     width: 200px;
-    margin: 0 auto 30px;
+    /*margin: 0 auto 30px;*/
 }
 
 .title img:nth-child(2){
