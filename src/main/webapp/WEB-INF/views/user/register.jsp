@@ -26,6 +26,8 @@
             <img src="/img/user/register.png">
         </div>
 
+        <div class="register-clean">
+            <form id="signUp-form" method="post" action="/register">
                 <input
                         type="text"
                         class="form-control input-border"
@@ -40,7 +42,6 @@
                         disabled
                 ><i class="bi bi-arrow-clockwise"></i></button>
             </div>
-
         </div>
         <div class="email-form mt-2">
             <label for="email" class="form-label">E-mail</label>

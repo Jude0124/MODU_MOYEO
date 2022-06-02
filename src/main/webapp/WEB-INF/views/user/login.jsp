@@ -10,7 +10,8 @@
     <link rel="shorcut icon" type="image/x-icon" href="/img/main/favicon.ico">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/user/login.css"/>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 </head>
 
 
@@ -23,7 +24,11 @@
             <img src="/img/main/logo.png">
             <img src="/img/user/login.png">
         </div>
-
+        <spring:hasBindErrors name="loginDTO">
+            <c:if test = "${errors.hasGlobalErrors()}">
+                <strong>${errors.globalError()}</strong>
+            </c:if>
+        </spring:hasBindErrors>
         <div class="login-clean">
             <form method="post" action="/login" id="logFrm">
                 <div class="form_box">
