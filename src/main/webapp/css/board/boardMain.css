@@ -35,7 +35,6 @@ div {
 	font-family: 'IBM Plex Sans', sans-serif; /* 본문 영문 폰트*/
 	font-family: 'IBM Plex Sans KR', sans-serif; /* 본문 한글폰트 */
 }
-
 #adminPage {
 	/*position: absolute;*/
 	/*left: 25%;*/
@@ -55,8 +54,6 @@ div {
 	background:rgba(255, 255, 255, 1);
 }
 #adminMainContentTop {
-	/*width:1050px;*/
-	/*width:100%;*/
 	float: left;
 	padding: 10px;
 	position: relative;

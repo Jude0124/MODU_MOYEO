@@ -9,32 +9,25 @@
 
 <link rel="stylesheet" href="/css/board/base.css" type="text/css" />
 <link rel="stylesheet" href="/css/board/boardMain.css" type="text/css" />
-<link rel="stylesheet" href="/css/board/boardMenu.css" type="text/css" />
+<link rel="stylesheet" href="/css/board/boardPlus.css" type="text/css" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-<%--<script type="text/javascript" src="/js/admin/adminCheckBox.js"></script>--%>
 
 <style>
 
-    #listMenu>li:nth-child(5n+1) {
-        width:5%;
-    }
-    #listMenu>li:nth-child(5n+3) {width:45%}
-    #listMenu>li:nth-child(5n+4), #listMenu>li:nth-child(5n+5)
+    #listMenu>li:nth-child(4n+2) {width:50%}
+    #listMenu>li:nth-child(4n+3), #listMenu>li:nth-child(4n+4)
     {
         width:20%;
     }
-    #listMenu>#listMenuFE>li:nth-child(5n+1) {
-        width:5%;
-    }
-    #listMenu>#listMenuFE>li:nth-child(5n+3) {width:45%}
+    #listMenu>#listMenuFE>li:nth-child(4n+2) {width:50%}
 
-    #listMenu>#listMenuFE>li:nth-child(5n+4), #listMenu>#listMenuFE>li:nth-child(5n+5)
+    #listMenu>#listMenuFE>li:nth-child(4n+3), #listMenu>#listMenuFE>li:nth-child(4n+4)
     {
         width:20%;
     }
 
 </style>
+
 <body>
 <%@ include file="../main/main_header.jsp" %>
 <div id="adminPage">
@@ -48,6 +41,15 @@
             <div>
                 총 레코드 수 : ${bpvo.totalRecord} / 총 페이지 개수 : ${bpvo.totalPage} / 현재 페이지 번호 : ${bpvo.pageNum}
             </div>
+            <div id="searchRegion">
+                <select name="region" onchange="location.href=this.value">
+                    <option>선택</option>
+                    <option value="/boardList?region=강남구">강남구</option>
+                    <option value="/boardList?region=강서구">강서구</option>
+                    <option value="/boardList?region=송파구">송파구</option>
+                    <option value="/boardList?region=양천구">양천구</option>
+                </select>
+            </div>
             <!-- 검색 -->
             <div>
                 <form method="get" action="/boardList" id="searchFrm">
@@ -60,29 +62,68 @@
                     <input type="submit" value="Search" />
                 </form>
             </div>
-            <div id="multiDeleteAllCheck">
-                &nbsp;<input type="checkbox" id="allCheck" />전체선택
-                <input type="button" value="선택삭제" id="multiDel"/>
-            </div>
-            <form method="post" action="/boardListDel" id="listMenuFrm">
-                <ul id="listMenu">
-                    <li>&nbsp;</li>
-                    <li>글번호</li>
-                    <li style="text-align: left">모두의 이야기</li>
-                    <li>작성자</li>
-                    <li>작성시간</li>
 
-                    <div id="listMenuFE">
-                        <c:forEach var="vo" items="${list}">
-                            <li><input type='checkbox' name='noList' value='${vo.no}' class="chk"/></li>
-                            <li>${vo.no}</li>
-                            <li>${vo.title}</li>
-                            <li><a href="/boardList?nickname=${vo.nickname}">${vo.nickname}</a></li>
-                            <li>${vo.time}</li>
-                        </c:forEach>
-                    </div>
-                </ul>
-            </form>
+            <ul id="listMenu" style="border-top:solid 3px gray; margin-top:5px;">
+                <li>글번호</li>
+                <li style="text-align: left">모두의 이야기</li>
+                <li>작성자</li>
+                <li>작성시간</li>
+
+                <div id="listMenuFE">
+                    <li>1</li>
+                    <li style="text-align: left"><a href="/boardInfo">2</a></li>
+                    <li>3</li>
+                    <li>4</li>
+
+                    <li>1</li>
+                    <li style="text-align: left"><a href="/boardInfo">2</a></li>
+                    <li>3</li>
+                    <li>4</li>
+
+                    <li>1</li>
+                    <li style="text-align: left"><a href="/boardInfo">2</a></li>
+                    <li>3</li>
+                    <li>4</li>
+
+                    <li>1</li>
+                    <li style="text-align: left"><a href="/boardInfo">2</a></li>
+                    <li>3</li>
+                    <li>4</li>
+
+                    <li>1</li>
+                    <li style="text-align: left"><a href="/boardInfo">2</a></li>
+                    <li>3</li>
+                    <li>4</li>
+
+                    <li>1</li>
+                    <li style="text-align: left"><a href="/boardInfo">2</a></li>
+                    <li>3</li>
+                    <li>4</li>
+
+                    <li>1</li>
+                    <li style="text-align: left"><a href="/boardInfo">2</a></li>
+                    <li>3</li>
+                    <li>4</li>
+
+                    <li>1</li>
+                    <li style="text-align: left">2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <%--
+                    <c:forEach var="vo" items="${list}">
+                        <li><input type='checkbox' name='noList' value='${vo.no}' class="chk"/></li>
+                        <li>${vo.no}</li>
+                        <li>${vo.title}</li>
+                        <li><a href="/boardList?nickname=${vo.nickname}">${vo.nickname}</a></li>
+                        <li>${vo.time}</li>
+                    </c:forEach>
+                    --%>
+                </div>
+            </ul>
+            <div id="boardInsert">
+                <a href="/boardWrite">글쓰기</a>
+            </div>
+
             <%--
             <ul class="paging">
                 <!-- 이전페이지 -->
@@ -102,3 +143,4 @@
         </div>
     </div>
 </div>
+</body>
