@@ -13,18 +13,33 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 public class BoardController {
-    @Inject
-    BoardServiceImpl boser;
+
+//    @Inject
+//    BoardService boser;
     @GetMapping("/boardList")
     public ModelAndView boardList(BoardPagingVO bpvo, BoardVO bvo, HttpSession session) {
         ModelAndView mav = new ModelAndView();
-        bvo.setNickname((String)session.getAttribute("nickname"));
-
-        bpvo.setTotalRecord(boser.totalRecordBoard(bpvo, bvo));
-        mav.addObject("bpvo", bpvo);
-
-        mav.addObject("list", boser.allList(bpvo, bvo));
+//        bvo.setNickname((String)session.getAttribute("nickname"));
+//
+//        bpvo.setTotalRecord(boser.totalRecordBoard(bpvo, bvo));
+//        mav.addObject("bpvo", bpvo);
+//
+//        mav.addObject("list", boser.allList(bpvo, bvo));
         mav.setViewName("board/board_list");
         return mav;
     }
+
+    @GetMapping("/boardWrite")
+    public ModelAndView boardWrite() {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("board/board_write");
+        return mav;
+    }
+
+    @GetMapping("/boardInfo")
+        public ModelAndView boardInfo(){
+            ModelAndView mav = new ModelAndView();
+            mav.setViewName("board/board_info");
+            return mav;
+        }
 }
