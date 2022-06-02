@@ -22,4 +22,12 @@
         limit		 		${onePageRecord}
         offset				${offsetIndex}
     </select>
+
+    <insert id="insertboard" parameterType="boarddto">
+        INSERT INTO board(no, nickname, title, region, time, max)
+
+
+
+
+    </insert>
 </mapper>

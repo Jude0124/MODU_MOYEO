@@ -10,6 +10,14 @@
 		<form class="form-group" id="writeForm" method="post" action="/boardWriteOK">
 			<div>
 				<div>
+					<div class="boardHidden">
+						<input style="width:100%;" type="input" name="boardNo" id="boardNo" value=""/>
+						<input style="width:100%;" type="input" name="boardNickname" id="boardNickname" value=""/>
+						<input style="width:100%;" type="input" name="boardTime" id="boardTime" value=""/>
+						<input style="width:100%;" type="input" name="boardMax" id="boardMax" value=""/>
+					</div>
+				</div>
+				<div>
 					<div class="writeMark">제목</div>
 				</div>
 				<div class="writeTitle">
