@@ -27,7 +27,7 @@
         </div>
 
         <div class="register-clean">
-            <form id="signUp-form" method="post" action="/register/processRegister">
+            <form id="signUp-form" method="post" action="/register">
 
                 <label for="userId">아이디</label>
                 <span class="msgError">에러메세지</span><br/>

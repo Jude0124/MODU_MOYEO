@@ -1,6 +1,10 @@
 package com.Modoomoyeo.momo.user;
 
+import com.Modoomoyeo.momo.session.SessionConst;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import org.springframework.web.bind.annotation.PathVariable;
@@ -8,19 +12,51 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 @Controller
+@RequiredArgsConstructor
 public class UserController {
-  
-    @GetMapping("/login") //로그인
-    public String login() {
+    private final UserServiceImpl userServiceImpl;
+
+    @GetMapping("/login") //로그인 페이지 이동
+    public String loginMapping() {
         return "user/login";
     }
 
-    @GetMapping("/register") //회원가입
-    public String register() {
+    @PostMapping("/login")
+    public String userLogin(@Validated LoginDTO loginDTO, BindingResult bindingResult,
+                            HttpServletRequest request){
+        System.out.println(loginDTO);
+        if (bindingResult.hasErrors())  {
+            System.out.println(bindingResult.hasErrors());
+            return "user/login";
+        }
+        UserVO loginUser = userServiceImpl.checkLoginUser(loginDTO);
+        if(loginUser == null){
+            bindingResult.reject("loginFail", "아이디 또는 비밀번호가 맞지 않습니다.");
+            return "user/login";
+        }
+
+        HttpSession session = request.getSession();
+
+        session.setAttribute(SessionConst.LOGIN_USER, loginUser);
+        return "redirect:/";
+    }
+
+    @GetMapping("/register") //회원가입 페이지 이동
+    public String registerMapping() {
         return "user/register";
     }
-  
+
+    @PostMapping("/register")   // 회원가입
+    public String userRegister(UserVO userVO){
+        System.out.println(userVO);
+        userServiceImpl.joinUser(userVO);
+        return "redirect:/";
+    }
+
     @GetMapping("/findId")
     public ModelAndView findId(){
         ModelAndView mav = new ModelAndView();
