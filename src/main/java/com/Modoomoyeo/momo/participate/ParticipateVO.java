@@ -10,23 +10,25 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @Entity
 @Table
-public class ParticipateVO {
-    @Id
-    @Column
-    private String no;  //고유댓글번호(PK)
+public class ParticipateVO implements Serializable {
 
     @Id
     @Column
-    private int nickname; // 글번호
+    private int no;  //고유댓글번호(PK)
+
+    @Id
+    @Column
+    private String nickname; // 닉네임
 
     @Builder
-    public ParticipateVO(String no, int nickname) {
+    public ParticipateVO(int no, String nickname) {
         this.no = no;
         this.nickname = nickname;
     }
