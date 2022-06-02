@@ -26,43 +26,40 @@
             <img src="/img/user/register.png">
         </div>
 
-        <div class="register-clean">
-            <form id="signUp-form" method="post" action="/register/processRegister">
+                <input
+                        type="text"
+                        class="form-control input-border"
+                        id="nick-name"
+                        name="nick-name"
+                        required
+                />
+                <button
+                        type="button"
+                        class="btn w-25"
+                        style="background-color: #00C471; color: white"
+                        disabled
+                ><i class="bi bi-arrow-clockwise"></i></button>
+            </div>
 
-                <label for="userId">아이디</label>
-                <span class="msgError"></span><br/>
-                <div class="id_box">
-                    <input class="inputStyle" type="text" id="userId" name="id" placeholder="아이디"/>
-                    <input type="button" class="checkBtn" value="중복확인" onclick="idCheck()"/>
-                </div>
-                <input type="hidden" name="checked_id" value="0" />
-
-                <label for="password" >비밀번호</label>
-                <span class="msgError"></span><br/>
-                <input class="inputStyle" type="password" id="password" name="password" placeholder="비밀번호"/>
-
-                <label for="pwCheck" >비밀번호 확인</label>
-                <span class="msgError"></span><br/>
-                <input class="inputStyle" type="password" id="pwCheck" placeholder="비밀번호 확인"/>
-
-
-                <label for="nickname">닉네임</label>
-                <span class="msgError"></span><br/>
-                <div class="nick_box">
-                    <input class="inputStyle" type="text" id="nickname" name="nickname" placeholder="닉네임"/>
-                    <button type="button" class="checkBtn" style="background-color: #00C471; color: white"><i class="bi bi-arrow-clockwise"></i></button>
-                </div>
-
-
-                <label for="email">이메일</label>
-                <span class="msgError"></span><br/>
-                <input class="inputStyle" type="email" id="email" name="email" placeholder="이메일"/>
-
-
-                <label for="region" class="form-label">내 지역</label>
-                <span class="msgError"></span><br/>
-                <select class="inputStyle" id="region" name="region">
-                    <option value="" selected>-- 내 지역 선택 --</option>
+        </div>
+        <div class="email-form mt-2">
+            <label for="email" class="form-label">E-mail</label>
+            <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    name="email"
+                    placeholder="xxxx@xxxx.xxx 형식으로 입력해주세요"
+                    required
+            />
+            <div id="emailError" class="error"></div>
+            <div class="feedback-email"></div>
+        </div>
+        <div class="region-form mt-2">
+            <label for="region" class="form-label">내 지역</label>
+            <div>
+                <select class="form-select" id="region" required>
+                    <option value="" disabled selected >-- 내 지역 선택 --</option>
                     <option value="1">강남구</option>
                     <option value="2">강동구</option>
                     <option value="3">강북구</option>
