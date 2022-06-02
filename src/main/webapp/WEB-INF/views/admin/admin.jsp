@@ -12,10 +12,12 @@
             integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
             crossorigin="anonymous"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+
     <style>
+        body {
+            font-family:  'Nanum Gothic', sans-serif;
+            font-weight: bolder;
+        }
         .reset-a {
             color: #fff;
             text-decoration: none;
@@ -29,8 +31,24 @@
         }
         h5 {
             color: #00C471;
-            font-family: 'Do Hyeon', sans-serif;
+            font-family:  'Nanum Gothic', sans-serif;
+            font-weight: bolder;
         }
+        input[type=search]{
+            border : 2px solid black;
+            outline : none;
+        }
+        input[type=submit]{
+            border : 0px;
+            background-color: #00C471;
+            font-family:  'Nanum Gothic', sans-serif;
+            font-weight: bolder;
+            color : white;
+        }
+        input:focus {
+            outline: none;
+        }
+
 
     </style>
 </head>
@@ -57,19 +75,17 @@
             </div>
             <form action="/admin/userSearch" method="get">
                 <div class="d-flex justify-content-start">
-                    <input class="w-75" type="search" name="searchId">
-                    <input class="w-25" type="submit" value="검색">
+                    <input class="w-75" type="search" name="searchId" placeholder="탈퇴시키고자 하는 회원의 닉네임을 입력해주세요">
+                    <input class="w-25" type="submit" value="찾기">
                 </div>
             </form>
             <div class="overflow-auto">
                 <table class="w-100">
                     <thead>
                     <tr class="text-center">
-                        <th>uid</th>
-                        <th>유저id</th>
-                        <th style="width: 15%">인증박탈</th>
-                        <th style="width: 15%">잠금/해제</th>
-                        <th style="width: 15%">삭제</th>
+                        <th>아이디</th>
+                        <th>닉네임</th>
+                        <th style="width: 15%">지역</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -105,20 +121,14 @@
         <div class="col-6 d-flex flex-column justify-content-start" style="height: 500px">
             <div>
                 <h5>
-                    게시판관리
+                    모임글 관리
                 </h5>
             </div>
             <div class="w-100">
                 <form class="w-100 d-flex justify-content-center w-100" action="/admin/boardSearchByUserId" method="get">
                     <div class="row d-flex justify-content-center w-100">
-                        <input class="w-75 p-0" type="search" name="searchId">
-                        <input class="w-25" type="submit" value="작성자 검색">
-                    </div>
-                </form>
-                <form class="w-100 d-flex justify-content-center w-100" action="/admin/boardSearchByTitle" method="get">
-                    <div class="row d-flex justify-content-center w-100">
-                        <input class="w-75 p-0" type="search" name="searchTitle">
-                        <input class="w-25" type="submit" value="제목 검색">
+                        <input class="w-75 p-0" type="search" name="searchId" placeholder="삭제하고자 하는 글번호를 입력하세요">
+                        <input class="w-25" type="submit" value="찾기">
                     </div>
                 </form>
             </div>
@@ -126,11 +136,11 @@
                 <table class="w-100">
                     <thead>
                     <tr class="text-center">
-                        <th>bid</th>
+                        <th>글번호</th>
+                        <th>모임이름</th>
+                        <th>참여인원</th>
                         <th>작성자</th>
-                        <th>제목</th>
-                        <th>숨기기</th>
-                        <th>삭제</th>
+                        <th>작성시간</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -160,26 +170,23 @@
         <div class="col-6 d-flex flex-column justify-content-start" style="height: 500px">
             <div>
                 <h5>
-                    참여모임 관리
+                    모임인원 관리
                 </h5>
             </div>
             <div class="d-flex w-100">
                 <form class="w-100" action="/admin/noticeSearchByTitle" method="get">
                     <div class="d-flex justify-content-center">
-                        <input class="w-75" type="search" name="searchTitle">
-                        <input class="w-25" type="submit" value="공지사항 검색">
+                        <input class="w-75" type="search" name="searchTitle" placeholder="모임번호를 입력해 주세요">
+                        <input class="w-25" type="submit" value="찾기">
                     </div>
                 </form>
             </div>
-            <input type="button" onclick="location.href='/admin/noticeWrite'" value="공지사항 작성">
             <div class="overflow-auto">
                 <table class="w-100">
                     <thead>
                     <tr class="text-center">
-                        <th>nid</th>
-                        <th>작성자</th>
-                        <th>제목</th>
-                        <th>수정</th>
+                        <th>참여자</th>
+                        <th>모임이름</th>
                         <th>삭제</th>
                     </tr>
                     </thead>
@@ -219,8 +226,8 @@
             <div class="d-flex">
                 <form class="w-100" action="/admin/preAuthUserDataSearchByUserId" method="get">
                     <div class="d-flex justify-content-center w-100">
-                        <input class="w-75" type="search" name="searchId">
-                        <input class="w-25" type="submit" value="아이디 검색">
+                        <input class="w-75" type="search" name="searchId" placeholder="모임번호를 입력해주세요">
+                        <input class="w-25" type="submit" value="찾기">
                     </div>
                 </form>
             </div>
@@ -228,10 +235,9 @@
                 <table class="w-100">
                     <thead>
                     <tr class="text-center">
-                        <th>aid</th>
-                        <th>과정명</th>
-                        <th>유저id</th>
-                        <th>인증</th>
+                        <th>모임명</th>
+                        <th>닉네임</th>
+                        <th>댓글</th>
                         <th>삭제</th>
                     </tr>
                     </thead>

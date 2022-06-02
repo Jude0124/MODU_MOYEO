@@ -4,11 +4,9 @@
 #footer{
     width: 100%;
     height: 50px;
-    position: fixed;
-    bottom: 0;
-    margin-top: 50px;
+    position: relative;
+    transform: translateY(-100%);
     text-align: right;
-
 }
 .footA, .footB{
     height: 25px;
@@ -83,18 +81,48 @@ a:link, a:visited {
 }
 #mo_menu div:nth-child(1){
     float: left;
-    margin-left: 30px;
+    margin-left: 20px;
 }
 #mo_menu div:nth-child(2){
     float: right;
-    margin-right: 30px;
+    margin-right: 20px;
 }
-.category_list li{
+
+#login_box_footer{
+    background: #00C471;
+    border: 1px solid #00C471;
+    border-radius: 10px;
+    width: 90px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+#login_box_footer a{
+    color: #fff;
+    font-weight: 700;
+}
+#signup_box_footer{
+    background: #fff;
+    border: 1px solid #000;
+    border-radius: 10px;
+    width: 90px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+#signup_box_footer a{
+    color: #000;
+    font-weight: 700;
+}
+.category_list{
+    padding-left: 0;
+}
+.category_list>li{
     line-height: 40px;
     padding-left: 15px;
     font-size: 18px;
 }
-.category_list li a:hover{
+.category_list>li a:hover{
     color: #00C471;
     font-weight: 700;
 }
@@ -112,6 +140,7 @@ a:link, a:visited {
     padding-right: 12px;
     border: none;
     outline: none;
+    font-size: 12px;
 }
 #mobile_search_box button{
     width: 20%;

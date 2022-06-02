@@ -3,6 +3,9 @@
 <html lang="ko" >
 <head>
     <meta charset="UTF-8"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>로그인 - 모두모여</title>
     <link rel="shorcut icon" type="image/x-icon" href="/img/main/favicon.ico">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -18,7 +21,7 @@
     <div id="login_box2">
         <div class="title">
             <img src="/img/main/logo.png">
-            <img src="/img/login/login.png">
+            <img src="/img/user/login.png">
         </div>
 
         <div class="login-clean">
@@ -28,11 +31,11 @@
                     <input class="form_pwd" type="password" placeholder="비밀번호" name="password" maxlength="20"/>
                     <input type="submit" class="btn_login" value="로그인"></input>
                 <div class="loginUtil">
-                    <a href="/find/findId">아이디 찾기</a>
+                    <a href="/findId">아이디 찾기</a>
                     |
-                    <a href="/find/findPw">비밀번호 찾기 </a>
+                    <a href="/findPw">비밀번호 찾기 </a>
                     |
-                    <a href="#">회원가입</a>
+                    <a href="/register">회원가입</a>
                 </div>
                 </div>
 

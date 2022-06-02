@@ -29,8 +29,8 @@
             </div>
 
             <div id="mo_menu">
-                <div id="login_box"><a href="/login">로그인</a></div>
-                <div id="signup_box"><a href="#">회원가입</a></div>
+                <div id="login_box_footer"><a href="/login">로그인</a></div>
+                <div id="signup_box_footer"><a href="/register">회원가입</a></div>
             </div>
 
             <form id="mobile_search_box">

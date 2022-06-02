@@ -1,7 +1,8 @@
 $(()=>{
     var error = document.querySelectorAll('.msgError');
-    $("#signUp-form").submit(function(){
+    $("#personal_info-form").submit(function(){
 
+        /*
         //아이디 유효성검사
         var reg = /^[a-z0-9]{5,15}$/;
         if($("#userId").val()==''){
@@ -19,9 +20,10 @@ $(()=>{
         }else{
             error[0].style.display = "none";
         }
+        */
 
         // 비밀번호 유효성검사
-        reg = /^[a-zA-Z0-9~!@#$%^&*()_+|<>?:{}]{5,15}$/;
+        var reg = /^[a-zA-Z0-9~!@#$%^&*()_+|<>?:{}]{5,15}$/;
         if($("#password").val()==''){
             error[1].innerHTML = "비밀번호를 입력하세요.";
             error[1].style.display = "inline-block";
