@@ -41,7 +41,7 @@
 
             <h2>제목이 들어갈 자리</h2>
             <hr/>
-            <div>글 내용이 들어갈 자리</div>
+            <div>글 내용이 들어갈 자리입니다</div>
             <hr/>
             <div class="boardList">
                 <a href="/boardList">글목록</a>

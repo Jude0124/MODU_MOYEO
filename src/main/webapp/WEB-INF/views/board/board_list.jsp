@@ -48,6 +48,7 @@
                     <option value="/boardList?region=강서구">강서구</option>
                     <option value="/boardList?region=송파구">송파구</option>
                     <option value="/boardList?region=양천구">양천구</option>
+                    <option value="/boardList?region=구로구">구로구</option>
                 </select>
             </div>
             <!-- 검색 -->
