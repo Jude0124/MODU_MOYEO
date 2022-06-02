@@ -46,10 +46,10 @@
             <div class="boardList">
                 <a href="/boardList">글목록</a>
             </div>
-            <div id="boardInsert">
+            <div class="boardInsert">
                 <a href="/boardWrite">글쓰기</a>
             </div>
-            <div id="boardDelete">
+            <div class="boardDelete">
                 <a href="/boardDelete">글삭제</a>
             </div>
             <div>
