@@ -1,0 +1,107 @@
+@charset "UTF-8";
+/*container*/
+
+.camperTitle{
+	text-align:right;
+	font-size:2.0em;
+}
+
+#gatherEdit, #gnewnoBtn1, #gnewnoBtn2, #edit, .editForm input[value=수정] {
+	background:rgb(245, 130, 67);
+	color:white;
+}
+#gatherDel, #del{
+	background:#67493B;
+	color:white;
+}
+
+#iconsAndName{
+	overflow: auto;
+}
+
+#iconsAndName>li{
+	float: left;
+	margin:20px;
+}
+
+#iconsAndName>li:nth-child(3n), #iconsAndName>li:last-child{
+	font-size:1.2em;
+	float:right;
+}
+
+#placeAndDate{
+	/*background:beige;*/
+	padding:10px;
+}
+
+#placeAndDate>div{
+	margin:10px;
+}
+
+#placeAndDate>div:first-child, #placeAndDate>div:last-child{
+	text-align:center;
+	font-size:1.2em;
+}
+
+#gatherContent{
+	padding:20px;
+}
+
+#contentDiv img{
+	width:100% !important;
+	height:300px !important;
+}
+
+#joinCamper{
+	padding:10px;
+	margin:20px;
+	display:flex;
+	justify-content: space-around;
+}
+
+#gnewno, #gmemberno{
+	font-size:1.2em;
+	line-height:50px;
+}
+
+#gnewnoBtn1, #gnewnoBtn2{
+	font-size:1.2em;
+	margin:20px;
+}
+#intro{
+	padding:10px;
+	margin-left:10px;	
+	text-align:center;
+	font-size:1.2em;
+}
+
+/*댓글*/
+.replyMark{
+	float:right;
+	margin:5px;	
+}
+
+#replyLine{
+	margin:10px;
+	display:flex;
+}
+
+.replyBtn{
+	margin-left:10px;
+	background:rgb(245, 130, 67);
+	color:white
+}
+
+#rList{
+	margin-top:20px;
+}
+
+#edit{
+	margin-left:20px;
+	margin-right:20px;
+}
+
+.editForm{
+	display:none;
+	margin-top:10px;
+}

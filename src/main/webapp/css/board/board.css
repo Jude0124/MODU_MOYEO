@@ -34,12 +34,6 @@
 	color:black;
 }
 
-#list img{
-	float:right;
-	height:190px;
-	width:300px;
-}
-
 .listContent>div{
 	margin:20px;
 }

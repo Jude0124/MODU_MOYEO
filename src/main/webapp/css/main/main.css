@@ -8,20 +8,21 @@ a:link, a:visited {
     text-decoration: none;
     color: black;
 }
+html, body {
+    margin: 0;
+    height: 100%
+}
 #main{
-    height: calc(100vh - 450px);
-    padding-top: 150px;
-    padding-bottom: 150px;
-    position: relative;
+    height: auto !important;
+    min-height: calc(100vh - 180px);
+    padding-top: 50px;
+    padding-bottom: 50px;
     overflow: auto;
 }
 #main_box{
     text-align: center;
     width: 520px;
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin: 100px auto;
 }
 #search_box{
     margin: 30px auto 10px;
