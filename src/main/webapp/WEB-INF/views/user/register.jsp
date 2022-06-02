@@ -86,6 +86,7 @@
                         class="form-control input-border"
                         id="nick-name"
                         name="nick-name"
+                        required
                 />
                 <button
                         type="button"
@@ -113,7 +114,7 @@
             <label for="region" class="form-label">내 지역</label>
             <div>
                 <select class="form-select" id="region" required>
-                    <option disabled selected>-- 내 지역 선택 --</option>
+                    <option value="" disabled selected >-- 내 지역 선택 --</option>
                     <option value="1">강남구</option>
                     <option value="2">강동구</option>
                     <option value="3">강북구</option>
