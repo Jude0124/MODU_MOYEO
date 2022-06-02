@@ -6,11 +6,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.HttpRequestHandler;
+import org.springframework.web.bind.annotation.*;
 
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -45,6 +43,15 @@ public class UserController {
         HttpSession session = request.getSession();
 
         session.setAttribute(SessionConst.LOGIN_USER, loginUser);
+        return "redirect:/";
+    }
+
+    @GetMapping("/logout")
+    public String logoutMapping(HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        if (session != null) {
+            session.invalidate();
+        }
         return "redirect:/";
     }
 
