@@ -4,6 +4,7 @@ import com.Modoomoyeo.momo.session.SessionConst;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -31,11 +32,13 @@ public class UserController {
         System.out.println(loginDTO);
         if (bindingResult.hasErrors())  {
             System.out.println(bindingResult.hasErrors());
+            bindingResult.addError(new FieldError("loginError","loginError","ID/PW를 입력해주세요"));
             return "user/login";
         }
         UserVO loginUser = userServiceImpl.checkLoginUser(loginDTO);
+        System.out.println("서비스 통과 후 loginUser: "+loginUser);
         if(loginUser == null){
-            bindingResult.reject("loginFail", "아이디 또는 비밀번호가 맞지 않습니다.");
+            bindingResult.addError(new FieldError("loginFail","loginFail","ID/PW를 다시 확인해주세요."));
             return "user/login";
         }
 
