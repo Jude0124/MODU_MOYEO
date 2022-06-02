@@ -24,9 +24,9 @@
             <img src="/img/main/logo.png">
             <img src="/img/user/login.png">
         </div>
-        <spring:hasBindErrors name="loginDTO">
-            <c:if test = "${errors.hasGlobalErrors()}">
-                <strong>${errors.globalError()}</strong>
+        <spring:hasBindErrors name="userDTO">
+            <c:if test="${errors.hasFieldErrors('id') }">
+                <strong>${errors.getFieldError( 'id' ).defaultMessage }</strong>
             </c:if>
         </spring:hasBindErrors>
         <div class="login-clean">

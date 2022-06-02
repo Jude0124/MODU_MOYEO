@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl implements UserService {
     private final UserDAO userDAO;
+
     public void joinUser(UserVO userVO) {
         userDAO.save(userVO);
     }
