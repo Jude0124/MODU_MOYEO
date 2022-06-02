@@ -18,18 +18,8 @@
         <h1>아이디 찾기</h1>
     </div>
     <div class="wrapped-findform">
-        <div>
-            <h5 class="find-title">등록된 휴대전화 번호로 찾기</h5>
-            <form class="d-flex common-aligns-center wrapped-find-input"
-                  method="post" action="/findId/byTel" >
-                <i class="bi bi-phone"></i>
-                <h1 class="d-flex common-aligns-center find-param">전화번호</h1>
-                <input type="text" class="find-input" placeholder="ex) 010-1234-5678" name="tel">
-                <button class="btn find-button" type="submit">찾기</button>
-            </form>
-        </div>
         <div style="margin-top: 40px;">
-            <h5 class="find-title">등록된 이메일 계정으로 찾기</h5>
+            <h5 class="find-title">등록하신 이메일 주소를 입력해주세요</h5>
             <form class="d-flex common-aligns-center wrapped-find-input"
                   method="post" action="/findId/byEmail">
                 <i class="bi bi-envelope"></i>
