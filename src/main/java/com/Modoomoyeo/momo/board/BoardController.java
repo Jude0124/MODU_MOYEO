@@ -16,6 +16,7 @@ public class BoardController {
 
 //    @Inject
 //    BoardService boser;
+    /*전체글보기 폼*/
     @GetMapping("/boardList")
     public ModelAndView boardList(BoardPagingVO bpvo, BoardVO bvo, HttpSession session) {
         ModelAndView mav = new ModelAndView();
@@ -29,6 +30,7 @@ public class BoardController {
         return mav;
     }
 
+    /*글쓰기폼*/
     @GetMapping("/boardWrite")
     public ModelAndView boardWrite() {
         ModelAndView mav = new ModelAndView();
@@ -36,10 +38,12 @@ public class BoardController {
         return mav;
     }
 
+    /*상세보기폼*/
     @GetMapping("/boardInfo")
-        public ModelAndView boardInfo(){
-            ModelAndView mav = new ModelAndView();
-            mav.setViewName("board/board_info");
-            return mav;
-        }
+    public ModelAndView boardInfo(){
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("board/board_info");
+        return mav;
+    }
+
 }
