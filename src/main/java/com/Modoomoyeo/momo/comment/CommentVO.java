@@ -12,7 +12,7 @@ import javax.persistence.Table;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table
+@Table(name = "comment")
 public class CommentVO {
     @Id
     @Column

@@ -14,30 +14,30 @@ import javax.persistence.Table;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table
+@Table(name = "user")
 public class UserVO {
     @Id
     @Column
-    private String nickname;            //작성자
+    private String nickname; // 닉네임(=작성자)
 
     @Column
-    private String no;                  //글번호
+    private String id; // id
 
     @Column
-    private String title;               //내용
+    private String email; //이메일
 
     @Column
-    private String time;                //작성일 (시간)
+    private String password; //비밀번호
 
     @Column
-    private String region;              //지역
+    private String region; // 지역
 
     @Builder
-    public UserVO(String nickname, String no, String title, String time, String region) {
+    public UserVO(String nickname, String id, String email, String password, String region) {
         this.nickname = nickname;
-        this.no = no;
-        this.title = title;
-        this.time = time;
+        this.id = id;
+        this.email = email;
+        this.password = password;
         this.region = region;
     }
 }
