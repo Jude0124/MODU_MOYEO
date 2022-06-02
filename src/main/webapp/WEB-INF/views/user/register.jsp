@@ -30,7 +30,7 @@
             <form id="signUp-form" method="post" action="/register/processRegister">
 
                 <label for="userId">아이디</label>
-                <span class="msgError">에러메세지</span><br/>
+                <span class="msgError"></span><br/>
                 <div class="id_box">
                     <input class="inputStyle" type="text" id="userId" name="id" placeholder="아이디"/>
                     <input type="button" class="checkBtn" value="중복확인" onclick="idCheck()"/>
@@ -38,16 +38,16 @@
                 <input type="hidden" name="checked_id" value="0" />
 
                 <label for="password" >비밀번호</label>
-                <span class="msgError">에러메세지</span><br/>
+                <span class="msgError"></span><br/>
                 <input class="inputStyle" type="password" id="password" name="password" placeholder="비밀번호"/>
 
                 <label for="pwCheck" >비밀번호 확인</label>
-                <span class="msgError">에러메세지</span><br/>
-                <input class="inputStyle" type="password" id="pwCheck" placeholder="비밀번호 확인"/><br/>
+                <span class="msgError"></span><br/>
+                <input class="inputStyle" type="password" id="pwCheck" placeholder="비밀번호 확인"/>
 
 
                 <label for="nickname">닉네임</label>
-                <span class="msgError">에러메세지</span><br/>
+                <span class="msgError"></span><br/>
                 <div class="nick_box">
                     <input class="inputStyle" type="text" id="nickname" name="nickname" placeholder="닉네임"/>
                     <button type="button" class="checkBtn" style="background-color: #00C471; color: white"><i class="bi bi-arrow-clockwise"></i></button>
@@ -55,12 +55,12 @@
 
 
                 <label for="email">이메일</label>
-                <span class="msgError">에러메세지</span><br/>
+                <span class="msgError"></span><br/>
                 <input class="inputStyle" type="email" id="email" name="email" placeholder="이메일"/>
 
 
                 <label for="region" class="form-label">내 지역</label>
-                <span class="msgError">에러메세지</span><br/>
+                <span class="msgError"></span><br/>
                 <select class="inputStyle" id="region" name="region">
                     <option value="" selected>-- 내 지역 선택 --</option>
                     <option value="1">강남구</option>
