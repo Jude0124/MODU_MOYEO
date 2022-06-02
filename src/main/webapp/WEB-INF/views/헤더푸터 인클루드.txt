@@ -1,0 +1,5 @@
+- 헤더
+<%@ include file="../main/main_header.jsp" %>
+
+- 푸터
+<%@ include file="../main/main_footer.jsp" %>

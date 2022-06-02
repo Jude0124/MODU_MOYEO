@@ -1,0 +1,131 @@
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+/* 데스크탑 */
+#login * {
+    font-family: 'Nanum Gothic', sans-serif;
+}
+a{
+    text-decoration: none;
+}
+a:link, a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+#login{
+    height: calc(100vh - 450px);
+    padding-top: 150px;
+    padding-bottom: 150px;
+    position: relative;
+    overflow: auto;
+}
+
+#login_box2{
+    text-align: center;
+    width: 520px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.title img{
+    width: 200px;
+    margin: 0 auto 30px;
+}
+
+.title img:nth-child(2){
+    display: none;
+}
+
+#logFrm{
+    border: 1px solid transparent;
+    border-radius: 5px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.form_id, .form_pwd{
+    width: 288px;
+    height: 40px;
+    margin-bottom: 15px;
+    padding: 0 20px;
+    font-size: 15px;
+    border: 1px solid #d0d0d0;
+    border-radius: 5px;
+}
+
+.btn_login{
+    margin-top: 15px;
+    width: 330px;
+    height: 60px;
+    background: #00C471;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 60px;
+    border-radius: 5px;
+}
+
+.loginUtil{
+    text-align: center;
+    margin-top: 45px;
+    color: #808080;
+}
+
+.loginUtil a:link,
+.loginUtil a:visited,
+.loginUtil a:hover,
+.loginUtil a:active{
+    color: inherit;
+    font-size: 12pt;
+}
+
+
+/* 타블렛 */
+@media screen and (max-width:1023px) {
+}
+
+
+/* 모바일 */
+@media screen and (max-width:767px) {
+    #login_box2{
+        width: 300px;
+        top: 50%;
+    }
+    #logFrm, #form_box{
+        width: 300px;
+    }
+    .form_id, .form_pwd{
+        width: 258px;
+    }
+    #form_box>input::-webkit-input-placeholder { font-size: 80%; }
+    #form_box>input::-moz-placeholder { font-size: 80%; }
+    #form_box>input:-ms-input-placeholder { font-size: 80%; }
+    #form_box>input:-moz-placeholder { font-size: 80%; }
+    #form_box>input::placeholder { font-size: 80%; }
+
+    .btn_login{
+        width: 300px;
+    }
+    .title img:nth-child(1){
+        display: none;
+    }
+    .title img:nth-child(2){
+        display: block;
+        width: 130px;
+        margin-bottom: 50px;
+    }
+}
+
+/* 모바일 세로 */
+@media screen and (max-height:600px) {
+    #login{
+        min-height: 500px;
+    }
+    #login_box2{
+        top: 30%;
+    }
+}
