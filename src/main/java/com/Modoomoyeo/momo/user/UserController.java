@@ -29,12 +29,13 @@ public class UserController {
     public String userLogin(@Validated LoginDTO loginDTO, BindingResult bindingResult,
                             HttpServletRequest request){
         if (bindingResult.hasErrors())  {
-            bindingResult.addError(new FieldError("loginError","loginError","ID/PW를 입력해주세요"));
+            System.out.println(bindingResult.hasErrors());
+            bindingResult.addError(new FieldError("loginError","loginError","아이디 또는 비밀번호를 입력해주세요."));
             return "user/login";
         }
         UserVO loginUser = userServiceImpl.checkLoginUser(loginDTO);
         if(loginUser == null){
-            bindingResult.addError(new FieldError("loginFail","loginFail","ID/PW를 다시 확인해주세요."));
+            bindingResult.addError(new FieldError("loginFail","loginFail","아이디 또는 비밀번호를 다시 확인해주세요."));
             return "user/login";
         }
 

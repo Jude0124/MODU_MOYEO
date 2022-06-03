@@ -24,22 +24,25 @@
             <img src="/img/main/logo.png">
             <img src="/img/user/login.png">
         </div>
-        <div style="height: 30px;">
-            <spring:hasBindErrors name="loginDTO">
-                <c:if test="${errors.hasFieldErrors('loginError') }">
-                    <strong style="color: red;">${errors.getFieldError( 'loginError' ).defaultMessage }</strong>
-                </c:if>
-                <c:if test="${errors.hasFieldErrors('loginFail') }">
-                    <strong style="color: red;">${errors.getFieldError( 'loginFail' ).defaultMessage }</strong>
-                </c:if>
-            </spring:hasBindErrors>
-        </div>
 
         <div class="login-clean">
             <form method="post" action="/login" id="logFrm">
                 <div class="form_box">
                     <input class="form_id" type="text" placeholder="아이디" name="id" maxlength="20"/>
                     <input class="form_pwd" type="password" placeholder="비밀번호" name="password" maxlength="20"/>
+
+                    <div id="login_error">
+                        <spring:hasBindErrors name="loginDTO">
+                            <c:if test="${errors.hasFieldErrors('loginError') }">
+                                <strong>${errors.getFieldError( 'loginError' ).defaultMessage }</strong>
+                            </c:if>
+                            <c:if test="${errors.hasFieldErrors('loginFail') }">
+                                <strong>${errors.getFieldError( 'loginFail' ).defaultMessage }</strong>
+                            </c:if>
+                        </spring:hasBindErrors>
+                    </div>
+
+
                     <input type="submit" class="btn_login" value="로그인"></input>
                     <div class="loginUtil">
                         <a href="/findId">아이디 찾기</a>
