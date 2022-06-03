@@ -8,15 +8,15 @@ import java.util.List;
 
 @Service
 public class AdminServiceImpl implements AdminService {
-    @Autowired
-    AdminDAO dao;
-    public int totalRecordUser(){
-        return dao.totalRecordUser();
-    }
-    public List<UserVO> adminUsers(){
-        return dao.adminUsers();
-    }
-    public int adminUsersDel(UserVO uvo){
-        return dao.adminUsersDel(uvo);
-    }
+//    @Autowired
+//    AdminDAO dao;
+//    public int totalRecordUser(){
+//        return dao.totalRecordUser();
+//    }
+//    public List<UserVO> adminUsers(){
+//        return dao.adminUsers();
+//    }
+//    public int adminUsersDel(UserVO uvo){
+//        return dao.adminUsersDel(uvo);
+//    }
 }
