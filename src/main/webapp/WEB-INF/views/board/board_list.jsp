@@ -121,7 +121,7 @@
                     --%>
                 </div>
             </ul>
-            <div id="boardInsert">
+            <div class="boardInsert">
                 <a href="/boardWrite">글쓰기</a>
             </div>
 

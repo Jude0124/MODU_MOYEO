@@ -1,5 +1,8 @@
 $(()=>{
     var error = document.querySelectorAll('.msgError');
+    $("#userId").change(function(){
+        $('#idCheckResult').val('')
+    });
     $("#signUp-form").submit(function(){
 
         //아이디 유효성검사
@@ -10,13 +13,20 @@ $(()=>{
             error[0].style.color = "red";
             $("#userId").focus();
             return false;
-        }else if(!reg.test($("#userId").val())){
+        }
+        else if(!reg.test($("#userId").val())){
             error[0].innerHTML = "5~15자의 영문 소문자, 숫자만 사용 가능합니다."
             error[0].style.display = "inline-block";
             error[0].style.color = "red";
             $("#userId").focus();
             return false;
-        }else{
+        }else if($('#idCheckResult').val()===""){
+            error[0].innerHTML = "아이디 중복확인을 진행해주세요.";
+            error[0].style.display = "inline-block";
+            error[0].style.color = "red";
+            return false;
+        }
+        else{
             error[0].style.display = "none";
         }
 
@@ -77,6 +87,43 @@ $(()=>{
         }else{
             error[5].style.display = "none";
         }
-
     });
+
 });
+function idCheck() {   // ID중복체크 버튼
+    var error = document.querySelectorAll('.msgError');
+    var reg = /^[a-z0-9]{5,15}$/;
+    const Id = $('#userId').val();
+    if (Id.trim()===""){
+        error[0].innerHTML = "아이디를 입력하세요.";
+        error[0].style.display = "inline-block";
+        error[0].style.color = "red";
+        $("#userId").focus();
+    } else if(!reg.test($("#userId").val())) {
+        error[0].innerHTML = "5~15자의 영문 소문자, 숫자만 사용 가능합니다."
+        error[0].style.display = "inline-block";
+        error[0].style.color = "red";
+        $("#userId").focus();
+    } else {
+        $.ajax({
+            async : true,
+            type : 'POST',
+            data: Id,
+            url: "/register/idDuplicateCheck",
+            dataType: "json",
+            contentType: "application/json; charset=UTF-8",
+            success: function(result) {
+                if(result.toString()==="false") {
+                    alert('사용 가능한 ID입니다.')
+                    $('#idCheckResult').val('success')
+                } else{
+                    alert('이미 사용중인 ID입니다. 다른 ID를 입력해주세요.')
+                }
+            },
+            error: function (request, status, error) {
+                alert('code:' + request.status + '\n' + 'message:' + request.responseText + '\n' + 'error:' + error);
+            }
+        });
+    }
+
+}

@@ -2,24 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.campus.myapp.admin.AdminDAO">
+<mapper namespace="com.Modoomoyeo.momo.board.BoardDAO">
 
-    <select id="totalRecordBoard" resultType="int">
-        select count(id) cnt from user
-        <if test="searchWord != null">
-            where 			${searchKey}
-            like 			'%${searchWord}%'
-        </if>
-    </select>
 
-    <select id="allList" resultType="com.Modoomoyeo.momo.board.BoardVO">
-        SELECT no, nickname, title, time from board
-        <if test="searchWord != null">
-            where 				${searchKey}
-            like 				'%${searchWord}%'
-        </if>
-        order by no desc
-        limit		 		${onePageRecord}
-        offset				${offsetIndex}
-    </select>
 </mapper>
