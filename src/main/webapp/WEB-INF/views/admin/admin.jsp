@@ -93,12 +93,22 @@
                     </thead>
                     <tbody>
                     <tr class="text-center">
-                        <td>□</td>
-                        <td>asd123</td>
-                        <td>남우위키</td>
-                        <td>서울어딘가</td>
-                        <td>이메일?</td>
-                        <td>관리자</td>
+                        <th>□</th>
+                        <th>아이디</th>
+                        <th>닉네임</th>
+                        <th>지역</th>
+                        <th>이메일</th>
+                        <th>관리자</th>
+                        <%--
+                        <c:forEach var="vo" items="${list}">
+                            <th>□</th>
+                            <th>${vo.id}</th>
+                            <th>${vo.nickname}</th>
+                            <th>${vo.region}</th>
+                            <th>${vo.email}</th>
+                            <th>유무가 나오는곳</th>
+                        </c:forEach>
+                        --%>
                     </tr>
                     </tbody>
                 </table>
