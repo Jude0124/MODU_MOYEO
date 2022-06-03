@@ -3,6 +3,7 @@ package com.Modoomoyeo.momo.user;
 import com.Modoomoyeo.momo.session.SessionConst;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.annotation.Validated;
@@ -27,14 +28,11 @@ public class UserController {
     @PostMapping("/login")
     public String userLogin(@Validated LoginDTO loginDTO, BindingResult bindingResult,
                             HttpServletRequest request){
-        System.out.println(loginDTO);
         if (bindingResult.hasErrors())  {
-            System.out.println(bindingResult.hasErrors());
             bindingResult.addError(new FieldError("loginError","loginError","ID/PW를 입력해주세요"));
             return "user/login";
         }
         UserVO loginUser = userServiceImpl.checkLoginUser(loginDTO);
-        System.out.println("서비스 통과 후 loginUser: "+loginUser);
         if(loginUser == null){
             bindingResult.addError(new FieldError("loginFail","loginFail","ID/PW를 다시 확인해주세요."));
             return "user/login";
@@ -61,10 +59,21 @@ public class UserController {
     }
 
     @PostMapping("/register")   // 회원가입
-    public String userRegister(UserVO userVO){
+    public String userRegister(@Validated UserVO userVO, BindingResult bindingResult){
         System.out.println(userVO);
+        if (bindingResult.hasErrors()){
+            return "user/register";
+        }
         userServiceImpl.joinUser(userVO);
         return "redirect:/";
+    }
+
+    @PostMapping("/register/idDuplicateCheck")
+    @ResponseBody
+    public String idDuplicateCheck(@RequestBody String id){
+        String result = userServiceImpl.idDuplicateCheck(id);
+        System.out.println(result);
+        return result;
     }
 
     @GetMapping("/findId")
