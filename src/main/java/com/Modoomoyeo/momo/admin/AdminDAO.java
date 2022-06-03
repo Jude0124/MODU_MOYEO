@@ -11,4 +11,5 @@ public interface AdminDAO {
 //    public int totalRecordUser();
 //    public List<UserVO> adminUsers();
 //    public int adminUsersDel(UserVO uvo);
+
 }

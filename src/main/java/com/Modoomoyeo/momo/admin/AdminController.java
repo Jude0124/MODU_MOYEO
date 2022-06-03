@@ -18,6 +18,7 @@ public class AdminController {
         //mav.addObject("list", adser.adminUsers());
         mav.setViewName("admin/admin");
         return mav;
+
     }
 }
 
