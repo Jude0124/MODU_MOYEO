@@ -8,4 +8,7 @@ import java.util.Optional;
 @Repository
 public interface UserDAO extends JpaRepository<UserVO, String> {
     UserVO findByIdAndPassword(String Id, String password);
+
+    UserVO  findByEmail(String email);
+
 }

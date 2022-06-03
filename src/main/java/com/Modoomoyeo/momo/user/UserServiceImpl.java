@@ -26,4 +26,15 @@ public class UserServiceImpl implements UserService {
         }
         return checkUser;
     }
+
+    public UserVO findID(String email){
+        UserVO userInfo = userDAO.findByEmail(email);
+
+        if (userInfo == null){
+            return null;
+        }
+        return userInfo;
+    }
+
+
 }
