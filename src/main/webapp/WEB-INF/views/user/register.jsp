@@ -57,7 +57,11 @@
 
                 <label for="email">이메일</label>
                 <span class="msgError"></span><br/>
-                <input class="inputStyle" type="email" id="email" name="email" placeholder="이메일"/>
+                <div class="email_box">
+                    <input class="inputStyle" type="email" id="email" name="email" placeholder="이메일"/>
+                    <input type="button" class="checkBtn" value="중복확인" onclick="emailCheck()"/>
+                </div>
+                <input type="hidden" name="checked_id" value="0" />
 
 
                 <label for="region" class="form-label">내 지역</label>
