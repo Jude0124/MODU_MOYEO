@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,6 +16,7 @@ import javax.validation.constraints.NotBlank;
 @Setter
 @NoArgsConstructor
 @Entity
+@DynamicUpdate
 @Table(name = "user")
 public class UserVO {
     @Id
