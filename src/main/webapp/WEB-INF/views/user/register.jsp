@@ -34,6 +34,7 @@
                 <div class="id_box">
                     <input class="inputStyle" type="text" id="userId" name="id" placeholder="아이디"/>
                     <input type="button" class="checkBtn" value="중복확인" onclick="idCheck()"/>
+                    <input type="hidden" id="idCheckResult" value="">
                 </div>
                 <input type="hidden" name="checked_id" value="0" />
 
@@ -95,7 +96,9 @@
         </div>
     </div>
 </div>
+<script>
 
+</script>
 <%@ include file="../main/main_footer.jsp" %>
 </body>
 </html>
