@@ -72,7 +72,13 @@ public class UserController {
     @ResponseBody
     public String idDuplicateCheck(@RequestBody String id){
         String result = userServiceImpl.idDuplicateCheck(id);
-        System.out.println(result);
+        return result;
+    }
+
+    @PostMapping("/register/emailDuplicateCheck")
+    @ResponseBody
+    public String emailDuplicateCheck(@RequestBody String email){
+        String result = userServiceImpl.emailDuplicateCheck(email);
         return result;
     }
 

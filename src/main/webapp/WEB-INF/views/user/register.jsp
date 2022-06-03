@@ -34,7 +34,7 @@
                 <div class="id_box">
                     <input class="inputStyle" type="text" id="userId" name="id" placeholder="아이디"/>
                     <input type="button" class="checkBtn" value="중복확인" onclick="idCheck()"/>
-                    <input type="hidden" id="idCheckResult" value="">
+                    <input type="hidden" id="idCheckResult" value=""/>
                 </div>
                 <input type="hidden" name="checked_id" value="0" />
 
@@ -60,6 +60,7 @@
                 <div class="email_box">
                     <input class="inputStyle" type="email" id="email" name="email" placeholder="이메일"/>
                     <input type="button" class="checkBtn" value="중복확인" onclick="emailCheck()"/>
+                    <input type="hidden" id="emailCheckResult" value=""/>
                 </div>
                 <input type="hidden" name="checked_id" value="0" />
 

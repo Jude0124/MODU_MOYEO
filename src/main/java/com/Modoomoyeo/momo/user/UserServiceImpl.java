@@ -32,4 +32,11 @@ public class UserServiceImpl implements UserService {
         }
         return "false";
     }
+
+    public String emailDuplicateCheck(String email) {
+        if (userDAO.findByEmail(email)!=null){
+            return "true";
+        }
+        return "false";
+    }
 }
