@@ -89,14 +89,82 @@
                     <option value="중구">중구</option>
                     <option value="중랑구">중랑구</option>
                 </select>
-
+                <input type="hidden" id="checkPwChange" value="">
+                <input type="hidden" id="checkEmailChange" value="">
+                <input type="hidden" id="checkRegionChange" value="">
                 <input type="submit" class="btn_edit" value="정보수정" id="submit"/>
             </form>
         </div>
     </div>
 </div>
 <script>
-    $('#region').val($('#userRegion').val()).prop("selected",true);
+    $(()=>{
+        /* 유저 지역정보 확인하여 selected */
+        $('#region').val($('#userRegion').val()).prop("selected",true);
+
+        if ($('#email').val() === "${userInfo.email}"){
+            $('#emailCheckResult').val('success');
+        }
+
+        /* 페이지 클릭 시 마다 유저 정보와 수정된 정보 확인 */
+        $(document).click(function(e){
+            if ($('#password').val() !== "${userInfo.password}"){
+                $('#checkPwChange').val('false');
+            } else $('#checkPwChange').val('');
+
+            if ($('#email').val() !== "${userInfo.email}"){
+                $('#checkEmailChange').val('false');
+            }else $('#checkEmailChange').val('');
+
+            if ($('#region').val() !== "${userInfo.region}"){
+                console.log($('#region').val() )
+                $('#checkRegionChange').val('false');
+            }else $('#checkRegionChange').val('');
+        } );
+    });
+
+    /* email 중복체크 버튼 */
+    function emailCheck() {
+        var error = document.querySelectorAll('.msgError');
+        const email = $('#email').val();
+        reg = /^\w{5,20}[@]{1}[a-zA-Z]{2,8}[.]{1}[a-zA-Z]{2,4}([.][a-zA-Z]{2,4})?$/;
+        if (email === "${userInfo.email}"){
+            alert('변경 내용이 없습니다.')
+            return ;
+        }
+        if(email===''){
+            error[4].innerHTML = "이메일을 입력하세요.";
+            error[4].style.display = "inline-block";
+            error[4].style.color = "red";
+            $("#email").focus();
+        }else if(!reg.test($("#email").val())){
+            error[4].innerHTML = "이메일을 확인해주세요.";
+            error[4].style.display = "inline-block";
+            error[4].style.color = "red";
+            $("#email").focus();
+        }else {
+            $.ajax({
+                async : true,
+                type : 'POST',
+                data: email,
+                url: "/register/emailDuplicateCheck",
+                dataType: "json",
+                contentType: "application/json; charset=UTF-8",
+                success: function(result) {
+                    if(result.toString()==="false") {
+                        error[4].style.display = "none";
+                        alert('사용 가능한 이메일입니다.')
+                        $('#emailCheckResult').val('success')
+                    } else{
+                        alert('이미 사용중인 이메일입니다. 다른 이메일을 입력해주세요.')
+                    }
+                },
+                error: function (request, status, error) {
+                    alert('code:' + request.status + '\n' + 'message:' + request.responseText + '\n' + 'error:' + error);
+                }
+            });
+        }
+    }
 </script>
 <%@ include file="../main/main_footer.jsp" %>
 </body>
