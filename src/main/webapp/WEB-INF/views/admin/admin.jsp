@@ -73,7 +73,7 @@
                     유저 관리
                 </h5>
             </div>
-            <form action="/admin/userSearch" method="get">
+            <form action="/admin" method="get">
                 <div class="d-flex justify-content-start">
                     <input class="w-75" type="search" name="searchId" placeholder="탈퇴시키고자 하는 회원의 닉네임을 입력해주세요">
                     <input class="w-25" type="submit" value="찾기">
@@ -83,36 +83,32 @@
                 <table class="w-100">
                     <thead>
                     <tr class="text-center">
+                        <th>□</th>
                         <th>아이디</th>
                         <th>닉네임</th>
-                        <th style="width: 15%">지역</th>
+                        <th>지역</th>
+                        <th>이메일</th>
+                        <th>관리자</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="user:${userList}">
-                        <td>
-                            <div class="w-100 text-center" th:text="${user.userIdx}"></div>
-                        </td>
-                        <td>
-                            <div class="w-100 text-center" th:text="${user.userId}"></div>
-                        </td>
-                        <td th:if="${user.role == 'ROLE_AUTH'}">
-                            <input class="userId" type="hidden" th:value="${user.userId}">
-                            <input class="w-100" type="button" th:onclick="roleDelete(event)" th:value="인증박탈">
-                        </td>
-                        <td th:unless="${user.role == 'ROLE_AUTH'}">
-                        </td>
-                        <td  th:with="text=${user.lockUser?'해제':'잠금'}">
-                            <div class="w-100 text-center" th:if="${user.role == 'ROLE_ADMIN'}">관리자</div>
-                            <div class="w-100" th:unless="${user.role == 'ROLE_ADMIN'}">
-                                <input type="hidden" th:value="${user.userId}">
-                                <input class="w-100" type="button" th:onclick="lockToggle(event, [[${user.lockUser}]])" th:value="${text}">
-                            </div>
-                        </td>
-                        <td>
-                            <input class="userId" type="hidden" th:value="${user.userId}">
-                            <input class="w-100" type="button" th:onclick="userDelete(event)" th:value="삭제">
-                        </td>
+                    <tr class="text-center">
+                        <th>□</th>
+                        <th>아이디</th>
+                        <th>닉네임</th>
+                        <th>지역</th>
+                        <th>이메일</th>
+                        <th>관리자</th>
+                        <%--
+                        <c:forEach var="vo" items="${list}">
+                            <th>□</th>
+                            <th>${vo.id}</th>
+                            <th>${vo.nickname}</th>
+                            <th>${vo.region}</th>
+                            <th>${vo.email}</th>
+                            <th>유무가 나오는곳</th>
+                        </c:forEach>
+                        --%>
                     </tr>
                     </tbody>
                 </table>
@@ -125,7 +121,7 @@
                 </h5>
             </div>
             <div class="w-100">
-                <form class="w-100 d-flex justify-content-center w-100" action="/admin/boardSearchByUserId" method="get">
+                <form class="w-100 d-flex justify-content-center w-100" action="/admin" method="get">
                     <div class="row d-flex justify-content-center w-100">
                         <input class="w-75 p-0" type="search" name="searchId" placeholder="삭제하고자 하는 글번호를 입력하세요">
                         <input class="w-25" type="submit" value="찾기">
@@ -136,7 +132,9 @@
                 <table class="w-100">
                     <thead>
                     <tr class="text-center">
+                        <th>□</th>
                         <th>글번호</th>
+                        <th>지역</th>
                         <th>모임이름</th>
                         <th>참여인원</th>
                         <th>작성자</th>
@@ -144,23 +142,15 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="board:${boardList}">
-                        <td>
-                            <div class="w-100 text-center" th:text="${board.bid}"></div>
-                        </td>
-                        <td>
-                            <div class="w-100 text-center" th:text="${board.author}"></div>
-                        </td>
-                        <td>
-                            <div class="w-100 text-center" th:text="${board.title}"></div>
-                        </td>
-                        <td th:with="text=${board.visible?'숨기기':'보이기'}">
-                            <input class="w-100" type="button" th:onclick="visibleToggle([[${board.bid}]], [[${board.visible}]])" th:value="${text}">
-                        </td>
-                        <td>
-                            <input class="w-100" type="button" th:onclick="boardDelete([[${board.bid}]])" th:value="삭제">
-                        </td>
-                    </tr>
+                        <tr class="text-center">
+                            <td>□</td>
+                            <td>1</td>
+                            <td>서초구</td>
+                            <td>아메가메돌진하실분 구합니다.</td>
+                            <td>4</td>
+                            <td>달헤는 밤</td>
+                            <td>2022-06-02</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -174,7 +164,7 @@
                 </h5>
             </div>
             <div class="d-flex w-100">
-                <form class="w-100" action="/admin/noticeSearchByTitle" method="get">
+                <form class="w-100" action="/admin" method="get">
                     <div class="d-flex justify-content-center">
                         <input class="w-75" type="search" name="searchTitle" placeholder="모임번호를 입력해 주세요">
                         <input class="w-25" type="submit" value="찾기">
@@ -185,33 +175,18 @@
                 <table class="w-100">
                     <thead>
                     <tr class="text-center">
+                        <th>□</th>
+                        <th>참여글번호</th>
                         <th>참여자</th>
                         <th>모임이름</th>
-                        <th>삭제</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="notice:${noticeList}">
-                        <td>
-                            <div class="text-center" th:text="${notice.bid}"></div>
-                        </td>
-                        <td>
-                            <div class="text-center" th:text="${notice.author}"></div>
-                        </td>
-                        <td>
-                            <div class="text-center" th:text="${notice.title}"></div>
-                        </td>
-                        <td>
-                            <form class="w-100" th:action="@{/notice/rewrite}" th:method="GET">
-                                <input type="hidden" name="bid" th:value="${notice.bid}">
-                                <input class="w-100" type="submit" th:value="수정">
-                            </form>
-                        </td>
-                        <td>
-                            <form class="w-100" th:action="@{/notice/delete(bid=${notice.bid})}" th:method="POST">
-                                <input class="w-100" type="submit" th:value="삭제">
-                            </form>
-                        </td>
+                    <tr class="text-center">
+                        <td>□</td>
+                        <td>1</td>
+                        <td>별헤는 밤</td>
+                        <td>아메가메돌진 하러 가실분 구합니다.</td>
                     </tr>
                     </tbody>
                 </table>
@@ -224,7 +199,7 @@
                 </h5>
             </div>
             <div class="d-flex">
-                <form class="w-100" action="/admin/preAuthUserDataSearchByUserId" method="get">
+                <form class="w-100" action="/admin" method="get">
                     <div class="d-flex justify-content-center w-100">
                         <input class="w-75" type="search" name="searchId" placeholder="모임번호를 입력해주세요">
                         <input class="w-25" type="submit" value="찾기">
@@ -235,84 +210,24 @@
                 <table class="w-100">
                     <thead>
                     <tr class="text-center">
+                        <th>□</th>
                         <th>모임명</th>
                         <th>닉네임</th>
                         <th>댓글</th>
-                        <th>삭제</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="preAuthUserData:${preAuthUserDataList}">
-                        <td>
-                            <div class="text-center" th:text="${preAuthUserData.aid}"></div>
-                        </td>
-                        <td>
-                            <div class="text-center" th:text="${preAuthUserData.courseName}"></div>
-                        </td>
-                        <td>
-                            <div class="text-center" th:text="${preAuthUserData.userId}"></div>
-                        </td>
-                        <td>
-                            <input class="w-100" type="button" th:onclick="authPopUp([[${preAuthUserData.aid}]])" th:value="인증">
-                        </td>
-                        <td>
-                            <input class="w-100" type="button" th:onclick="denyAuth([[${preAuthUserData.aid}]])" th:value="거부">
-                        </td>
+                    <tr class="text-center">
+                        <td>□</td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
                     </tr>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-    <script th:inline="javascript" th:src="@{/js/admin/lock-toggle.js}">
-    </script>
-    <script th:inline="javascript" th:src="@{/js/admin/visible-toggle.js}">
-    </script>
-    <script th:inline="javascript" th:src="@{/js/admin/user-delete.js}">
-    </script>
-    <script th:inline="javascript" th:src="@{/js/admin/role-delete.js}">
-    </script>
-    <script th:inline="javascript" th:src="@{/js/admin/board-delete.js}">
-    </script>
-    <script th:inline="javascript" th:src="@{/js/admin/notice-delete.js}">
-    </script>
-    <script th:inline="javascript">
-        function authPopUp(authId){
-            let popUrl = "/admin/auth?authId="+authId;
-            var popWidth = 450;
-            var popHeight = 500;
-            var winHeight = document.body.clientHeight;	  // 현재창의 높이
-            var winWidth = document.body.clientWidth;	  // 현재창의 너비
-            var winX = window.screenLeft;	                          // 현재창의 x좌표
-            var winY = window.screenTop;	                          // 현재창의 y좌표
-            var popX = winX + (winWidth - popWidth)/2;
-            var popY = winY + (winHeight - popHeight)/2;
-            window.open(popUrl,"인증 허가","top="+popY+", left="+popX+",width="+popWidth+",height="+popHeight+", scrollbars=yes,resizable=yes");
-        }
-    </script>
-    <script th:inline="javascript">
-        function noticeModify(bid){
-            let params = {
-                bid: bid
-            };
-            $.ajax({
-                type: 'POST',
-                url: '/notice/rewrite',
-                dataType: 'json',
-                data: JSON.stringify(params),
-                contentType: 'application/json',
-                success: function (result) {
-                    if (result) {
-                        location.reload();
-                    }
-                },
-                error: function (request, status, error) {
-                }
-            });
-        }
-    </script>
-    <script th:inline="javascript" th:src="@{/js/admin/deny-auth.js}">
-    </script>
 </div>
 </body>
 </html>
