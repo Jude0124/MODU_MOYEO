@@ -84,6 +84,9 @@ a{
     line-height: 30px;
     text-align: center;
 }
+#mypage_box{
+    width: 90px;
+}
 #mypage_box a, #adminpage_box a{
     color: #000;
     font-weight: 700;
