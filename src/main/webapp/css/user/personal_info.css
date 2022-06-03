@@ -54,6 +54,12 @@ html, body {
     padding: 10px;
 
 }
+.email_box{
+    width: 100%;
+    height: 40px;
+    margin: 10px 0 15px;
+    position: relative;
+}
 .btn_edit{
     margin-top: 30px;
     width: 518px;
@@ -78,6 +84,26 @@ html, body {
     pointer-events: none;
 }
 
+#email{
+    margin: 0;
+    width: 410px;
+    position: absolute;
+    left: 0;
+}
+
+.checkBtn{
+    float: right;
+    background: #00C471;
+    color: #fff;
+    width: 108px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    box-sizing:border-box;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
 
 /* 타블렛 */
 @media screen and (max-width:1023px) {

@@ -1,26 +1,15 @@
 $(()=>{
+    /* id, email input 값 변경 시 중복체크한 내용 사라짐 */
+    $("#userId").change(function(){
+        $('#idCheckResult').val('')
+    });
+    $("#email").change(function(){
+        $('#emailCheckResult').val('')
+    });
+
+    /* form submit 유효성 체크 */
     var error = document.querySelectorAll('.msgError');
     $("#personal_info-form").submit(function(){
-
-        /*
-        //아이디 유효성검사
-        var reg = /^[a-z0-9]{5,15}$/;
-        if($("#userId").val()==''){
-            error[0].innerHTML = "아이디를 입력하세요.";
-            error[0].style.display = "inline-block";
-            error[0].style.color = "red";
-            $("#userId").focus();
-            return false;
-        }else if(!reg.test($("#userId").val())){
-            error[0].innerHTML = "5~15자의 영문 소문자, 숫자만 사용 가능합니다."
-            error[0].style.display = "inline-block";
-            error[0].style.color = "red";
-            $("#userId").focus();
-            return false;
-        }else{
-            error[0].style.display = "none";
-        }
-        */
 
         // 비밀번호 유효성검사
         var reg = /^[a-zA-Z0-9~!@#$%^&*()_+|<>?:{}]{5,15}$/;
