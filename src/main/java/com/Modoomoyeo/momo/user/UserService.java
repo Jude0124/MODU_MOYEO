@@ -1,4 +1,5 @@
 package com.Modoomoyeo.momo.user;
 
-public interface AdminDAO {
+public interface UserService {
+
 }

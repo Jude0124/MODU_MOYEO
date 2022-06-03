@@ -1,0 +1,171 @@
+@charset "UTF-8";
+
+/* 데스크탑 */
+#footer{
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    bottom: 0;
+    margin-top: 50px;
+    text-align: right;
+    z-index: -99;
+}
+.footA, .footB{
+    height: 25px;
+    line-height: 25px;
+    padding-right: 15px;
+}
+.footA{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+ .mobile_menu{
+     display: block;
+     position: fixed;
+     bottom: 15px;
+     left: 15px;
+     z-index: 500;
+     width: 45px;
+     height: 45px;
+     padding: 5px;
+     border: 0;
+     border-radius: 12px;
+     background-color: rgba(0,255,0,0.2);
+     transition: visibility 0.5s, opacity 0.5s linear;
+ }
+.mobile_menu i {
+    font-size: 2em;
+}
+.menu_wrap {
+    position: fixed;
+    top: 0;
+    left: -300px; /* 너비 300px 인 사이드바를 왼쪽으로 300px 이동시켜 화면에 보이지 않게 함 */
+    z-index: 400;
+    overflow: auto;
+    width: 300px; /* 너비 */
+    height: 100%;
+    padding: 0 20px 50px 20px;
+    box-sizing: border-box;
+    transition: left .3s ease-in-out; /* 0.3초 동안 이동 애니메이션 */
+    background-color: #f0f0f0;
+}
+.menu_wrap.on {
+    left: 0;
+}
+#dimmed{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 300;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+}
+*{
+    list-style-type:none;
+}
+a{
+    text-decoration: none;
+}
+a:link, a:visited {
+    text-decoration: none;
+    color: black;
+}
+#mobile_logo img{
+    width: 100%;
+    margin-top: 0;
+}
+#mo_menu{
+    width: 100%;
+    height: 50px;
+    margin-bottom: 15px;
+}
+#mo_menu div:nth-child(1){
+    float: left;
+    margin-left: 20px;
+}
+#mo_menu div:nth-child(2){
+    float: right;
+    margin-right: 20px;
+}
+
+#login_box_footer{
+    background: #00C471;
+    border: 1px solid #00C471;
+    border-radius: 10px;
+    width: 90px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+#login_box_footer a{
+    color: #fff;
+    font-weight: 700;
+}
+#signup_box_footer{
+    background: #fff;
+    border: 1px solid #000;
+    border-radius: 10px;
+    width: 90px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+#signup_box_footer a{
+    color: #000;
+    font-weight: 700;
+}
+.category_list{
+    padding-left: 0;
+}
+.category_list>li{
+    line-height: 40px;
+    padding-left: 15px;
+    font-size: 18px;
+}
+.category_list>li a:hover{
+    color: #00C471;
+    font-weight: 700;
+}
+
+#mobile_search_box{
+    margin: 0 auto 15px;
+    width: 100%;
+    height: 40px;
+    border: 1px solid #03cf5d;
+    display: flex;
+}
+#mobile_search_box input{
+    width: 80%;
+    padding-left: 12px;
+    padding-right: 12px;
+    border: none;
+    outline: none;
+    font-size: 12px;
+}
+#mobile_search_box button{
+    width: 20%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: #03cf5d;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* 타블렛 */
+@media screen and (max-width:1023px) {
+
+}
+
+
+/* 모바일 */
+@media screen and (max-width:767px) {
+    #mobile_search_box{
+        display: none;
+    }
+    #footer{
+        display: none;
+    }
+}

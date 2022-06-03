@@ -1,0 +1,141 @@
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+/* 데스크탑 */
+#register * {
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+#register{
+    height: calc(100vh - 450px);
+    padding-top: 150px;
+    padding-bottom: 150px;
+    position: relative;
+    overflow: auto;
+}
+
+#register_box{
+    text-align: center;
+    width: 520px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.title img{
+    width: 200px;
+    margin: 0 auto 30px;
+}
+
+.title img:nth-child(2){
+    display: none;
+}
+
+#signUp-form{
+    border: 1px solid transparent;
+    border-radius: 4px;
+    width: 520px;
+    box-sizing:border-box;
+    margin: 0 auto;
+    text-align: left;
+}
+#signUp-form label{
+    font-size: 18px;
+    font-weight: 700;
+}
+.inputStyle{
+    width: 100%;
+    height: 40px;
+    box-sizing:border-box;
+    margin: 10px 0 15px 0;
+    border: 1px solid #d0d0d0;
+    border-radius: 5px;
+    padding: 10px;
+
+}
+.id_box, .nick_box{
+    width: 100%;
+    height: 40px;
+    margin: 10px 0 15px;
+    position: relative;
+}
+#userId, #nickname{
+    margin: 0;
+    width: 410px;
+    position: absolute;
+    left: 0;
+}
+.checkBtn{
+    float: right;
+    background: #00C471;
+    color: #fff;
+    width: 108px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    box-sizing:border-box;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.btn_register{
+    margin-top: 30px;
+    width: 518px;
+    height: 60px;
+    background: #00C471;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 60px;
+    border-radius: 5px;
+}
+.msgError{
+    width: calc(100% - 120px);
+    color: red;
+    font-size: 12px;
+    display: none;
+}
+
+
+/* 타블렛 */
+@media screen and (max-width:1023px) {
+}
+
+
+/* 모바일 */
+@media screen and (max-width:767px) {
+    #register_box{
+        width: 300px;
+    }
+    #signUp-form{
+        width: 300px;
+    }
+    #userId, #nickname{
+        width: 190px;
+    }
+    .msgError{
+        font-size: 10px;
+    }
+    .btn_register{
+        width: 300px;
+    }
+
+    .title img:nth-child(1){
+        display: none;
+    }
+    .title img:nth-child(2){
+        display: block;
+        width: 130px;
+        margin-bottom: 50px;
+    }
+}
+
+/* 모바일 세로 */
+@media screen and (max-height:900px) {
+    #register{
+        min-height: 800px;
+    }
+    #register_box{
+        top: 40%;
+    }
+}

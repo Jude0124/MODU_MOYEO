@@ -7,6 +7,9 @@ public class BoardVO {
     private String nickname;            //작성자
     private String title;               //내용
     private String time;                //작성일 (시간)
+    private String region;              //지역
+
+
 
     private List<Integer> noList;
     public String getNo() {
@@ -41,6 +44,10 @@ public class BoardVO {
         this.time = time;
     }
 
+    public String getRegion() {return region;}
+
+    public void setRegion(String region) {this.region = region;}
+
     public List<Integer> getNoList() {
         return noList;
     }
@@ -48,4 +55,5 @@ public class BoardVO {
     public void setNoList(List<Integer> noList) {
         this.noList = noList;
     }
+
 }
