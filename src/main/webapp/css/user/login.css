@@ -31,7 +31,7 @@ html, body {
 
 .title img{
     width: 200px;
-    /*margin: 0 auto 30px;*/
+    margin: 0 auto 30px;
 }
 
 .title img:nth-child(2){
@@ -83,6 +83,16 @@ html, body {
     font-size: 12pt;
 }
 
+#login_error{
+    width: 330px;
+    margin: -10px auto 20px;
+    padding-left: 10px;
+}
+#login_error strong{
+    float: left;
+    color: red;
+    font-size: 14px;
+}
 
 /* 타블렛 */
 @media screen and (max-width:1023px) {
@@ -117,6 +127,9 @@ html, body {
         display: block;
         width: 130px;
         margin-bottom: 50px;
+    }
+    #login_error{
+        width: 300px;
     }
 }
 
