@@ -10,7 +10,19 @@ import java.util.List;
 
 @Service
 
-public class BoardServiceImpl{
+public class BoardServiceImpl implements BoardService{
+    @Inject
+    BoardDAO dao;
+
+    @Override
+    public int boardTotalRecord(BoardPagingVO bpvo) {
+        return dao.boardTotalRecord(bpvo);
+    }
+
+    @Override
+    public List<BoardVO> boardList(BoardPagingVO bpvo) {
+        return dao.boardList(bpvo);
+    }
 //    private final BoardDAO dao;
 //
 //

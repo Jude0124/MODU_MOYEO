@@ -14,9 +14,9 @@ spring:
       suffix: .jsp
   datasource: #바이바티스
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1/momo?characterEncoding=utf-8
-    username: root
-    password: root1234
+    url: jdbc:mysql://momo.cdujlgsiaieh.ap-northeast-2.rds.amazonaws.com:3306/momo
+    username: momo
+    password: momoommo
 
 
   devtools: #자동실행

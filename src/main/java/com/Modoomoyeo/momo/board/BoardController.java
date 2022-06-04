@@ -14,18 +14,32 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class BoardController {
 
-//    @Inject
-//    BoardService boser;
+    @Inject
+    BoardService boser;
+
     /*전체글보기 폼*/
+//    @GetMapping("/boardList")
+//    public ModelAndView boardList(BoardPagingVO bpvo, BoardVO bvo, HttpSession session) {
+//        ModelAndView mav = new ModelAndView();
+////        bvo.setNickname((String)session.getAttribute("nickname"));
+////
+////        bpvo.setTotalRecord(boser.totalRecordBoard(bpvo, bvo));
+////        mav.addObject("bpvo", bpvo);
+////
+////        mav.addObject("list", boser.allList(bpvo, bvo));
+//        mav.setViewName("board/board_list");
+//        return mav;
+//    }
+
     @GetMapping("/boardList")
-    public ModelAndView boardList(BoardPagingVO bpvo, BoardVO bvo, HttpSession session) {
+    public ModelAndView boardList(BoardPagingVO bpvo) {
         ModelAndView mav = new ModelAndView();
-//        bvo.setNickname((String)session.getAttribute("nickname"));
-//
-//        bpvo.setTotalRecord(boser.totalRecordBoard(bpvo, bvo));
-//        mav.addObject("bpvo", bpvo);
-//
-//        mav.addObject("list", boser.allList(bpvo, bvo));
+
+        bpvo.setTotalRecord(boser.boardTotalRecord(bpvo));
+
+        mav.addObject("list", boser.boardList(bpvo));
+        mav.addObject("bpvo", bpvo);
+
         mav.setViewName("board/board_list");
         return mav;
     }
