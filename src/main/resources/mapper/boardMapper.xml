@@ -5,6 +5,7 @@
 <mapper namespace="com.Modoomoyeo.momo.board.BoardDAO">
     <select id="boardList" resultType="com.Modoomoyeo.momo.board.BoardVO">
         select no, nickname, title, region, time, max from board
+        order by time desc
     </select>
 
     <select id="boardTotalRecord" resultType="int">

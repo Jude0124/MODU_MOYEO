@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -114,17 +117,18 @@
         background: red;
     }
 </style>
+
 <script>
 $(document).ready(function(){
    $("#listMenuFE>div").click(function(){
-      var idx = $(this).index();
+      var idName = $(this).attr('id');
       if($(this).hasClass("on")){
           $(this).removeClass("on");
-          $("#listMenuFE>div").eq(idx+1).slideUp();
+          $(".select_view").slideUp();
       }else{
           $(this).addClass("on");
           $(".select_view").slideUp();
-          $("#listMenuFE>div").eq(idx+1).slideDown();
+          $('.' + idName).slideDown();
       }
    });
 });
@@ -359,14 +363,44 @@ $(document).ready(function(){
                 </div>
                 -->
 
+                <jsp:useBean id="now" class="java.util.Date" />
+                <fmt:formatDate value="${now}" pattern="yyyy-MM-dd" var="today" />
 
                 <c:forEach var="vo" items="${list}">
                     <div id="listMenuFE">
-                        <div class="list_select">
+                        <div class="list_select" id="${vo.no}">
                             <li>${vo.title}</li>
                             <li>${vo.nickname}</li>
-                            <li>${vo.time}</li>
+
+                            <c:set var = "time" value="${vo.time}"/>
+                            <c:choose>
+                                <c:when test="${fn:startsWith(time, today)}">
+                                    <li>${fn:substring(time, 11, 16)}</li>
+                                </c:when>
+                                <c:otherwise>
+                                    <li>${fn:substring(time, 0, 10)}</li>
+                                </c:otherwise>
+                            </c:choose>
+
                             <li>${vo.max}</li>
+                        </div>
+                        <div class="select_view ${vo.no}">
+                            <div class="left_box">
+                                <div class="content_view">
+
+                                </div>
+                                <div class="participate_view">
+
+                                </div>
+                            </div>
+                            <div class="right_box">
+                                <div class="write_review">
+
+                                </div>
+                                <div class="review_view">
+
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </c:forEach>
