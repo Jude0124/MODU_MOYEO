@@ -3,6 +3,11 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.Modoomoyeo.momo.board.BoardDAO">
+    <select id="boardList" resultType="com.Modoomoyeo.momo.board.BoardVO">
+        select no, nickname, title, region, time, max from board
+    </select>
 
-
+    <select id="boardTotalRecord" resultType="int">
+        select count(no) cnt from board
+    </select>
 </mapper>
