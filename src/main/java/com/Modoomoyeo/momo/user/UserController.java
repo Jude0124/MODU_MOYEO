@@ -11,6 +11,7 @@ import org.springframework.web.HttpRequestHandler;
 import org.springframework.web.bind.annotation.*;
 
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.View;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -123,8 +124,21 @@ public class UserController {
         return "redirect:/";
     }
     @GetMapping("/personalInfo")
-    public String goPersonalInfo(){
+    public String goPersonalInfo(@SessionAttribute(name = SessionConst.LOGIN_USER, required = false) UserVO loginUser ,Model model){
+        UserVO userInfo = userServiceImpl.getUser(loginUser);
+        model.addAttribute("userInfo", userInfo);
+        System.out.println(userInfo.getId());
+
         return "user/personal_info";
+    }
+    @PostMapping("/personalInfo")
+    public String editPersonalInfo(@Validated UserVO userVO, BindingResult bindingResult, ModelAndView mav){
+        if (bindingResult.hasErrors()){
+            return "user/personal_info";
+        }
+        userServiceImpl.updateUser(userVO);
+        mav.setViewName("user/personal_info");
+        return "redirect:/personalInfo";
     }
 }
 

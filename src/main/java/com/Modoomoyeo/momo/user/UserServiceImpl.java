@@ -39,4 +39,13 @@ public class UserServiceImpl implements UserService {
         }
         return "false";
     }
+
+    public UserVO getUser(UserVO loginUser) {
+        return userDAO.findByUserId(loginUser.getId());
+    }
+    @Transactional
+    public void updateUser(UserVO userVO) {
+        if (userDAO.findByUserId(userVO.getId()) != null)
+            userDAO.save(userVO);
+    }
 }
