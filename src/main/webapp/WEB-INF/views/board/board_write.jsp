@@ -10,8 +10,8 @@
 		<form class="form-group" id="writeForm" method="post" action="/boardWriteOK">
 			<div>
 				<div class="boardHidden">
-					지역<input style="width:100%;" type="text" name="boardRegion" id="boardRegion" />
-					닉네임<input style="width:100%;" type="text" name="boardNickname" id="boardNickname" />
+					지역<input style="width:100%;" type="text" name="boardRegion" id="boardRegion" value = "${userInfo.region}" />
+					닉네임<input style="width:100%;" type="text" name="boardNickname" id="boardNickname" value = "${userInfo.nickname}"/>
 				</div>
 				<div>
 					<div class="writeMark">제목</div>
