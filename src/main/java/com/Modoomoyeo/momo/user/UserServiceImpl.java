@@ -49,4 +49,14 @@ public class UserServiceImpl implements UserService {
         }
         return "false";
     }
+
+    public String findIdByEmail(String email){
+        String message;
+        if (userDAO.findByEmail(email)!= null){
+            message = "해당 이메일로 가입하신 아이디는 [ "+ userDAO.findByEmail(email).getId() + " ] 입니다. ";
+        }else{
+            message = "해당 이메일로 등록된 아이디가 존재하지않습니다.";
+        }
+        return message;
+    }
 }

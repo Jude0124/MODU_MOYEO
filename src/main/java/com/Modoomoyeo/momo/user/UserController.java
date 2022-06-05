@@ -90,12 +90,15 @@ public class UserController {
         mav.setViewName("user/find_id");
         return mav;
     }
-    @PostMapping("/findId/{param}")
-    public ModelAndView findIdByParam(@PathVariable String param){
-        ModelAndView mav = new ModelAndView();
-        /* param에 따라 구분하여 id 찾는 로직 구현 필요 */
-        mav.setViewName("user/find_id_result");
-        return mav;
+    @PostMapping("/findId")
+    @ResponseBody
+    public String findIdByParam(@RequestBody String email){
+        String message = userServiceImpl.findIdByEmail(email);
+
+        return "<script>"
+                +"alert(\"" +message +"\");"
+                +"history.back();"
+                +"</script>";
     }
     @GetMapping("/findPw")
     public ModelAndView findPw(){
