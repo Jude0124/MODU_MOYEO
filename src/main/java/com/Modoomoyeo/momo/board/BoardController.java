@@ -62,8 +62,8 @@ public class BoardController {
 
         HttpSession session = request.getSession();
         UserVO checkuser =  (UserVO)session.getAttribute(SessionConst.LOGIN_USER);
-        checkuser.getId();
-        UserVO userVO = userServiceImpl.getUser(checkuser);
+        System.out.println(checkuser.getId());
+//        UserVO userVO = userServiceImpl.getUser(checkuser);
 
 
         ModelAndView mav = new ModelAndView();
