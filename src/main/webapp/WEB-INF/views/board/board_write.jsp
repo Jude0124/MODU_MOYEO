@@ -13,7 +13,7 @@
 					<div class="boardHidden">
 						<input style="width:100%;" type="input" name="boardNo" id="boardNo" value=""/>
 						<input style="width:100%;" type="input" name="boardNickname" id="boardNickname" value=""/>
-						<input style="width:100%;" type="input" name="boardTime" id="boardTime" value=""/>
+						<input style="width:100%;" type="input" name="boardRegion" id="boardRegion" value=""/>
 						<input style="width:100%;" type="input" name="boardMax" id="boardMax" value=""/>
 					</div>
 				</div>

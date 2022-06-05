@@ -23,11 +23,8 @@
         offset				${offsetIndex}
     </select>
 
-    <insert id="insertboard" parameterType="boarddto">
+    <insert id="insertboard" parameterType="boardvo">
         INSERT INTO board(no, nickname, title, region, time, max)
-
-
-
-
+        VALUES(#{boardNo}, #{boardNickname}, #{boardTitle}, #{boardRegion}, now(), #{number})
     </insert>
 </mapper>

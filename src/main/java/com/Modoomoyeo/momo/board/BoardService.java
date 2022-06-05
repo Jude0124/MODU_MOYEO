@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class BoardService {
-    //public int totalRecordBoard(BoardPagingVO bpvo, BoardVO bvo);
-    //public List<BoardVO> allList(BoardPagingVO bpvo, BoardVO bvo);
+public interface BoardService {
+    int insertboard(BoardVO vo);
 }
