@@ -54,13 +54,13 @@ html, body {
     padding: 10px;
 
 }
-.id_box, .nick_box{
+.id_box, .nick_box, .email_box{
     width: 100%;
     height: 40px;
     margin: 10px 0 15px;
     position: relative;
 }
-#userId, #nickname{
+#userId, #nickname, #email{
     margin: 0;
     width: 410px;
     position: absolute;

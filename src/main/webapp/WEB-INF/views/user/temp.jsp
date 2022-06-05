@@ -27,14 +27,13 @@
         </div>
 
         <div class="register-clean">
-            <form id="signUp-form" method="post" action="/register">
+            <form id="signUp-form" method="post" action="/register/processRegister">
 
                 <label for="userId">아이디</label>
                 <span class="msgError"></span><br/>
                 <div class="id_box">
                     <input class="inputStyle" type="text" id="userId" name="id" placeholder="아이디"/>
                     <input type="button" class="checkBtn" value="중복확인" onclick="idCheck()"/>
-                    <input type="hidden" id="idCheckResult" value=""/>
                 </div>
                 <input type="hidden" name="checked_id" value="0" />
 
@@ -57,96 +56,13 @@
 
                 <label for="email">이메일</label>
                 <span class="msgError"></span><br/>
-                <div class="email_box">
-                    <input class="inputStyle" type="email" id="email" name="email"
-                           placeholder="이메일"/>
-                    <input type="button" class="checkBtn" value="중복확인" onclick="emailCheck()"/>
-                    <input type="hidden" id="emailCheckResult" value=""/>
-                </div>
-                <input type="hidden" name="checked_id" value="0" />
+                <input class="inputStyle" type="email" id="email" name="email" placeholder="이메일"/>
 
 
                 <label for="region" class="form-label">내 지역</label>
                 <span class="msgError"></span><br/>
                 <select class="inputStyle" id="region" name="region">
                     <option value="" selected>-- 내 지역 선택 --</option>
-                    <option value="강남구">강남구</option>
-                    <option value="강동구">강동구</option>
-                    <option value="강북구">강북구</option>
-                    <option value="강서구">강서구</option>
-                    <option value="관악구">관악구</option>
-                    <option value="광진구">광진구</option>
-                    <option value="구로구">구로구</option>
-                    <option value="금천구">금천구</option>
-                    <option value="노원구">노원구</option>
-                    <option value="도봉구">도봉구</option>
-                    <option value="동대문구">동대문구</option>
-                    <option value="동작구">동작구</option>
-                    <option value="마포구">마포구</option>
-                    <option value="서대문구">서대문구</option>
-                    <option value="서초구">서초구</option>
-                    <option value="성동구">성동구</option>
-                    <option value="성북구">성북구</option>
-                    <option value="송파구">송파구</option>
-                    <option value="양천구">양천구</option>
-                    <option value="영등포구">영등포구</option>
-                    <option value="용산구">용산구</option>
-                    <option value="은평구">은평구</option>
-                    <option value="종로구">종로구</option>
-                    <option value="중구">중구</option>
-                    <option value="중랑구">중랑구</option>
-                </select>
-
-                <input type="submit" class="btn_register" value="회원가입" id="submit"/>
-            </form>
-        </div>
-    </div>
-</div>
-<script>
-
-</script>
-<%@ include file="../main/main_footer.jsp" %>
-</body>
-</html>
-
-
-<%--
-승아님 아래 107번줄부터는 30번줄에 원래 바꿔주셨던건데 CSS 깨져서 일단 주석처리해놓고
-
-원본으로 돌려놨습니다 검토하시고 반영해주세요 ~
-
-<form id="signUp-form" method="post" action="/register">
-                <input
-                        type="text"
-                        class="form-control input-border"
-                        id="nick-name"
-                        name="nick-name"
-                        required
-                />
-                <button
-                        type="button"
-                        class="btn w-25"
-                        style="background-color: #00C471; color: white"
-                        disabled
-                ><i class="bi bi-arrow-clockwise"></i></button>
-
-        <div class="email-form mt-2">
-            <label for="email" class="form-label">E-mail</label>
-            <input
-                    type="email"
-                    class="form-control"
-                    id="email"
-                    name="email"
-                    placeholder="xxxx@xxxx.xxx 형식으로 입력해주세요"
-                    required
-            />
-            <div id="emailError" class="error"></div>
-            <div class="feedback-email"></div>
-        </div>
-        <div class="region-form mt-2">
-            <label for="region" class="form-label">내 지역</label>
-                <select class="form-select" id="region" required>
-                    <option value="" disabled selected >-- 내 지역 선택 --</option>
                     <option value="1">강남구</option>
                     <option value="2">강동구</option>
                     <option value="3">강북구</option>
@@ -183,8 +99,3 @@
 <%@ include file="../main/main_footer.jsp" %>
 </body>
 </html>
-
-
---%>
-
-

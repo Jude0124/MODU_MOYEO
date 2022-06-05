@@ -12,11 +12,25 @@ import java.util.List;
 @Service("boardservice")
 
 public class BoardServiceImpl implements BoardService{
-    @Autowired
-    @Qualifier ("boarddao")//이름정함
+
+    @Inject
     BoardDAO dao;
+
     @Override
-    public int insertboard(BoardVO vo) {
-        return dao.insertboard(vo);
+    public int boardTotalRecord(BoardPagingVO bpvo) {
+        return dao.boardTotalRecord(bpvo);
+    }
+
+    @Override
+    public List<BoardVO> boardList(BoardPagingVO bpvo) {
+        return dao.boardList(bpvo);
+    }
+//    private final BoardDAO dao;
+//
+//
+//
+//    @Autowired
+//    public BoardServiceImpl(BoardDAO dao) {
+//        this.dao = dao;
     }
 }
