@@ -23,7 +23,13 @@ public class BoardServiceImpl implements BoardService{
     public List<BoardVO> boardList(BoardPagingVO bpvo) {
         return dao.boardList(bpvo);
     }
-//    private final BoardDAO dao;
+
+    @Override
+    public int boardInsert(BoardVO bvo) {
+        return dao.boardInsert(bvo);
+    }
+
+    //    private final BoardDAO dao;
 //
 //
 //

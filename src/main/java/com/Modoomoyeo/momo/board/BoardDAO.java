@@ -8,8 +8,10 @@ import java.util.List;
 @Mapper
 @Repository
 public interface BoardDAO {
-    public int boardTotalRecord(BoardPagingVO bpvo);
-    public List<BoardVO> boardList(BoardPagingVO bpvo);
+    int boardTotalRecord(BoardPagingVO bpvo);
+    List<BoardVO> boardList(BoardPagingVO bpvo);
+    int boardInsert(BoardVO bvo);
+
 
 
 

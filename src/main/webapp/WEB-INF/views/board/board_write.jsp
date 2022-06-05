@@ -9,18 +9,22 @@
 	<div id="gatherWrite">
 		<form class="form-group" id="writeForm" method="post" action="/boardWriteOK">
 			<div>
+				<div class="boardHidden">
+					지역<input style="width:100%;" type="text" name="boardRegion" id="boardRegion" value = "${userVO.getRegion}"/>
+					닉네임<input style="width:100%;" type="text" name="boardNickname" id="boardNickname" value = "${userVO.getNickname}"/>
+				</div>
 				<div>
 					<div class="writeMark">제목</div>
 				</div>
 				<div class="writeTitle">
-					<input style="width:100%;" type="text" name="title" id="boardTitle" placeholder="제목을 적어주세요"/>
+					<input style="width:100%;" type="text" name="boardTitle" id="boardTitle" placeholder="제목을 적어주세요"/>
 				</div>
 				<div>
 					<div class="writeMark">참여인원</div>
 				</div>
 				<div>
 					<div class="writeTitle">
-						<input style="width:100%;"type="number" id="number" name="no" min="1" max="30" placeholder="참여인원수를 적어주세요. 참여인원은 1~30명 입니다."/>
+						<input style="width:100%;"type="number" id="boardMax" name="boardMax" min="1" max="30" placeholder="참여인원수를 적어주세요. 참여인원은 1~30명 입니다."/>
 					</div>
 				</div>
 				<div class="btns">

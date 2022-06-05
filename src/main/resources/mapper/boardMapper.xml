@@ -11,4 +11,9 @@
     <select id="boardTotalRecord" resultType="int">
         select count(no) cnt from board
     </select>
+
+    <insert id="boardInsert" parameterType="com.Modoomoyeo.momo.board.BoardVO">
+        INSERT INTO board(nickname, title, region, time, max)
+        VALUES (#{nickname}, #{title}, #{region}, now(), #{max})
+    </insert>
 </mapper>
