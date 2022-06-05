@@ -138,6 +138,7 @@ html, body {
 .content_time{
     color: #b1b1b1;
 }
+
 .content_edit_del{
     float: right;
     color: #b1b1b1;
@@ -208,11 +209,11 @@ html, body {
     padding: 20px;
     border-left: none;
 }
-.reply_form{
+.write_reply>form{
     width: 680px;
     height: 60px;
 }
-.comment_area{
+.write_reply>form>textarea{
     float: left;
     width: 580px;
     height: 60px;
@@ -222,7 +223,7 @@ html, body {
     padding: 10px;
     border-right: none;
 }
-.comment_btn{
+.write_reply>form>input[type='submit']{
     float: left;
     width: 100px;
     height: 60px;
@@ -280,6 +281,9 @@ html, body {
 .reply_edit_del{
     color: #b1b1b1;
     margin-left: 20px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
 }
 
 .btn_box{
