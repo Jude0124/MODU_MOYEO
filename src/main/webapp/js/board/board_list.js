@@ -43,7 +43,6 @@ $(document).ready(function(){
             const diffY = e.clientY - originY;
             const endOfXPoint = containerWidth - boxWidth;
             const endOfYPoint = containerHeight - boxHeight;
-            console.log(Math.min(Math.max(0, originTop + diffY), endOfYPoint));
             box.style.left = Math.min(Math.max(0, originLeft + diffX), endOfXPoint) + "px";
             box.style.top = Math.min(Math.max(0, originTop + diffY), endOfYPoint) + "px";
         }

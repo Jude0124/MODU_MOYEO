@@ -1,42 +1,63 @@
 package com.Modoomoyeo.momo.comment;
 
-import lombok.*;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-
-@Getter
-@Setter
-@NoArgsConstructor
-@Entity
-@Table(name = "comment")
 public class CommentVO {
-    @Id
-    @Column
-    private int comment_no;  //고유댓글번호(PK)
+    private int comment_no;
+    private int no;
+    private String nickname;
+    private String comment;
+    private String time;
 
-    @Column
-    private int no; // 글번호
+    private String id;
 
-    @Column
-    private String nickname; // 닉네임
+    public String getId() {
+        return id;
+    }
 
-    @Column
-    private String comment; // 댓글
+    public void setId(String id) {
+        this.id = id;
+    }
 
-    @Column
-    private String time; // 시간
+    public int getComment_no() {
+        return comment_no;
+    }
 
-    @Builder
-    public CommentVO(int comment_no, int no, String nickname, String comment, String time) {
+    public void setComment_no(int comment_no) {
         this.comment_no = comment_no;
+    }
+
+    public int getNo() {
+        return no;
+    }
+
+    public void setNo(int no) {
         this.no = no;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
         this.nickname = nickname;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
         this.comment = comment;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
         this.time = time;
     }
+
+
+
 
 }
