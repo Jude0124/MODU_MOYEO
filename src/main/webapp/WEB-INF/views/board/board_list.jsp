@@ -14,10 +14,142 @@
     <link rel="shorcut icon" type="image/x-icon" href="/img/main/favicon.ico">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="/css/board/board_list.css" type="text/css"/>
-    <script src="/js/board/board_list.js"></script>
+<%--    <script src="/js/board/board_list.js"></script>--%>
 </head>
 
-</style>
+<script>
+    $(document).ready(function(){
+        $("#listMenuFE>div[class='list_select']").click(function(){
+            var idName = $(this).attr('id');
+            if($(this).hasClass("on")){
+                $(this).removeClass("on");
+                $(".select_view").slideUp();
+            }else{
+                $(".list_select").removeClass("on");
+                $(this).addClass("on");
+                $(".select_view").slideUp();
+                $('.' + idName).slideDown();
+            }
+
+            $(".reply_form" + idName).submit(function(){
+                event.preventDefault();
+                if($(".comment_area" + idName).val()==="") {
+                    alert("내용을 입력후 등록하세요.");
+                    return false;
+                }else {
+                    var params = $(".reply_form" + idName).serialize();
+                    $.ajax({
+                        url: 'comment/commentOk',
+                        async: true,
+                        data: params,
+                        type: 'POST',
+                        success: function(r){
+                            $(".comment_area").val("");
+                            reviewListAll();
+                        },
+                        error: function(e){
+                            console.log(e.responseText);
+                        }
+                    });
+                }
+            });
+
+            function reviewListAll() {
+                $.ajax({
+                    url: 'comment/commentList',
+                    data: {
+                        no: idName
+                    },
+                    success: function(result) {
+                        var $result = $(result);
+                        var tag = "";
+                        var cnt = 0;
+                        var session_nickname = "${sessionScope.loginUser.getNickname()}";
+                        $result.each(function(idx, vo){
+                           tag += "<li><div class='reply_content'>";
+                           tag += "<div class='nick_icon'>" + vo.nickname.substring(0,1) + "</div>";
+                           tag += "<div class='comment_view'><b class='reply_nickname'>" + vo.nickname + "</b>";
+                           tag += "<span>" + vo.comment + "</span><br/>";
+                           tag += "<span class='reply_time'>" + vo.time + "</span>";
+                           if(session_nickname == vo.nickname) {
+                               tag += "<input type='button' value='삭제' title='" + vo.comment_no + "' class='reply_edit_del'/>";
+                           }
+                           tag += "</div></li>";
+                           cnt++;
+                        });
+                        $("#reply_list" + idName).html(tag);
+
+                        var tag2 = "";
+                        tag2 += "<span class='reply_num'>속닥속닥 ";
+                        if(cnt > 0) {
+                            tag2 += cnt;
+                        }
+                        tag2 += "</span>";
+                        $("#reply_view_top" + idName).html(tag2);
+                    },
+                    error: function(e) {
+                        console.log(e.responseText);
+                    }
+                });
+            }
+
+            $(document).on('click', '.reply_content input[value="삭제"]', function(){
+                if(confirm('댓글을 삭제하시겠습니까?')){
+                    var params = "comment_no=" + $(this).attr("title");
+                    $.ajax({
+                        url: 'comment/commentDel',
+                        data: params,
+                        success: function(result){
+                            reviewListAll();
+                        },
+                        error: function(e) {
+                            console.log(e.responseText);
+                        }
+                    })
+                }
+            });
+            reviewListAll();
+        });
+
+        const container = document.querySelector("#board_list");
+        const box = container.querySelector(".btn_box");
+
+        const {width:containerWidth, height:containerHeight} =
+            container.getBoundingClientRect();
+        const {width:boxWidth, height:boxHeight} =
+            box.getBoundingClientRect();
+        let isDragging = null;
+        let originLeft = null;
+        let originTop = null;
+        let originX = null;
+        let originY = null;
+
+        box.addEventListener("mousedown", (e) => {
+            isDragging = true;
+            originX = e.clientX;
+            originY = e.clientY;
+            originLeft = box.offsetLeft;
+            originTop = box.offsetTop;
+        });
+
+        document.addEventListener("mouseup", (e) => {
+            isDragging = false;
+        });
+
+        document.addEventListener("mousemove", (e) => {
+            if(isDragging){
+                const diffX = e.clientX - originX;
+                const diffY = e.clientY - originY;
+                const endOfXPoint = containerWidth - boxWidth;
+                const endOfYPoint = containerHeight - boxHeight;
+                box.style.left = Math.min(Math.max(0, originLeft + diffX), endOfXPoint) + "px";
+                box.style.top = Math.min(Math.max(0, originTop + diffY), endOfYPoint) + "px";
+            }
+        });
+    });
+
+
+</script>
 <body>
 <%@ include file="../main/main_header.jsp" %>
 
@@ -144,72 +276,18 @@
 
                     <div class="right_box">
                         <div class="write_reply">
-                            <form class="reply_form">
-                                <textarea name="comment" class="comment_area" placeholder="댓글을 입력하세요"></textarea>
-                                <input type="submit" class="comment_btn" value="등록">
+                            <form method="post" class="reply_form${vo.no}">
+                                <input type="hidden" name="no" value="${vo.no}" />
+                                <textarea name="comment" class="comment_area${vo.no}" placeholder="댓글을 입력하세요"></textarea>
+                                <input type="submit" class="comment_btn${vo.no}" value="등록">
                             </form>
                         </div>
                         <div class="reply_view">
-                            <div class="reply_view_top">
-                                <span class="reply_num">속닥속닥 4</span>
+                            <div class="reply_view_top" id="reply_view_top${vo.no}">
+                                <span class="reply_num"></span>
                             </div>
                             <div class="reply_view_bottom">
-                                <ul class="reply_list">
-                                    <li>
-                                        <div class="reply_content">
-                                            <div class="nick_icon">가</div>
-                                            <div class="comment_view">
-                                                <b class="reply_nickname">댓글 작성자 닉네임</b>
-                                                <span>
-                                                    댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용
-                                                    댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용
-                                                    댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용
-                                                </span><br/>
-                                                <span class="reply_time">댓글 작성 시간</span>
-                                                <span class="reply_edit_del">수정 | 삭제</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="reply_content">
-                                            <div class="nick_icon">가</div>
-                                            <div class="comment_view">
-                                                <b class="reply_nickname">댓글 작성자 닉네임</b>
-                                                <span>
-                                                    댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용
-                                                </span><br/>
-                                                <span class="reply_time">댓글 작성 시간</span>
-                                                <span class="reply_edit_del">수정 | 삭제</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="reply_content">
-                                            <div class="nick_icon">가</div>
-                                            <div class="comment_view">
-                                                <b class="reply_nickname">댓글 작성자 닉네임</b>
-                                                <span>
-                                                    댓글내용댓글내용댓글내용
-                                                </span><br/>
-                                                <span class="reply_time">댓글 작성 시간</span>
-                                                <span class="reply_edit_del">수정 | 삭제</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="reply_content">
-                                            <div class="nick_icon">가</div>
-                                            <div class="comment_view">
-                                                <b class="reply_nickname">댓글 작성자 닉네임</b>
-                                                <span>
-                                                    댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용
-                                                    댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용
-                                                </span><br/>
-                                                <span class="reply_time">댓글 작성 시간</span>
-                                                <span class="reply_edit_del">수정 | 삭제</span>
-                                            </div>
-                                        </div>
-                                    </li>
+                                <ul class="reply_list" id="reply_list${vo.no}">
                                 </ul>
                             </div>
                         </div>
