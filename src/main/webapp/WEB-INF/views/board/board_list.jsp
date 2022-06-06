@@ -16,7 +16,6 @@
     <link rel="stylesheet" href="/css/board/board_list.css" type="text/css"/>
 <%--    <script src="/js/board/board_list.js"></script>--%>
 </head>
-
 <script>
     $(document).ready(function(){
         $("#listMenuFE>div[class='list_select']").click(function(){
@@ -44,7 +43,7 @@
                         data: params,
                         type: 'POST',
                         success: function(r){
-                            $(".comment_area").val("");
+                            $(".comment_area" + idName).val("");
                             reviewListAll();
                         },
                         error: function(e){
@@ -66,16 +65,37 @@
                         var cnt = 0;
                         var session_nickname = "${sessionScope.loginUser.getNickname()}";
                         $result.each(function(idx, vo){
-                           tag += "<li><div class='reply_content'>";
-                           tag += "<div class='nick_icon'>" + vo.nickname.substring(0,1) + "</div>";
-                           tag += "<div class='comment_view'><b class='reply_nickname'>" + vo.nickname + "</b>";
-                           tag += "<span>" + vo.comment + "</span><br/>";
-                           tag += "<span class='reply_time'>" + vo.time + "</span>";
-                           if(session_nickname == vo.nickname) {
-                               tag += "<input type='button' value='삭제' title='" + vo.comment_no + "' class='reply_edit_del'/>";
-                           }
-                           tag += "</div></li>";
-                           cnt++;
+                            tag += "<li><div class='reply_content'>";
+                            if(vo.nickname.charCodeAt(0) % 7 == 0){
+                                tag += "<div class='nick_icon' style='background: #ff0000;'>";
+                            }
+                            if(vo.nickname.charCodeAt(0) % 7 == 1){
+                                tag += "<div class='nick_icon' style='background: #ff8c00;'>";
+                            }
+                            if(vo.nickname.charCodeAt(0) % 7 == 2){
+                                tag += "<div class='nick_icon' style='background: #ffff00; color: black;'>";
+                            }
+                            if(vo.nickname.charCodeAt(0) % 7 == 3){
+                                tag += "<div class='nick_icon' style='background: #008000;'>";
+                            }
+                            if(vo.nickname.charCodeAt(0) % 7 == 4){
+                                tag += "<div class='nick_icon' style='background: #0000ff;'>";
+                            }
+                            if(vo.nickname.charCodeAt(0) % 7 == 5){
+                                tag += "<div class='nick_icon' style='background: #4b0082;'>";
+                            }
+                            if(vo.nickname.charCodeAt(0) % 7 == 6){
+                                tag += "<div class='nick_icon' style='background: #800080;'>";
+                            }
+                            tag += vo.nickname.substring(0,1) + "</div>";
+                            tag += "<div class='comment_view'><b class='reply_nickname'>" + vo.nickname + "</b>";
+                            tag += "<span>" + vo.comment + "</span><br/>";
+                            tag += "<span class='reply_time'>" + vo.time + "</span>";
+                            if(session_nickname === vo.nickname) {
+                                tag += "<input type='button' value='삭제' title='" + vo.comment_no + "' class='reply_edit_del'/>";
+                            }
+                            tag += "</div></li>";
+                            cnt++;
                         });
                         $("#reply_list" + idName).html(tag);
 
@@ -147,14 +167,11 @@
             }
         });
     });
-
-
 </script>
 <body>
 <%@ include file="../main/main_header.jsp" %>
 
 <div id="board_list">
-
 
     <div class="btn_box">
         <div class="search_box">
@@ -247,7 +264,29 @@
                         <div class="content_view">
                             <div class="content_view_top">
                                 <c:set var = "nickname" value="${vo.nickname}"/>
-                                <div class="nick_icon">${fn:substring(nickname, 0, 1)}</div>
+                                <c:set var = "no" value="${nickname.charAt(0) + 65536}"/>
+                                <c:if test="${no % 7 == 0}">
+                                    <div class="nick_icon" style="background: #ff0000;">
+                                </c:if>
+                                <c:if test="${no % 7 == 1}">
+                                    <div class="nick_icon" style="background: #ff8c00;">
+                                </c:if>
+                                <c:if test="${no % 7  == 2}">
+                                    <div class="nick_icon" style="background: #ffff00; color: black;">
+                                </c:if>
+                                <c:if test="${no % 7  == 3}">
+                                    <div class="nick_icon" style="background: #008000;">
+                                </c:if>
+                                <c:if test="${no % 7  == 4}">
+                                    <div class="nick_icon" style="background: #0000ff;">
+                                </c:if>
+                                <c:if test="${no % 7  == 5}">
+                                    <div class="nick_icon" style="background: #4b0082;">
+                                </c:if>
+                                <c:if test="${no % 7  == 6}">
+                                    <div class="nick_icon" style="background: #800080;">
+                                </c:if>
+                                ${fn:substring(nickname, 0, 1)}</div>
                                 <b>${vo.nickname}</b><br/>
                                 <span class="content_time">${vo.time}</span>
                                 <span class="content_edit_del">삭제</span>
