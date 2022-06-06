@@ -192,6 +192,7 @@
             <div id="searchRegion">
                 <select name="region" onchange="location.href=this.value">
                     <option value="" selected>-- 지역 선택 --</option>
+                    <option value="boardList">전체보기</option>
                     <option value="boardList?searchKey=region&searchWord=강남구">강남구</option>
                     <option value="boardList?searchKey=region&searchWord=강동구">강동구</option>
                     <option value="boardList?searchKey=region&searchWord=강북구">강북구</option>
