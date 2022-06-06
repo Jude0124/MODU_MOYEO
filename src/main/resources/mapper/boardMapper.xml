@@ -13,7 +13,7 @@
     </select>
 
     <insert id="boardInsert" parameterType="com.Modoomoyeo.momo.board.BoardVO">
-        INSERT INTO board(nickname, title, region, time, max)
-        VALUES (#{nickname}, #{title}, #{region}, now(), #{max})
+        INSERT INTO board(title, nickname, region, time, max)
+        VALUES (#{title}, #{nickname}, #{region}, now(), #{max})
     </insert>
 </mapper>

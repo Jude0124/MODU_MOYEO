@@ -8,13 +8,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.ModelAndView;
 
 
 import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 
 @Controller
@@ -43,16 +44,15 @@ public class BoardController {
 //    }
 
     @GetMapping("/boardList")
-    public ModelAndView boardList(BoardPagingVO bpvo) {
-        ModelAndView mav = new ModelAndView();
+    public String boardList(BoardPagingVO bpvo, Model model) {
+
+
 
         bpvo.setTotalRecord(boser.boardTotalRecord(bpvo));
+        model.addAttribute("list",boser.boardList(bpvo));
+        model.addAttribute("bpvo", bpvo);
 
-        mav.addObject("list", boser.boardList(bpvo));
-        mav.addObject("bpvo", bpvo);
-
-        mav.setViewName("board/board_list");
-        return mav;
+        return "board/board_list";
     }
 
     /*글쓰기폼*/
@@ -73,12 +73,20 @@ public class BoardController {
         return mav;
     }
 
+
+//    @GetMapping("/boardWriteOK")
+//    public String boardwriteok(){
+//        return "board/board_list";
+//    }
+
     @PostMapping ("/boardWriteOK")
-    public String boardWriteOK(@SessionAttribute(name = SessionConst.LOGIN_USER, required = false) UserVO loginUser, @RequestParam String boardTitle, @RequestParam int boardMax, BoardVO bvo, HttpServletRequest request,Model model) {
-
+    public ModelAndView  boardwriteok(HttpServletResponse response, BoardVO bvo) throws IOException {
+        ModelAndView mav = new ModelAndView();
+        response.setContentType("text/html; charset=UTF-8");
+        PrintWriter out = response.getWriter();
         boser.boardInsert(bvo);
-        return "board/boardlist";
+        out.flush();
+        mav.setViewName("redirect:/boardList");
+        return mav;
     }
-
-
 }
