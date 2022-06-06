@@ -50,8 +50,9 @@
                 <label for="nickname">닉네임</label>
                 <span class="msgError"></span><br/>
                 <div class="nick_box">
-                    <input class="inputStyle" type="text" id="nickname" name="nickname" placeholder="닉네임"/>
-                    <button type="button" class="checkBtn" style="background-color: #00C471; color: white"><i class="bi bi-arrow-clockwise"></i></button>
+                    <input class="inputStyle" type="text" id="nickname" name="nickname" placeholder="닉네임" readonly/>
+                    <a href="javascript:nicknameCheck();" class="checkBtn" style="background-color: #00C471; color: white; padding-top:2px;"><i class="bi bi-arrow-clockwise"></i></a>
+                    <input type="hidden" id="nicknameCheckResult" value=""/>
                 </div>
 
 

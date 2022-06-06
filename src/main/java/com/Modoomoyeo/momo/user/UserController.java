@@ -77,6 +77,13 @@ public class UserController {
         return result;
     }
 
+    @PostMapping("/register/nicknameDuplicateCheck")
+    @ResponseBody
+    public String nicknameDuplicateCheck(@RequestBody String nickname){
+        String result = userServiceImpl.nicknameDuplicateCheck(nickname);
+        return result;
+    }
+
     @PostMapping("/register/emailDuplicateCheck")
     @ResponseBody
     public String emailDuplicateCheck(@RequestBody String email){
