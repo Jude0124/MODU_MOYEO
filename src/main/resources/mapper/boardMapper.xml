@@ -5,10 +5,27 @@
 <mapper namespace="com.Modoomoyeo.momo.board.BoardDAO">
     <select id="boardList" resultType="com.Modoomoyeo.momo.board.BoardVO">
         select no, nickname, title, region, time, max from board
+        <if test="searchWord != null and searchKey != 'all'">
+            where ${searchKey} like '%${searchWord}%'
+        </if>
+        <if test="searchKey == 'all'">
+            where (nickname like '%${searchWord}%' or title like '%${searchWord}%' or region like '%${searchWord}%')
+        </if>
         order by time desc
+        limit ${onePageRecord} offset ${offsetIndex}
     </select>
 
     <select id="boardTotalRecord" resultType="int">
         select count(no) cnt from board
+        <if test="searchWord != null and searchKey != 'all'">
+            where ${searchKey} like '%${searchWord}%'
+        </if>
+        <if test="searchKey == 'all'">
+            where (nickname like '%${searchWord}%' or title like '%${searchWord}%' or region like '%${searchWord}%')
+        </if>
     </select>
+
+    <delete id="contentDelete">
+        delete from board where no = #{no}
+    </delete>
 </mapper>

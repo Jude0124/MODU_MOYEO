@@ -11,6 +11,7 @@ public interface BoardDAO {
     public int boardTotalRecord(BoardPagingVO bpvo);
     public List<BoardVO> boardList(BoardPagingVO bpvo);
 
+    int contentDelete(Integer no);
 
 
     //public int totalRecordBoard(BoardPagingVO bpvo, BoardVO bvo);

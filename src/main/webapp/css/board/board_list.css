@@ -297,7 +297,7 @@ html, body {
     border-radius: 10px;
     padding: 10px;
     z-index: 99;
-    cursor: pointer;
+    cursor: grab;
     -webkit-user-select:none;
     -moz-user-select:none;
     -ms-user-select:none;
@@ -335,6 +335,7 @@ html, body {
     font-weight: 700;
     font-size: 16px;
     margin-bottom: 10px;
+    cursor: pointer;
 }
 .boardInsert{
     width: 180px;
@@ -353,4 +354,15 @@ html, body {
     color: #fff;
     font-weight: 700;
     font-size: 16px;
+}
+
+.paging{
+    text-align: center;
+    display: table;
+    margin: 0 auto;
+    overflow: auto;
+}
+.paging li {
+    float: left;
+    padding: 15px;
 }
