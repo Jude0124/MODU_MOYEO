@@ -94,14 +94,15 @@ a{
 
 /* 타블렛 */
 @media screen and (max-width:1023px) {
-    #header_menu{
-        display: none;
-    }
+
 }
 
 
 /* 모바일 */
 @media screen and (max-width:767px) {
+    #header_menu{
+        display: none;
+    }
     #header_logo{
         left:10px;
     }
