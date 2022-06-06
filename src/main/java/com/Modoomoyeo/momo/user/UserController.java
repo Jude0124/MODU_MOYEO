@@ -86,10 +86,10 @@ public class UserController {
     @GetMapping("/findId")
     public ModelAndView findId(){
         ModelAndView mav = new ModelAndView();
-
         mav.setViewName("user/find_id");
         return mav;
     }
+
     @PostMapping("/findId")
     @ResponseBody
     public String findIdByParam(@RequestBody String email){
