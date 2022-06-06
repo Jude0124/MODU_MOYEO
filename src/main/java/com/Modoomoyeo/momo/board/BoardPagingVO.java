@@ -2,7 +2,7 @@ package com.Modoomoyeo.momo.board;
 
 public class BoardPagingVO {
     //페이징
-    private int onePageRecord = 10;  //한 페이지당 출력할 레코드 수
+    private int onePageRecord = 7;  //한 페이지당 출력할 레코드 수
     private int pageNum = 1;         //현재 페이지번호
     private int totalRecord;        //총레코드 수
     private int totalPage;            //총페이지 수

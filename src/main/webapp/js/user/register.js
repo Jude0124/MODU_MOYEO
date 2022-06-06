@@ -19,9 +19,14 @@ $(()=>{
             error[0].style.color = "red";
             $("#userId").focus();
             return false;
-        }
-        else if(!reg.test($("#userId").val())){
+        }else if(!reg.test($("#userId").val())){
             error[0].innerHTML = "5~15자의 영문 소문자, 숫자만 사용 가능합니다."
+            error[0].style.display = "inline-block";
+            error[0].style.color = "red";
+            $("#userId").focus();
+            return false;
+        }else if($("#userId").val().includes("admin")){
+            error[0].innerHTML = "사용할 수 없는 아이디입니다."
             error[0].style.display = "inline-block";
             error[0].style.color = "red";
             $("#userId").focus();
@@ -114,6 +119,11 @@ function idCheck() {
         $("#userId").focus();
     } else if(!reg.test($("#userId").val())) {
         error[0].innerHTML = "5~15자의 영문 소문자, 숫자만 사용 가능합니다."
+        error[0].style.display = "inline-block";
+        error[0].style.color = "red";
+        $("#userId").focus();
+    } else if($("#userId").val().includes("admin")){
+        error[0].innerHTML = "사용할 수 없는 아이디입니다."
         error[0].style.display = "inline-block";
         error[0].style.color = "red";
         $("#userId").focus();
