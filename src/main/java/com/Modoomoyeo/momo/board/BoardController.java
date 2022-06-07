@@ -4,10 +4,12 @@ import com.Modoomoyeo.momo.session.SessionConst;
 import com.Modoomoyeo.momo.user.UserServiceImpl;
 import com.Modoomoyeo.momo.user.UserVO;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -29,27 +31,25 @@ public class BoardController {
 
 
 
-    /*전체글보기 폼*/
-//    @GetMapping("/boardList")
-//    public ModelAndView boardList(BoardPagingVO bpvo, BoardVO bvo, HttpSession session) {
-//        ModelAndView mav = new ModelAndView();
-////        bvo.setNickname((String)session.getAttribute("nickname"));
-////
-////        bpvo.setTotalRecord(boser.totalRecordBoard(bpvo, bvo));
-////        mav.addObject("bpvo", bpvo);
-////
-////        mav.addObject("list", boser.allList(bpvo, bvo));
-//        mav.setViewName("board/board_list");
-//        return mav;
-//    }
-
     @GetMapping("/boardList")
-    public String boardList(BoardPagingVO bpvo, Model model) {
+    public ModelAndView boardList(BoardPagingVO bpvo, @SessionAttribute(name = SessionConst.LOGIN_USER, required = false) UserVO loginUser) {
+        ModelAndView mav = new ModelAndView();
+
         bpvo.setTotalRecord(boser.boardTotalRecord(bpvo));
         model.addAttribute("list",boser.boardList(bpvo));
         model.addAttribute("bpvo", bpvo);
 
-        return "board/board_list";
+
+        mav.addObject("list", boser.boardList(bpvo));
+        mav.addObject("bpvo", bpvo);
+
+        mav.setViewName("board/board_list");
+
+        if(loginUser != null){
+            UserVO userInfo = userServiceImpl.getUser(loginUser);
+            mav.addObject("userInfo", userInfo);
+        }
+        return mav;
     }
 
     /*글쓰기폼*/
@@ -71,6 +71,7 @@ public class BoardController {
     }
 
 
+
     @PostMapping ("/boardWriteOK")
     public ModelAndView boardwriteok(HttpServletResponse response, BoardVO bvo) throws IOException {
         ModelAndView mav = new ModelAndView();
@@ -79,6 +80,14 @@ public class BoardController {
         boser.boardInsert(bvo);
         out.print("<script>location.href='/boardList'</script>");
         out.flush();
+
+    /*게시글 삭제*/
+    @GetMapping("/board/contentDel")
+    public ModelAndView contentDel(Integer no) {
+        ModelAndView mav = new ModelAndView();
+        boser.contentDelete(no);
+
+        mav.setViewName("redirect:/boardList");
         return mav;
     }
 }

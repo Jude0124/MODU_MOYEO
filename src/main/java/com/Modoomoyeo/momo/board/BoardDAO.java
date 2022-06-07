@@ -13,6 +13,7 @@ public interface BoardDAO {
     int boardInsert(BoardVO bvo);
 
 
+    int contentDelete(Integer no);
 
 
     //public int totalRecordBoard(BoardPagingVO bpvo, BoardVO bvo);

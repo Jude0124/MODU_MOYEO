@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <!doctype html>
 <html lang="ko">
@@ -29,7 +30,10 @@
                 <div id="logout_box"><a href="/logout">로그아웃</a></div>
                 <div id="mypage_box"><a href="/personalInfo">내 정보</a></div>
             </c:if>
-            <div id="adminpage_box"><a href="/admin">관리자페이지</a></div>
+            <c:set var = "id" value="${sessionScope.loginUser.getId()}"/>
+            <c:if test="${fn:contains(id, 'admin')}">
+                <div id="adminpage_box"><a href="/admin">관리자페이지</a></div>
+            </c:if>
         </div>
     </div>
 

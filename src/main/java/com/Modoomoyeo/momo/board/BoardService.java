@@ -8,7 +8,7 @@ public interface BoardService {
     List<BoardVO> boardList(BoardPagingVO bpvo);
     int boardInsert(BoardVO bvo);
 
-
+    public int contentDelete(Integer no);
 
     //public int totalRecordBoard(BoardPagingVO bpvo, BoardVO bvo);
     //public List<BoardVO> allList(BoardPagingVO bpvo, BoardVO bvo);

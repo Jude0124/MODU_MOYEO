@@ -16,8 +16,14 @@
     <link rel="stylesheet" href="/css/board/board_list.css" type="text/css"/>
 <%--    <script src="/js/board/board_list.js"></script>--%>
 </head>
-
 <script>
+
+    function contentDelChk(no){
+        if(confirm("게시글을 삭제하시겠습니까?")) {
+            location.href="/board/contentDel?no="+no;
+        }
+    }
+
     $(document).ready(function(){
         $("#listMenuFE>div[class='list_select']").click(function(){
             var idName = $(this).attr('id');
@@ -44,7 +50,7 @@
                         data: params,
                         type: 'POST',
                         success: function(r){
-                            $(".comment_area").val("");
+                            $(".comment_area" + idName).val("");
                             reviewListAll();
                         },
                         error: function(e){
@@ -66,16 +72,37 @@
                         var cnt = 0;
                         var session_nickname = "${sessionScope.loginUser.getNickname()}";
                         $result.each(function(idx, vo){
-                           tag += "<li><div class='reply_content'>";
-                           tag += "<div class='nick_icon'>" + vo.nickname.substring(0,1) + "</div>";
-                           tag += "<div class='comment_view'><b class='reply_nickname'>" + vo.nickname + "</b>";
-                           tag += "<span>" + vo.comment + "</span><br/>";
-                           tag += "<span class='reply_time'>" + vo.time + "</span>";
-                           if(session_nickname == vo.nickname) {
-                               tag += "<input type='button' value='삭제' title='" + vo.comment_no + "' class='reply_edit_del'/>";
-                           }
-                           tag += "</div></li>";
-                           cnt++;
+                            tag += "<li><div class='reply_content'>";
+                            if(vo.nickname.charCodeAt(0) % 7 == 0){
+                                tag += "<div class='nick_icon' style='background: #ff0000;'>";
+                            }
+                            if(vo.nickname.charCodeAt(0) % 7 == 1){
+                                tag += "<div class='nick_icon' style='background: #ff8c00;'>";
+                            }
+                            if(vo.nickname.charCodeAt(0) % 7 == 2){
+                                tag += "<div class='nick_icon' style='background: #ffff00; color: black;'>";
+                            }
+                            if(vo.nickname.charCodeAt(0) % 7 == 3){
+                                tag += "<div class='nick_icon' style='background: #008000;'>";
+                            }
+                            if(vo.nickname.charCodeAt(0) % 7 == 4){
+                                tag += "<div class='nick_icon' style='background: #0000ff;'>";
+                            }
+                            if(vo.nickname.charCodeAt(0) % 7 == 5){
+                                tag += "<div class='nick_icon' style='background: #4b0082;'>";
+                            }
+                            if(vo.nickname.charCodeAt(0) % 7 == 6){
+                                tag += "<div class='nick_icon' style='background: #800080;'>";
+                            }
+                            tag += vo.nickname.substring(0,1) + "</div>";
+                            tag += "<div class='comment_view'><b class='reply_nickname'>" + vo.nickname + "</b>";
+                            tag += "<span>" + vo.comment + "</span><br/>";
+                            tag += "<span class='reply_time'>" + vo.time + "</span>";
+                            if(session_nickname === vo.nickname) {
+                                tag += "<input type='button' value='삭제' title='" + vo.comment_no + "' class='reply_edit_del'/>";
+                            }
+                            tag += "</div></li>";
+                            cnt++;
                         });
                         $("#reply_list" + idName).html(tag);
 
@@ -109,6 +136,13 @@
                 }
             });
             reviewListAll();
+        });
+
+        $("#searchFrm").submit(function(){
+            if($("#searchWord").val().length<2) {
+                alert("검색어는 2자 이상 입력하세요.");
+                return false;
+            }
         });
 
         const container = document.querySelector("#board_list");
@@ -147,45 +181,43 @@
             }
         });
     });
-
-
 </script>
 <body>
 <%@ include file="../main/main_header.jsp" %>
 
 <div id="board_list">
 
-
     <div class="btn_box">
         <div class="search_box">
             <div id="searchRegion">
                 <select name="region" onchange="location.href=this.value">
                     <option value="" selected>-- 지역 선택 --</option>
-                    <option value="강남구">강남구</option>
-                    <option value="강동구">강동구</option>
-                    <option value="강북구">강북구</option>
-                    <option value="강서구">강서구</option>
-                    <option value="관악구">관악구</option>
-                    <option value="광진구">광진구</option>
-                    <option value="구로구">구로구</option>
-                    <option value="금천구">금천구</option>
-                    <option value="노원구">노원구</option>
-                    <option value="도봉구">도봉구</option>
-                    <option value="동대문구">동대문구</option>
-                    <option value="동작구">동작구</option>
-                    <option value="마포구">마포구</option>
-                    <option value="서대문구">서대문구</option>
-                    <option value="서초구">서초구</option>
-                    <option value="성동구">성동구</option>
-                    <option value="성북구">성북구</option>
-                    <option value="송파구">송파구</option>
-                    <option value="양천구">양천구</option>
-                    <option value="영등포구">영등포구</option>
-                    <option value="용산구">용산구</option>
-                    <option value="은평구">은평구</option>
-                    <option value="종로구">종로구</option>
-                    <option value="중구">중구</option>
-                    <option value="중랑구">중랑구</option>
+                    <option value="boardList">전체보기</option>
+                    <option value="boardList?searchKey=region&searchWord=강남구">강남구</option>
+                    <option value="boardList?searchKey=region&searchWord=강동구">강동구</option>
+                    <option value="boardList?searchKey=region&searchWord=강북구">강북구</option>
+                    <option value="boardList?searchKey=region&searchWord=강서구">강서구</option>
+                    <option value="boardList?searchKey=region&searchWord=관악구">관악구</option>
+                    <option value="boardList?searchKey=region&searchWord=광진구">광진구</option>
+                    <option value="boardList?searchKey=region&searchWord=구로구">구로구</option>
+                    <option value="boardList?searchKey=region&searchWord=금천구">금천구</option>
+                    <option value="boardList?searchKey=region&searchWord=노원구">노원구</option>
+                    <option value="boardList?searchKey=region&searchWord=도봉구">도봉구</option>
+                    <option value="boardList?searchKey=region&searchWord=동대문구">동대문구</option>
+                    <option value="boardList?searchKey=region&searchWord=동작구">동작구</option>
+                    <option value="boardList?searchKey=region&searchWord=마포구">마포구</option>
+                    <option value="boardList?searchKey=region&searchWord=서대문구">서대문구</option>
+                    <option value="boardList?searchKey=region&searchWord=서초구">서초구</option>
+                    <option value="boardList?searchKey=region&searchWord=성동구">성동구</option>
+                    <option value="boardList?searchKey=region&searchWord=성북구">성북구</option>
+                    <option value="boardList?searchKey=region&searchWord=송파구">송파구</option>
+                    <option value="boardList?searchKey=region&searchWord=양천구">양천구</option>
+                    <option value="boardList?searchKey=region&searchWord=영등포구">영등포구</option>
+                    <option value="boardList?searchKey=region&searchWord=용산구">용산구</option>
+                    <option value="boardList?searchKey=region&searchWord=은평구">은평구</option>
+                    <option value="boardList?searchKey=region&searchWord=종로구">종로구</option>
+                    <option value="boardList?searchKey=region&searchWord=중구">중구</option>
+                    <option value="boardList?searchKey=region&searchWord=중랑구">중랑구</option>
                 </select>
             </div>
             <hr/>
@@ -205,7 +237,12 @@
 
 
         <div class="boardInsert">
-            <a href="/boardWrite" id="writeBtn" >글쓰기</a>
+            <c:if test="${sessionScope.loginUser!=null}">
+                <a href="/boardWrite" id="writeBtn" >글쓰기</a>
+            </c:if>
+            <c:if test="${sessionScope.loginUser==null}">
+                <a href="#" id="writeBtn" style="opacity: 0.5; cursor: default;" >글쓰기</a>
+            </c:if>
         </div>
     </div>
     <div id="board_list_box">
@@ -247,10 +284,35 @@
                         <div class="content_view">
                             <div class="content_view_top">
                                 <c:set var = "nickname" value="${vo.nickname}"/>
-                                <div class="nick_icon">${fn:substring(nickname, 0, 1)}</div>
+                                <c:set var = "no" value="${nickname.charAt(0) + 65536}"/>
+                                <c:if test="${no % 7 == 0}">
+                                    <div class="nick_icon" style="background: #ff0000;">
+                                </c:if>
+                                <c:if test="${no % 7 == 1}">
+                                    <div class="nick_icon" style="background: #ff8c00;">
+                                </c:if>
+                                <c:if test="${no % 7  == 2}">
+                                    <div class="nick_icon" style="background: #ffff00; color: black;">
+                                </c:if>
+                                <c:if test="${no % 7  == 3}">
+                                    <div class="nick_icon" style="background: #008000;">
+                                </c:if>
+                                <c:if test="${no % 7  == 4}">
+                                    <div class="nick_icon" style="background: #0000ff;">
+                                </c:if>
+                                <c:if test="${no % 7  == 5}">
+                                    <div class="nick_icon" style="background: #4b0082;">
+                                </c:if>
+                                <c:if test="${no % 7  == 6}">
+                                    <div class="nick_icon" style="background: #800080;">
+                                </c:if>
+                                ${fn:substring(nickname, 0, 1)}</div>
                                 <b>${vo.nickname}</b><br/>
                                 <span class="content_time">${vo.time}</span>
-                                <span class="content_edit_del">삭제</span>
+                                <c:if test="${sessionScope.loginUser.getNickname() == vo.nickname}">
+                                    <a class="content_edit_del" href="javascript:contentDelChk('${vo.no}')" style="color: #b1b1b1;">삭제</a>
+                                </c:if>
+
                             </div>
                             <div class="content_view_bottom">
                                 <div>
@@ -297,26 +359,24 @@
             </c:forEach>
         </ul>
 
-        <div>
-            총 레코드 수 : ${bpvo.totalRecord} / 총 페이지 개수 : ${bpvo.totalPage} / 현재 페이지 번호 : ${bpvo.pageNum}
-        </div>
-        <%--
-            <ul class="paging">
-                <!-- 이전페이지 -->
-                <c:if test="${bpvo.pageNum==1}">
-                    <li id="prevBtn">◀</li>
-                </c:if>
-                <c:if test="${bpvo.pageNum>1}">
-                    <li><a href="/admin/adminMembers?pageNum=${bpvo.pageNum-1}
-                                <c:if test='${bpvo.searchWord!=null}'>
-                                &searchKey=${bpvo.searchKey}
-                                &searchWord=${bpvo.searchWord}
-                                </c:if>">
-                    ◀</a></li>
-                </c:if>
-            </ul>
-        --%>
-
+        <ul class="paging">
+            <!-- 이전페이지 -->
+            <c:if test="${bpvo.pageNum==1}">
+                <li><</li>
+            </c:if>
+            <c:if test="${bpvo.pageNum>1}">
+                <li><a href="${url}/boardList?pageNum=${bpvo.pageNum-1}<c:if test='${bpvo.searchWord!=null}'>&searchKey=${bpvo.searchKey}&searchWord=${bpvo.searchWord}</c:if>"><</a></li>
+            </c:if>
+            <!-- 페이지번호 -->
+            <li class="now">${bpvo.pageNum} / <c:if test="${bpvo.totalPage==0}">1</c:if><c:if test="${bpvo.totalPage!=0}">${bpvo.totalPage}</c:if></li>
+            <!-- 다음페이지 -->
+            <c:if test="${bpvo.pageNum>=bpvo.totalPage}">
+                <li>></li>
+            </c:if>
+            <c:if test="${bpvo.pageNum<bpvo.totalPage}">
+                <li><a href="${url}/boardList?pageNum=${bpvo.pageNum+1}<c:if test='${bpvo.searchWord!=null}'>&searchKey=${bpvo.searchKey}&searchWord=${bpvo.searchWord}</c:if>">></a></li>
+            </c:if>
+        </ul>
 
     </div>
 
