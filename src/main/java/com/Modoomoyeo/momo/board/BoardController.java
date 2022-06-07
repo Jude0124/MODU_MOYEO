@@ -83,6 +83,8 @@ public class BoardController {
     @GetMapping("/board/contentDel")
     public ModelAndView contentDel(Integer no) {
         ModelAndView mav = new ModelAndView();
+
+        boser.parDelete(no);
         boser.contentDelete(no);
 
         mav.setViewName("redirect:/boardList");
