@@ -94,6 +94,10 @@
                 <input type="hidden" id="checkRegionChange" value="">
                 <input type="submit" class="btn_edit" value="정보수정" id="submit"/>
             </form>
+            <form id="deleteUser" action="/deleteUser" method="post">
+                <input type="hidden" value="${userInfo.id}" name="userId"/>
+                <input type="button" class="btn_delete" value="회원탈퇴" id="deleteUserBtn" onclick="deleteUser()"/>
+            </form>
         </div>
     </div>
 </div>
@@ -163,6 +167,12 @@
                     alert('code:' + request.status + '\n' + 'message:' + request.responseText + '\n' + 'error:' + error);
                 }
             });
+        }
+    }
+
+    function deleteUser(){
+        if(confirm('정말 탈퇴하시겠습니까?')){
+            $("#deleteUser").submit();
         }
     }
 </script>
