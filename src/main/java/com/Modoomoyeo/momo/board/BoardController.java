@@ -36,6 +36,7 @@ public class BoardController {
 
         bpvo.setTotalRecord(boser.boardTotalRecord(bpvo));
 
+
         mav.addObject("list", boser.boardList(bpvo));
         mav.addObject("bpvo", bpvo);
 
@@ -65,6 +66,7 @@ public class BoardController {
         mav.setViewName("board/board_info");
         return mav;
     }
+
 
 
     @PostMapping("/boardWriteOK")
