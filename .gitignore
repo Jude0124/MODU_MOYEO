@@ -41,3 +41,5 @@ out/
 
 ### VS Code ###
 .vscode/
+src/main/webapp/css/board/board_list.css
+src/main/webapp/js/board/board_list.js
