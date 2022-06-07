@@ -3,13 +3,10 @@ package com.Modoomoyeo.momo.user;
 import com.Modoomoyeo.momo.session.SessionConst;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.HttpRequestHandler;
 import org.springframework.web.bind.annotation.*;
-
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -92,7 +89,8 @@ public class UserController {
 
     @PostMapping("/findId")
     @ResponseBody
-    public String findIdByParam(@RequestBody String email){
+    public String findIdByParam(@RequestParam String email){
+        System.out.println(email);
         String message = userServiceImpl.findIdByEmail(email);
 
         return "<script>"
@@ -110,14 +108,12 @@ public class UserController {
     @GetMapping("/findPw/byEmail")
     public ModelAndView findPwDetails(){
         ModelAndView mav = new ModelAndView();
-
         mav.setViewName("user/find_pw_email");
         return mav;
     }
     @PostMapping("/findPw/reset")
     public ModelAndView resetPw(){
         ModelAndView mav = new ModelAndView();
-
         mav.setViewName("user/find_pw_reset");
         return mav;
     }
