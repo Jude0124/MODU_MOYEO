@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
-<html lang="ko" >
+<html lang="ko">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport"
@@ -10,7 +10,8 @@
     <link rel="shorcut icon" type="image/x-icon" href="/img/main/favicon.ico">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/user/login.css"/>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 </head>
 
 
@@ -29,14 +30,27 @@
                 <div class="form_box">
                     <input class="form_id" type="text" placeholder="아이디" name="id" maxlength="20"/>
                     <input class="form_pwd" type="password" placeholder="비밀번호" name="password" maxlength="20"/>
+
+                    <div id="login_error">
+                        <spring:hasBindErrors name="loginDTO">
+                            <c:if test="${errors.hasFieldErrors('loginError') }">
+                                <strong>${errors.getFieldError( 'loginError' ).defaultMessage }</strong>
+                            </c:if>
+                            <c:if test="${errors.hasFieldErrors('loginFail') }">
+                                <strong>${errors.getFieldError( 'loginFail' ).defaultMessage }</strong>
+                            </c:if>
+                        </spring:hasBindErrors>
+                    </div>
+
+
                     <input type="submit" class="btn_login" value="로그인"></input>
-                <div class="loginUtil">
-                    <a href="/findId">아이디 찾기</a>
-                    |
-                    <a href="/findPw">비밀번호 찾기 </a>
-                    |
-                    <a href="/register">회원가입</a>
-                </div>
+                    <div class="loginUtil">
+                        <a href="/findId">아이디 찾기</a>
+                        |
+                        <a href="/findPw">비밀번호 찾기 </a>
+                        |
+                        <a href="/register">회원가입</a>
+                    </div>
                 </div>
 
             </form>

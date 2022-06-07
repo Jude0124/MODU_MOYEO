@@ -98,6 +98,7 @@ public class AdminController {
         adser.adminCommentDel(cvo);
         mav.setViewName("redirect:adminComment");
         return mav;
+
     }
 
 

@@ -1,8 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ include file="../user/common.jsp" %>
-<%@ include file="../main/main_header.jsp" %>
-<%@ include file="../user/common_header.jsp" %>
 <!doctype html>
 <html lang="ko">
 <head>
@@ -11,38 +8,41 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>아이디 찾기 - 모두모여</title>
+    <link rel="shorcut icon" type="image/x-icon" href="/img/main/favicon.ico">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="/css/user/find.css" type="text/css"/>
 </head>
+
 <body>
-<div class="container common-aligns-center">
-    <div class="d-flex align-items-end justify-content-start" id="nav-find">
-        <h1>아이디 찾기</h1>
-    </div>
-    <div class="wrapped-findform">
-        <div>
-            <h5 class="find-title">등록된 휴대전화 번호로 찾기</h5>
-            <form class="d-flex common-aligns-center wrapped-find-input"
-                  method="post" action="/findId/byTel" >
-                <i class="bi bi-phone"></i>
-                <h1 class="d-flex common-aligns-center find-param">전화번호</h1>
-                <input type="text" class="find-input" placeholder="ex) 010-1234-5678" name="tel">
-                <button class="btn find-button" type="submit">찾기</button>
-            </form>
+<%@ include file="../main/main_header.jsp" %>
+
+<div id="find">
+    <div id="find_box">
+        <div class="title">
+            <img src="/img/main/logo.png">
+            <img src="/img/user/find.png">
         </div>
-        <div style="margin-top: 40px;">
-            <h5 class="find-title">등록된 이메일 계정으로 찾기</h5>
-            <form class="d-flex common-aligns-center wrapped-find-input"
-                  method="post" action="/findId/byEmail">
-                <i class="bi bi-envelope"></i>
-                <h1 class="d-flex common-aligns-center find-param">이메일 계정</h1>
-                <input type="text" class="find-input" placeholder="ex) momo@gmail.com" name="email">
-                <button class="btn find-button" type="submit">찾기</button>
-            </form>
+
+        <div class="find_menu">
+            <div style="background:#00C471;">
+                <a href="/findId" style="color:#fff; font-weight:bold;">아이디 찾기</a>
+            </div>
+            <div>
+                <a href="/findPw">비밀번호 찾기 </a>
+            </div>
         </div>
-        <div class="d-flex justify-content-center">
-            <a class="btn" id="cancel" href="/login" type="button"><b>취소</b></a>
+
+        <div class="find-clean">
+            <h1>아이디 찾기</h1>
+            <h5>아이디는 가입시 입력하신 이메일을 통해 찾을 수 있습니다.</h5>
+            <form method="post" action="/findId/byEmail">
+                <input type="email" id="form_email" name="email" placeholder="이메일"/>
+                <button class="find_btn" type="submit">찾기</button>
+            </form>
         </div>
     </div>
 </div>
+
 <%@ include file="../main/main_footer.jsp" %>
 </body>
 </html>

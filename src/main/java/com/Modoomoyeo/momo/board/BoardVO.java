@@ -1,22 +1,24 @@
 package com.Modoomoyeo.momo.board;
 
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.List;
 
 public class BoardVO {
-    private String no;                  //글번호
-    private String nickname;            //작성자
-    private String title;               //내용
-    private String time;                //작성일 (시간)
-    private String region;              //지역
+    private int no;
 
-
-
-    private List<Integer> noList;
-    public String getNo() {
+    public int getNo() {
         return no;
     }
 
-    public void setNo(String no) {
+    public void setNo(int no) {
         this.no = no;
     }
 
@@ -36,6 +38,14 @@ public class BoardVO {
         this.title = title;
     }
 
+    public String getRegion() {
+        return region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
+    }
+
     public String getTime() {
         return time;
     }
@@ -44,16 +54,22 @@ public class BoardVO {
         this.time = time;
     }
 
-    public String getRegion() {return region;}
-
-    public void setRegion(String region) {this.region = region;}
-
-    public List<Integer> getNoList() {
-        return noList;
+    public int getMax() {
+        return max;
     }
 
-    public void setNoList(List<Integer> noList) {
-        this.noList = noList;
+    public void setMax(int max) {
+        this.max = max;
     }
+
+    private String nickname;
+    private String title;
+    private String region;
+    private String time;
+    private int max;
+
+
+
+
 
 }

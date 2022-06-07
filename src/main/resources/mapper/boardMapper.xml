@@ -3,6 +3,48 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.Modoomoyeo.momo.board.BoardDAO">
+    <select id="boardList" resultType="com.Modoomoyeo.momo.board.BoardVO">
+        select no, nickname, title, region, time, max from board
+        <if test="searchWord != null and searchKey != 'all'">
+            where ${searchKey} like '%${searchWord}%'
+        </if>
+        <if test="searchKey == 'all'">
+            where (nickname like '%${searchWord}%' or title like '%${searchWord}%' or region like '%${searchWord}%')
+        </if>
+        order by time desc
+        limit ${onePageRecord} offset ${offsetIndex}
+    </select>
+
+    <select id="boardTotalRecord" resultType="int">
+        select count(no) cnt from board
+        <if test="searchWord != null and searchKey != 'all'">
+            where ${searchKey} like '%${searchWord}%'
+        </if>
+        <if test="searchKey == 'all'">
+            where (nickname like '%${searchWord}%' or title like '%${searchWord}%' or region like '%${searchWord}%')
+        </if>
+    </select>
 
 
+    <insert id="boardInsert" parameterType="com.Modoomoyeo.momo.board.BoardVO">
+        INSERT INTO board(title, nickname, region, time, max)
+        VALUES (#{title}, #{nickname}, #{region}, #{time}, #{max})
+    </insert>
+
+    <delete id="contentDelete">
+        delete from board where no = #{no};
+    </delete>
+
+    <delete id="parDelete">
+        delete from participate where no = #{no}
+    </delete>
+
+    <insert id="participateInsert" parameterType="com.Modoomoyeo.momo.board.BoardVO">
+        INSERT INTO participate(no, nickname)
+        VALUES (#{no}, #{nickname})
+    </insert>
+
+    <delete id="participateCancel">
+        delete from participate where nickname = #{nickname} and no = #{no}
+    </delete>
 </mapper>

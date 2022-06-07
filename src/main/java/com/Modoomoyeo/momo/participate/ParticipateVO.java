@@ -16,7 +16,7 @@ import java.io.Serializable;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table
+@Table(name = "participate")
 public class ParticipateVO implements Serializable {
 
     @Id

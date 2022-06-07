@@ -4,11 +4,10 @@
 #footer{
     width: 100%;
     height: 50px;
-    position: fixed;
-    bottom: 0;
-    margin-top: 50px;
+    position: relative;
+    transform: translateY(-100%);
     text-align: right;
-    z-index: -99;
+    z-index: -1;
 }
 .footA, .footB{
     height: 25px;
@@ -72,61 +71,59 @@ a:link, a:visited {
     text-decoration: none;
     color: black;
 }
+#mobile_logo{
+    text-align: center;
+}
 #mobile_logo img{
-    width: 100%;
-    margin-top: 0;
+    width: 70%;
+    margin: 30px auto 50px;
 }
 #mo_menu{
     width: 100%;
-    height: 50px;
-    margin-bottom: 15px;
+    height: 100px;
+    padding-left: 15px;
 }
-#mo_menu div:nth-child(1){
+#mo_menu>div{
+    height: 30px;
+    line-height: 30px;
+    margin-bottom: 10px;
+}
+#mo_menu>div>div{
     float: left;
-    margin-left: 20px;
-}
-#mo_menu div:nth-child(2){
-    float: right;
-    margin-right: 20px;
-}
-
-#login_box_footer{
-    background: #00C471;
-    border: 1px solid #00C471;
-    border-radius: 10px;
-    width: 90px;
-    height: 30px;
-    line-height: 30px;
-    text-align: center;
-}
-#login_box_footer a{
-    color: #fff;
+    padding-left: 10px;
+    font-size: 20px;
     font-weight: 700;
 }
-#signup_box_footer{
-    background: #fff;
-    border: 1px solid #000;
-    border-radius: 10px;
-    width: 90px;
-    height: 30px;
-    line-height: 30px;
-    text-align: center;
-}
-#signup_box_footer a{
-    color: #000;
-    font-weight: 700;
+#mo_menu img{
+    float: left;
+    width: 25px;
 }
 .category_list{
     padding-left: 0;
 }
 .category_list>li{
     line-height: 40px;
-    padding-left: 15px;
     font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    width: 48%;
+    margin-top: 10px;
+    border-radius: 10px;
+    background: rgba(0, 196, 113, 0.3);
+}
+.category_list>li:nth-child(2n+1){
+    float: left;
+}
+.category_list>li:nth-child(2n){
+    float: right;
+}
+.category_list>li:hover{
+    background: rgba(255, 59, 142, 0.2);
 }
 .category_list>li a:hover{
-    color: #00C471;
+    color: #009d5a;
     font-weight: 700;
+    font-size: 20px;
 }
 
 #mobile_search_box{
@@ -166,6 +163,6 @@ a:link, a:visited {
         display: none;
     }
     #footer{
-        display: none;
+        font-size: 80%;
     }
 }

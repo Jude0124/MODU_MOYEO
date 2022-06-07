@@ -1,11 +1,17 @@
 package com.Modoomoyeo.momo.board;
 
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
-public class BoardService {
+public interface BoardService {
+    int boardTotalRecord(BoardPagingVO bpvo);
+    List<BoardVO> boardList(BoardPagingVO bpvo);
+    int boardInsert(BoardVO bvo);
+    public int contentDelete(Integer no);
+    public int parDelete(Integer no);
+    int participateInsert(BoardVO bvo);
+    int participateCancel(String nickname, int no);
+
     //public int totalRecordBoard(BoardPagingVO bpvo, BoardVO bvo);
     //public List<BoardVO> allList(BoardPagingVO bpvo, BoardVO bvo);
 }
