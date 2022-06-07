@@ -39,6 +39,7 @@ public class BoardController {
 
 
         mav.addObject("list", boser.boardList(bpvo));
+        mav.addObject("list2", boser.participateList(bpvo));
         mav.addObject("bpvo", bpvo);
 
         mav.setViewName("board/board_list");
@@ -109,7 +110,7 @@ public class BoardController {
         boser.participateCancel(nickname, no);
         response.setContentType("text/html; charset=UTF-8");
         PrintWriter out = response.getWriter();
-        out.print("<script>history.back()</script>");
+        out.print("<script>location.href='/boardList'</script>");
         out.flush();
     }
 

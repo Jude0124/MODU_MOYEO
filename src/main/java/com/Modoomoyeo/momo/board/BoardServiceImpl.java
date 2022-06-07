@@ -55,6 +55,11 @@ public class BoardServiceImpl implements BoardService{
     @Override
     public int participateCancel(String nickname, int no) { return dao.participateCancel(nickname, no); }
 
+    @Override
+    public List<BoardVO> participateList(BoardPagingVO bpvo) {
+        return dao.participateList(bpvo);
+    }
+
 
 //
 //

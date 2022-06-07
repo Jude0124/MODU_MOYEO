@@ -26,6 +26,71 @@
 
 
     $(document).ready(function(){
+        var leng = $("div[class='list_select']").length;
+        var listarr = new Array(leng);
+        var maxarr = new Array(leng);
+        var session_nickname = "${sessionScope.loginUser.getNickname()}";
+        for(var i=0; i<leng; i++) {
+            listarr[i] = $("div[class='list_select']").eq(i).attr('id');
+            maxarr[i] = $("div[id='listMenuFE']").eq(i).attr('class');
+            var nownum = $(".par_who"+ listarr[i] + " > li").length;
+            var parnum = document.querySelectorAll('.parnum'+listarr[i]);
+            parnum[0].innerHTML = nownum;
+            parnum[1].innerHTML = nownum;
+            for(var j=0; j<nownum; j++) {
+                var participate_btn = document.getElementById("participate_btn"+listarr[i]);
+                var cancel_btn = document.getElementById("cancel_btn"+listarr[i]);
+                if($(".par_who"+ listarr[i] + " > li").eq(0).attr('class') === session_nickname){
+                    participate_btn.style.display='none';
+                    cancel_btn.style.display='block';
+                }
+            }
+        }
+
+        $("#participateInsert" + listarr[0]).submit(function(){
+            if($(".par_who"+ listarr[0] + " > li").length >= maxarr[0]){
+                alert("해당 글에는 더 이상 참여하기를 할 수 없습니다.");
+                return false;
+            }
+        });
+        $("#participateInsert" + listarr[1]).submit(function(){
+            if($(".par_who"+ listarr[1] + " > li").length >= maxarr[1]){
+                alert("해당 글에는 더 이상 참여하기를 할 수 없습니다.");
+                return false;
+            }
+        });
+        $("#participateInsert" + listarr[2]).submit(function(){
+            if($(".par_who"+ listarr[2] + " > li").length >= maxarr[2]){
+                alert("해당 글에는 더 이상 참여하기를 할 수 없습니다.");
+                return false;
+            }
+        });
+        $("#participateInsert" + listarr[3]).submit(function(){
+            if($(".par_who"+ listarr[3] + " > li").length >= maxarr[3]){
+                alert("해당 글에는 더 이상 참여하기를 할 수 없습니다.");
+                return false;
+            }
+        });
+        $("#participateInsert" + listarr[4]).submit(function(){
+            if($(".par_who"+ listarr[4] + " > li").length >= maxarr[4]){
+                alert("해당 글에는 더 이상 참여하기를 할 수 없습니다.");
+                return false;
+            }
+        });
+        $("#participateInsert" + listarr[5]).submit(function(){
+            if($(".par_who"+ listarr[5] + " > li").length >= maxarr[5]){
+                alert("해당 글에는 더 이상 참여하기를 할 수 없습니다.");
+                return false;
+            }
+        });
+        $("#participateInsert" + listarr[6]).submit(function(){
+            if($(".par_who"+ listarr[6] + " > li").length >= maxarr[6]){
+                alert("해당 글에는 더 이상 참여하기를 할 수 없습니다.");
+                return false;
+            }
+        });
+
+
         $("#listMenuFE>div[class='list_select']").click(function(){
             var idName = $(this).attr('id');
             if($(this).hasClass("on")){
@@ -150,6 +215,7 @@
                 }
             });
             reviewListAll();
+
         });
 
         $("#searchFrm").submit(function(){
@@ -369,7 +435,7 @@
             <fmt:formatDate value="${now}" pattern="yyyy-MM-dd" var="today" />
 
             <c:forEach var="vo" items="${list}">
-            <div id="listMenuFE">
+            <div id="listMenuFE" class="${vo.max}">
                 <div class="list_select" id="${vo.no}">
                     <li class="content_title"><span class="content_region">#${vo.region}</span>${vo.title}</li>
                     <li class="content_nickname">${vo.nickname}</li>
@@ -384,7 +450,7 @@
                         </c:otherwise>
                     </c:choose>
 
-                    <li>${vo.max}</li>
+                    <li><span class="parnum${vo.no}"></span> / ${vo.max}</li>
                 </div>
                 <div class="select_view ${vo.no}">
                     <div class="left_box">
@@ -430,32 +496,33 @@
 
                         <div class="participate_view">
                             <div class="participate_view_top">
-                                <span class="par_num">참여인원 : 3 / 5</span>
+                                <span class="par_num">참여인원 : <span class="parnum${vo.no}"></span> / ${vo.max}</span>
+
                                     <div class="participate_cancel">
-                                        <form action="/participateInsert" method="post" id="participateInsert" name="participateInsert">
+                                        <form action="/participateInsert" method="post" id="participateInsert${vo.no}" name="participateInsert">
                                             <input type="hidden" id="no" name="no" value="${vo.no}">
                                             <input type="hidden" id="participatenickname" name="nickname" value="${userInfo.nickname}" />
-                                            <button class="participate_btn" id="participate_btn" type="submit" onclick="if(!confirm('참여하시겠습니까?')){return false;}" >
+                                            <button class="participate_btn par_btn" id="participate_btn${vo.no}" type="submit" onclick="if(!confirm('참여하시겠습니까?')){return false;}" >
                                                 참여하기
                                             </button>
                                         </form>
                                         <form action="/participateCancel" method="post" id="participateCancel" name="participateCancel">
                                             <input type="hidden" id="cancelno" name="no" value="${vo.no}" />
                                             <input type="hidden" id="cancelnickname" name="nickname" value="${userInfo.nickname}" />
-                                            <button class="cancel_btn" id="cancel_btn" type="submit" onclick="if(!confirm('취소하시겠습니까?')){return false;}">
+                                            <button class="cancel_btn par_btn" id="cancel_btn${vo.no}" type="submit" onclick="if(!confirm('취소하시겠습니까?')){return false;}">
                                                 참여취소
                                             </button>
-
                                         </form>
                                     </div>
-                                <%-- <button class="par_btn" style="color:#fff;">참여하기</button>
-                                <button class="par_btn" style="color:#fff;" >취소하기</button>--%>
+                            </div>
 
                             <div class="participate_view_bottom">
-                                <ul class="par_who">
-                                    <li>참여인원1</li>
-                                    <li>참여인원2</li>
-                                    <li>참여인원3</li>
+                                <ul class="par_who par_who${vo.no}">
+                                    <c:forEach var="vo2" items="${list2}">
+                                        <c:if test="${vo.no == vo2.no}">
+                                            <li class="${vo2.nickname}">${vo2.nickname}</li>
+                                        </c:if>
+                                    </c:forEach>
                                 </ul>
                             </div>
                         </div>
