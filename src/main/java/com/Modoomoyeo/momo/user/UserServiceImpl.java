@@ -55,4 +55,8 @@ public class UserServiceImpl implements UserService {
         if (userDAO.findByUserId(userVO.getId()) != null)
             userDAO.save(userVO);
     }
+
+    public void deleteUser(String userId) {
+        userDAO.delete(userDAO.findByUserId(userId));
+    }
 }

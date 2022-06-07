@@ -72,6 +72,18 @@ html, body {
     line-height: 60px;
     border-radius: 5px;
 }
+.btn_delete{
+    margin-top: 10px;
+    width: 518px;
+    height: 60px;
+    background: #fff;
+    border: 1px solid #00C471;
+    color: #000;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 60px;
+    border-radius: 5px;
+}
 .msgError{
     width: calc(100% - 120px);
     color: red;
