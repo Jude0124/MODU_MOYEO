@@ -45,9 +45,6 @@ public class BoardController {
 
     @GetMapping("/boardList")
     public String boardList(BoardPagingVO bpvo, Model model) {
-
-
-
         bpvo.setTotalRecord(boser.boardTotalRecord(bpvo));
         model.addAttribute("list",boser.boardList(bpvo));
         model.addAttribute("bpvo", bpvo);
@@ -74,19 +71,14 @@ public class BoardController {
     }
 
 
-//    @GetMapping("/boardWriteOK")
-//    public String boardwriteok(){
-//        return "board/board_list";
-//    }
-
     @PostMapping ("/boardWriteOK")
-    public ModelAndView  boardwriteok(HttpServletResponse response, BoardVO bvo) throws IOException {
+    public ModelAndView boardwriteok(HttpServletResponse response, BoardVO bvo) throws IOException {
         ModelAndView mav = new ModelAndView();
         response.setContentType("text/html; charset=UTF-8");
         PrintWriter out = response.getWriter();
         boser.boardInsert(bvo);
+        out.print("<script>location.href='/boardList'</script>");
         out.flush();
-        mav.setViewName("redirect:/boardList");
         return mav;
     }
 }
