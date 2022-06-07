@@ -30,7 +30,6 @@ public class BoardController {
     private final UserServiceImpl userServiceImpl;
 
 
-
     @GetMapping("/boardList")
     public ModelAndView boardList(BoardPagingVO bpvo, @SessionAttribute(name = SessionConst.LOGIN_USER, required = false) UserVO loginUser) {
         ModelAndView mav = new ModelAndView();
@@ -43,7 +42,7 @@ public class BoardController {
 
         mav.setViewName("board/board_list");
 
-        if(loginUser != null){
+        if (loginUser != null) {
             UserVO userInfo = userServiceImpl.getUser(loginUser);
             mav.addObject("userInfo", userInfo);
         }
@@ -62,7 +61,7 @@ public class BoardController {
 
     /*상세보기폼*/
     @GetMapping("/boardInfo")
-    public ModelAndView boardInfo(){
+    public ModelAndView boardInfo() {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("board/board_info");
         return mav;
@@ -70,7 +69,7 @@ public class BoardController {
 
 
 
-    @PostMapping ("/boardWriteOK")
+    @PostMapping("/boardWriteOK")
     public void boardwriteok(HttpServletResponse response, BoardVO bvo) throws IOException {
         ModelAndView mav = new ModelAndView();
         response.setContentType("text/html; charset=UTF-8");
