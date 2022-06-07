@@ -36,8 +36,6 @@ public class BoardController {
         ModelAndView mav = new ModelAndView();
 
         bpvo.setTotalRecord(boser.boardTotalRecord(bpvo));
-        model.addAttribute("list",boser.boardList(bpvo));
-        model.addAttribute("bpvo", bpvo);
 
 
         mav.addObject("list", boser.boardList(bpvo));
@@ -73,13 +71,14 @@ public class BoardController {
 
 
     @PostMapping ("/boardWriteOK")
-    public ModelAndView boardwriteok(HttpServletResponse response, BoardVO bvo) throws IOException {
+    public void boardwriteok(HttpServletResponse response, BoardVO bvo) throws IOException {
         ModelAndView mav = new ModelAndView();
         response.setContentType("text/html; charset=UTF-8");
         PrintWriter out = response.getWriter();
         boser.boardInsert(bvo);
         out.print("<script>location.href='/boardList'</script>");
         out.flush();
+    }
 
     /*게시글 삭제*/
     @GetMapping("/board/contentDel")
