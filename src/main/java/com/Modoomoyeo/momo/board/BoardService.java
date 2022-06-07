@@ -12,6 +12,8 @@ public interface BoardService {
     int participateInsert(BoardVO bvo);
     int participateCancel(String nickname, int no);
 
+    List<BoardVO> participateList(BoardPagingVO bpvo);
+
     //public int totalRecordBoard(BoardPagingVO bpvo, BoardVO bvo);
     //public List<BoardVO> allList(BoardPagingVO bpvo, BoardVO bvo);
 }

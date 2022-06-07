@@ -191,6 +191,11 @@ html, body {
     line-height: 30px;
     margin-top: 10px;
     text-align: center;
+    border: none;
+}
+.cancel_btn{
+    display: none;
+    background: #919191;
 }
 .participate_view_bottom{
     height: 350px;
@@ -204,6 +209,9 @@ html, body {
     padding-left: 20px;
     height: 40px;
     line-height: 40px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
 }
 .right_box{
     float: left;
@@ -443,7 +451,73 @@ html, body {
 
 /* 타블렛 */
 @media screen and (max-width:1023px) {
+    .btn_box{
+        display: none;
+    }
+    #board_list_box{
+        width: 100vw;
+        top: 50%;
+        margin-top:0;
+    }
+    .title img:nth-child(1){
+        display: none;
+    }
+    .title img:nth-child(2){
+        display: block;
+        width: 130px;
+        margin-bottom: 50px;
+    }
+    #listMenuFE li:nth-child(4n+1){
+        width: 40%;
+    }
+    #listMenuFE li:nth-child(4n+3){
+        width: 20%;
+    }
+    #listMenu>#list_title>li:nth-child(1) {
+        width:40%
+    }
+    #listMenu>#list_title>li:nth-child(3) {
+        width:20%
+    }
+    .write_reply>form>textarea{
+        width: 340px;
+    }
+    .write_reply>form>input[type='submit']{
+        float: left;
+        width: 80px;
+        height: 60px;
+        box-sizing: border-box;
+        border: 3px solid #00C471;
+        background: #00C471;
+        color: #fff;
+        font-weight: 700;
+    }
+    .comment_view{
+        float: left;
+        width: 350px;
+    }
+    .content_view_top{
+        position: relative;
+        overflow:hidden;
+        white-space:nowrap;
+        text-overflow:ellipsis;
+    }
+    #region_mobile{
+        display: inline-block;
+        height: 15px;
+        line-height: 15px;
+    }
+    .btn_box_mobile, .btn_box_mobile2{
+        display: block;
+    }
 }
+
+
+
+
+
+
+
 
 /* 모바일 */
 @media screen and (max-width:767px) {
@@ -478,6 +552,7 @@ html, body {
     .content_view_top{
         position: relative;
         overflow:hidden; white-space:nowrap;
+        text-overflow:ellipsis;
     }
     .participate_view{
         height: 200px;

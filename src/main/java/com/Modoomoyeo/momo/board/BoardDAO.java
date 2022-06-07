@@ -17,6 +17,8 @@ public interface BoardDAO {
 
     int parDelete(Integer no);
 
+    List<BoardVO> participateList(BoardPagingVO bpvo);
+
 
     //public int totalRecordBoard(BoardPagingVO bpvo, BoardVO bvo);
     //public List<BoardVO> allList(BoardPagingVO bpvo, BoardVO bvo);
