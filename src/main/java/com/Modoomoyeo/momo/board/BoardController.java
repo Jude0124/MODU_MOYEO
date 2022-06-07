@@ -4,6 +4,7 @@ import com.Modoomoyeo.momo.session.SessionConst;
 import com.Modoomoyeo.momo.user.UserServiceImpl;
 import com.Modoomoyeo.momo.user.UserVO;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -14,8 +15,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 import javax.inject.Inject;
-import javax.servlet.http.HttpSession;
-
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 
 @Controller
@@ -27,11 +29,16 @@ public class BoardController {
 
     private final UserServiceImpl userServiceImpl;
 
+
+
     @GetMapping("/boardList")
     public ModelAndView boardList(BoardPagingVO bpvo, @SessionAttribute(name = SessionConst.LOGIN_USER, required = false) UserVO loginUser) {
         ModelAndView mav = new ModelAndView();
 
         bpvo.setTotalRecord(boser.boardTotalRecord(bpvo));
+        model.addAttribute("list",boser.boardList(bpvo));
+        model.addAttribute("bpvo", bpvo);
+
 
         mav.addObject("list", boser.boardList(bpvo));
         mav.addObject("bpvo", bpvo);
@@ -47,9 +54,11 @@ public class BoardController {
 
     /*글쓰기폼*/
     @GetMapping("/boardWrite")
-    public ModelAndView boardWrite() {
+    public ModelAndView boardWrite(@SessionAttribute(name = SessionConst.LOGIN_USER, required = false) UserVO loginUser) {
+        UserVO userInfo = userServiceImpl.getUser(loginUser);
         ModelAndView mav = new ModelAndView();
         mav.setViewName("board/board_write");
+        mav.addObject("userInfo", userInfo);
         return mav;
     }
 
@@ -60,6 +69,17 @@ public class BoardController {
         mav.setViewName("board/board_info");
         return mav;
     }
+
+
+
+    @PostMapping ("/boardWriteOK")
+    public ModelAndView boardwriteok(HttpServletResponse response, BoardVO bvo) throws IOException {
+        ModelAndView mav = new ModelAndView();
+        response.setContentType("text/html; charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        boser.boardInsert(bvo);
+        out.print("<script>location.href='/boardList'</script>");
+        out.flush();
 
     /*게시글 삭제*/
     @GetMapping("/board/contentDel")

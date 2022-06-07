@@ -7,8 +7,12 @@
 <div class="container">
 	<h1>참여를 제안해보세요!</h1>
 	<div id="gatherWrite">
-		<form class="form-group" id="writeForm" method="post" action="/boardWriteOK">
+		<form class="form-group" id="writeForm" name="writeForm" method="post" action="/boardWriteOK">
 			<div>
+				<div class="boardHidden">
+					지역<input style="width:100%;" type="text" name="region" id="boardRegion" value = "${userInfo.region}" />
+					닉네임<input style="width:100%;" type="text" name="nickname" id="boardNickname" value = "${userInfo.nickname}"/>
+				</div>
 				<div>
 					<div class="writeMark">제목</div>
 				</div>
@@ -20,7 +24,7 @@
 				</div>
 				<div>
 					<div class="writeTitle">
-						<input style="width:100%;"type="number" id="number" name="no" min="1" max="30" placeholder="참여인원수를 적어주세요. 참여인원은 1~30명 입니다."/>
+						<input style="width:100%;"type="number" id="boardMax" name="max" min="1" max="30" placeholder="참여인원수를 적어주세요. 참여인원은 1~30명 입니다."/>
 					</div>
 				</div>
 				<div class="btns">

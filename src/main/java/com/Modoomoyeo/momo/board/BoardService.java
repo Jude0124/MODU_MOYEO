@@ -5,7 +5,8 @@ import java.util.List;
 
 public interface BoardService {
     int boardTotalRecord(BoardPagingVO bpvo);
-    public List<BoardVO> boardList(BoardPagingVO bpvo);
+    List<BoardVO> boardList(BoardPagingVO bpvo);
+    int boardInsert(BoardVO bvo);
 
     public int contentDelete(Integer no);
 

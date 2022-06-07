@@ -43,6 +43,7 @@ public class UserController {
         HttpSession session = request.getSession();
 
         session.setAttribute(SessionConst.LOGIN_USER, loginUser);
+
         return "redirect:/";
     }
 

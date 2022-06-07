@@ -1,10 +1,13 @@
 package com.Modoomoyeo.momo.board;
 
+import com.Modoomoyeo.momo.user.UserVO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import javax.inject.Inject;
 import java.util.List;
 
@@ -24,11 +27,21 @@ public class BoardServiceImpl implements BoardService{
         return dao.boardList(bpvo);
     }
 
+
+
+    @Override
+    public int boardInsert(BoardVO bvo) {
+        return dao.boardInsert(bvo);
+    }
+
+    //    private final BoardDAO dao;
+
     @Override
     public int contentDelete(Integer no) {
         return dao.contentDelete(no);
     }
 //    private final BoardDAO dao;
+
 //
 //
 //
