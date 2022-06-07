@@ -30,6 +30,7 @@
     <div id="find_box">
         <div class="title">
             <img src="/img/main/logo.png">
+            <img src="/img/user/find.png">
         </div>
 
         <div class="find_menu">

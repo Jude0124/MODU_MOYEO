@@ -104,6 +104,7 @@ html, body {
     #login_box2{
         width: 300px;
         top: 50%;
+        margin-top:0;
     }
     #logFrm, #form_box{
         width: 300px;
@@ -127,6 +128,9 @@ html, body {
         display: block;
         width: 130px;
         margin-bottom: 50px;
+    }
+    .title{
+        margin-top:0;
     }
     #login_error{
         width: 300px;

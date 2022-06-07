@@ -40,6 +40,11 @@ public class BoardServiceImpl implements BoardService{
     public int contentDelete(Integer no) {
         return dao.contentDelete(no);
     }
+
+    @Override
+    public int parDelete(Integer no) {
+        return dao.parDelete(no);
+    }
 //    private final BoardDAO dao;
 
     @Override

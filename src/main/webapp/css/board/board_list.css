@@ -31,6 +31,10 @@ html, body {
     margin: 0 auto 30px;
 }
 
+.title img:nth-child(2){
+    display: none;
+}
+
 #listMenu{
     border-top:solid 3px gray;
     margin-top:5px;
@@ -188,6 +192,10 @@ html, body {
     margin-top: 10px;
     text-align: center;
 }
+.participate_view_bottom{
+    height: 350px;
+    overflow: auto;
+}
 .par_who>li{
     border: none !important;
     float: left !important;
@@ -232,7 +240,6 @@ html, body {
     background: #00C471;
     color: #fff;
     font-weight: 700;
-
 }
 .reply_view{
     width: 100%;
@@ -268,7 +275,7 @@ html, body {
 }
 .comment_view{
     float: right;
-    width: 615px;
+    width: 600px;
 }
 .reply_nickname{
     font-weight: 700;
@@ -365,4 +372,182 @@ html, body {
 .paging li {
     float: left;
     padding: 15px;
+}
+.btn_box_mobile, .btn_box_mobile2{
+    display: none;
+    width: 100%;
+    height: 40px;
+    position: relative;
+}
+#searchRegion_mobile>select,
+#searchFrm_mobile>select,
+#searchWord_mobile{
+    width: 120px;
+    height: 30px;
+    line-height: 30px;
+    box-sizing: border-box;
+    border: 1px solid #d0d0d0;
+    border-radius: 5px;
+    vertical-align: top;
+}
+#writeBtn_mobile{
+    display: inline-block;
+    width: 90px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background: #626262;
+    box-sizing: border-box;
+    border: 1px solid #626262;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    position: absolute;
+    top: 0;
+    right: 20px;
+}
+#searchRegion_mobile{
+    position: absolute;
+    top: 0;
+    left: 20px;
+}
+#searchFrm_mobile{
+    position: absolute;
+    top: 0;
+    left: 20px;
+}
+#searchFrm_mobile>select{
+    width: 60px;
+}
+#searchBtn_mobile{
+    width: 90px;
+    height: 30px;
+    background: #00C471;
+    box-sizing: border-box;
+    border: 1px solid #00C471;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+/* 타블렛 */
+@media screen and (max-width:1023px) {
+}
+
+/* 모바일 */
+@media screen and (max-width:767px) {
+    .btn_box{
+        display: none;
+    }
+    #region_mobile{
+        display: inline-block;
+        height: 15px;
+        line-height: 15px;
+    }
+    #list_title{
+        display: none;
+    }
+    #board_list_box{
+        width: 100vw;
+        top: 50%;
+        margin-top:0;
+    }
+    .title img:nth-child(1){
+        display: none;
+    }
+    .title img:nth-child(2){
+        display: block;
+        width: 130px;
+        margin-bottom: 50px;
+    }
+    .left_box, .right_box{
+        float: left;
+        width: 100%;
+    }
+    .content_view_top{
+        position: relative;
+        overflow:hidden; white-space:nowrap;
+    }
+    .participate_view{
+        height: 200px;
+    }
+    .participate_view_bottom{
+        height: 150px;
+    }
+    .right_box{
+        float: left;
+        width: 100%;
+    }
+    .write_reply{
+        border: none;
+        border-bottom: 1px solid #d0d0d0;
+    }
+    .write_reply>form{
+        width: 90vw;
+    }
+    .write_reply>form>textarea{
+        width: 75vw;
+    }
+    .write_reply>form>input[type='submit']{
+        width: 15vw;
+    }
+    .comment_view{
+        float: left;
+        width: 70vw;
+    }
+
+    #listMenuFE li:nth-child(4n+1),
+    #listMenuFE li:nth-child(4n+2){
+        width: 50%;
+        border: none;
+    }
+    #listMenuFE li:nth-child(4n+3){
+        text-align: right;
+    }
+    #listMenuFE li:nth-child(4n+3),
+    #listMenuFE li:nth-child(4n) {
+        width: 50%;
+    }
+    .content_nickname{
+        overflow:hidden;
+        text-overflow:ellipsis;
+        white-space:nowrap;
+    }
+    #listMenuFE>.list_select:hover li{
+        background: rgba(0, 196, 113, 0.3);
+    }
+    #listMenuFE>.on {
+        background: transparent;
+    }
+    .select_view{
+        border: none;
+    }
+    .par_who>li{
+        border: none !important;
+        float: left !important;
+        width: 100% !important;
+    }
+    .reply_view_bottom{
+        height: 200px;
+        margin-bottom: 10px;
+    }
+    .reply_view{
+        height: 260px;
+        border-bottom: 3px solid gray;
+    }
+    .btn_box_mobile, .btn_box_mobile2{
+        display: block;
+    }
+
 }

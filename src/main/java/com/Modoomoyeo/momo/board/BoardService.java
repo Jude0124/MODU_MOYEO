@@ -8,6 +8,7 @@ public interface BoardService {
     List<BoardVO> boardList(BoardPagingVO bpvo);
     int boardInsert(BoardVO bvo);
     public int contentDelete(Integer no);
+    public int parDelete(Integer no);
     int participateInsert(BoardVO bvo);
     int participateCancel(String nickname, int no);
 
