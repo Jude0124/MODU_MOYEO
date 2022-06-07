@@ -34,4 +34,13 @@
     <delete id="contentDelete">
         delete from board where no = #{no}
     </delete>
+
+    <insert id="participateInsert" parameterType="com.Modoomoyeo.momo.board.BoardVO">
+        INSERT INTO participate(no, nickname)
+        VALUES (#{no}, #{nickname})
+    </insert>
+
+    <delete id="participateCancel">
+        delete from participate where nickname = #{nickname} and no = #{no}
+    </delete>
 </mapper>
