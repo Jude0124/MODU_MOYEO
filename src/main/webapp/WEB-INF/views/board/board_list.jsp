@@ -324,7 +324,8 @@
                         <div class="participate_view">
                             <div class="participate_view_top">
                                 <span class="par_num">참여인원 : 3 / 5</span>
-                                <a href="#" class="par_btn" style="color:#fff;">참여하기</a>
+                                <button class="par_btn" style="color:#fff;">참여하기</button>
+                                <button class="par_btn" style="color:#fff;">취소하기</button>
                             </div>
                             <div class="participate_view_bottom">
                                 <ul class="par_who">

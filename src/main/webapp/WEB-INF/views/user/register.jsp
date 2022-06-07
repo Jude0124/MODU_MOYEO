@@ -36,7 +36,6 @@
                     <input type="button" class="checkBtn" value="중복확인" onclick="idCheck()"/>
                     <input type="hidden" id="idCheckResult" value=""/>
                 </div>
-                <input type="hidden" name="checked_id" value="0" />
 
                 <label for="password" >비밀번호</label>
                 <span class="msgError"></span><br/>
@@ -64,7 +63,6 @@
                     <input type="button" class="checkBtn" value="중복확인" onclick="emailCheck()"/>
                     <input type="hidden" id="emailCheckResult" value=""/>
                 </div>
-                <input type="hidden" name="checked_id" value="0" />
 
 
                 <label for="region" class="form-label">내 지역</label>
