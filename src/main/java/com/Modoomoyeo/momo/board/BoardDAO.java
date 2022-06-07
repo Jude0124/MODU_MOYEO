@@ -11,9 +11,9 @@ public interface BoardDAO {
     int boardTotalRecord(BoardPagingVO bpvo);
     List<BoardVO> boardList(BoardPagingVO bpvo);
     int boardInsert(BoardVO bvo);
-
-
     int contentDelete(Integer no);
+    int participateInsert(BoardVO bvo);
+    int participateCancel(String nickname, int no);
 
     int parDelete(Integer no);
 

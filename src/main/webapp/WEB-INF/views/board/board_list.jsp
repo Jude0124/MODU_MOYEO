@@ -24,6 +24,7 @@
         }
     }
 
+
     $(document).ready(function(){
         $("#listMenuFE>div[class='list_select']").click(function(){
             var idName = $(this).attr('id');
@@ -430,9 +431,26 @@
                         <div class="participate_view">
                             <div class="participate_view_top">
                                 <span class="par_num">참여인원 : 3 / 5</span>
-                                <button class="par_btn" style="color:#fff;">참여하기</button>
-                                <button class="par_btn" style="color:#fff;">취소하기</button>
-                            </div>
+                                    <div class="participate_cancel">
+                                        <form action="/participateInsert" method="post" id="participateInsert" name="participateInsert">
+                                            <input type="hidden" id="no" name="no" value="${vo.no}">
+                                            <input type="hidden" id="participatenickname" name="nickname" value="${userInfo.nickname}" />
+                                            <button class="participate_btn" id="participate_btn" type="submit" onclick="if(!confirm('참여하시겠습니까?')){return false;}" >
+                                                참여하기
+                                            </button>
+                                        </form>
+                                        <form action="/participateCancel" method="post" id="participateCancel" name="participateCancel">
+                                            <input type="hidden" id="cancelno" name="no" value="${vo.no}" />
+                                            <input type="hidden" id="cancelnickname" name="nickname" value="${userInfo.nickname}" />
+                                            <button class="cancel_btn" id="cancel_btn" type="submit" onclick="if(!confirm('취소하시겠습니까?')){return false;}">
+                                                참여취소
+                                            </button>
+
+                                        </form>
+                                    </div>
+                                <%-- <button class="par_btn" style="color:#fff;">참여하기</button>
+                                <button class="par_btn" style="color:#fff;" >취소하기</button>--%>
+
                             <div class="participate_view_bottom">
                                 <ul class="par_who">
                                     <li>참여인원1</li>
