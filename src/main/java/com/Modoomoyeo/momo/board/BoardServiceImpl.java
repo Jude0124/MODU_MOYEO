@@ -42,6 +42,15 @@ public class BoardServiceImpl implements BoardService{
     }
 //    private final BoardDAO dao;
 
+    @Override
+    public int participateInsert(BoardVO bvo) {
+        return dao.participateInsert(bvo);
+    }
+
+    @Override
+    public int participateCancel(String nickname, int no) { return dao.participateCancel(nickname, no); }
+
+
 //
 //
 //

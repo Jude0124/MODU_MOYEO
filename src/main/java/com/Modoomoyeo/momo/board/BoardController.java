@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -68,7 +69,7 @@ public class BoardController {
     }
 
 
-
+    /*게시글 작성*/
     @PostMapping("/boardWriteOK")
     public void boardwriteok(HttpServletResponse response, BoardVO bvo) throws IOException {
         ModelAndView mav = new ModelAndView();
@@ -88,4 +89,26 @@ public class BoardController {
         mav.setViewName("redirect:/boardList");
         return mav;
     }
+
+    /*참여하기*/
+    @PostMapping ("/participateInsert")
+    public void participateInsert(HttpServletResponse response, BoardVO bvo) throws IOException {
+        ModelAndView mav = new ModelAndView();
+        response.setContentType("text/html; charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        boser.participateInsert(bvo);
+        out.print("<script>location.href='/boardList'</script>");
+        out.flush();
+    }
+
+    /*참여취소*/
+    @PostMapping("/participateCancel")
+    public void participateCancel(HttpServletResponse response , @RequestParam String nickname, @RequestParam int no) throws IOException {
+        boser.participateCancel(nickname, no);
+        response.setContentType("text/html; charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        out.print("<script>history.back()</script>");
+        out.flush();
+    }
+
 }
