@@ -4,15 +4,11 @@ import com.Modoomoyeo.momo.session.SessionConst;
 import com.Modoomoyeo.momo.user.UserServiceImpl;
 import com.Modoomoyeo.momo.user.UserVO;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.ModelAndView;
-
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletResponse;
@@ -56,6 +52,7 @@ public class BoardController {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("board/board_write");
         mav.addObject("userInfo", userInfo);
+
         return mav;
     }
 

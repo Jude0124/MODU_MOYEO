@@ -46,7 +46,7 @@
             <h5>비밀번호는 가입시 입력하신 이메일을 통해 찾을 수 있습니다.</h5>
             <form method="get" action="/findPw/byEmail">
                 <div class="email_box">
-                    <input type="text" id="form_email2" name="email" placeholder="이메일"/>
+                    <input type="text" id="form_email2" name="email"  required="/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)?$/i" placeholder="이메일"/>
                     <input type="button" id="emailAuthReqBtn" value="인증번호 받기" onclick="emailAuth()"/>
                 </div>
                 <input style="display: none;" type="text" name="code" id="emailCode" placeholder="인증번호"/>

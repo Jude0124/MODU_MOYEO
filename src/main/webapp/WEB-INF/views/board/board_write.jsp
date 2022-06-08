@@ -12,6 +12,7 @@
 				<div class="boardHidden">
 					지역<input style="width:100%;" type="text" name="region" id="boardRegion" value = "${userInfo.region}" />
 					닉네임<input style="width:100%;" type="text" name="nickname" id="boardNickname" value = "${userInfo.nickname}"/>
+                    시간<input style="width:100%;" type="text" name="time" id="localTime" value = "${time}"/>
 				</div>
 				<div>
 					<div class="writeMark">제목</div>

@@ -33,6 +33,11 @@ dependencies {
 	implementation 'javax.servlet:jstl:1.2'
 	implementation 'javax.inject:javax.inject:1'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'com.sun.mail:javax.mail:1.6.2'
+    // https://mvnrepository.com/artifact/javax.mail/javax.mail-api
+    implementation group: 'javax.mail', name: 'javax.mail-api', version: '1.6.2'
+
+
 }
 
 tasks.named('test') {

@@ -1,11 +1,8 @@
 package com.Modoomoyeo.momo.user;
 
 import lombok.RequiredArgsConstructor;
-import org.apache.catalina.core.StandardPipeline;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
@@ -46,6 +43,9 @@ public class UserServiceImpl implements UserService {
         }
         return "false";
     }
+
+    public UserVO getUserByEmail(String email){return userDAO.findByEmail(email)}
+
 
     public UserVO getUser(UserVO loginUser) {
         return userDAO.findByUserId(loginUser.getId());

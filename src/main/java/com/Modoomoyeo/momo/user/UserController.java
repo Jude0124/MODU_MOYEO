@@ -7,14 +7,15 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.HttpRequestHandler;
 import org.springframework.web.bind.annotation.*;
-
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.View;
 
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.util.Random;
 
 @Controller
 @RequiredArgsConstructor
@@ -113,13 +114,34 @@ public class UserController {
         mav.setViewName("user/find_pw");
         return mav;
     }
-    @GetMapping("/findPw/byEmail")
-    public ModelAndView findPwDetails(){
-        ModelAndView mav = new ModelAndView();
 
-        mav.setViewName("user/find_pw_email");
-        return mav;
-    }
+    @GetMapping("/findPw/byEmail")
+    public ModelAndView findPwDetails(HttpSession session, HttpServletRequest request, HttpServletResponse response) throws IOException {
+        ModelAndView mav = new ModelAndView();
+        String email= request.getParameter("email");
+
+        UserVO vo = userServiceImpl.getUserByEmail(email);
+
+        if(vo != null) {
+            Random r = new Random();
+            int num = r.nextInt(999999); //랜덤난수설정
+
+            session.setAttribute("email", vo.getEmail());
+
+            String setfrom = "legagain@gmail.com"; // 관리자
+            String tomail = email; // 받는사람
+            String title = "[모두모여] 비밀번호변경 인증 이메일입니다.";
+            String content = System.getProperty("line.seperator") + "안녕하세요 회원님" + System.getProperty("line.separator")
+                    + "모두모여  비밀번호찾기(변경) 인증번호는" + num + "입니다." + System.getProperty("line.sepertaor");//
+
+            try {
+                MimeMessage message = mailSender.createMimeMessage();
+            }
+
+            }
+        }
+
+
     @PostMapping("/findPw/reset")
     public ModelAndView resetPw(){
         ModelAndView mav = new ModelAndView();
