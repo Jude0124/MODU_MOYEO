@@ -160,6 +160,15 @@ html, body {
     #boardRegion{
         max-width: calc(100vw - 100px);
     }
+    .btn_box{
+        width: 100vw;
+        text-align: right;
+    }
+    .number_box{
+        width: 100vw;
+        text-align: right;
+    }
+
 }
 
 /* 모바일 */

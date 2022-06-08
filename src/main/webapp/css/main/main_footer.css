@@ -84,11 +84,13 @@ a:link, a:visited {
     padding-left: 15px;
 }
 #mo_menu>div{
+    width: 100%;
     height: 30px;
     line-height: 30px;
     margin-bottom: 10px;
 }
 #mo_menu>div>div{
+    width: calc(100% - 40px);
     float: left;
     padding-left: 10px;
     font-size: 20px;
