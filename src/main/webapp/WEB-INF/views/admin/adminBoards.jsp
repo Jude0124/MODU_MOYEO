@@ -199,20 +199,22 @@
                     <form method="post" action="/adminBoardsDel" class="listMenuFrm">
                         <ul class="listMenu">
                             <li style="width:5%;">&nbsp;</li>
-                            <li style="width:19%;">글제목</li>
-                            <li style="width:19%;">지역</li>
-                            <li style="width:19%;">작성자</li>
-                            <li style="width:19%;">작성일</li>
-                            <li style="width:19%;">최대인원</li>
+                            <li style="width:10%;">글번호</li>
+                            <li style="width:17%;">글제목</li>
+                            <li style="width:17%;">지역</li>
+                            <li style="width:17%;">작성자</li>
+                            <li style="width:17%;">작성일</li>
+                            <li style="width:17%;">최대인원</li>
 
                             <div class="listMenuFE">
                                 <c:forEach var="vo" items="${adminBoardList}">
                                     <li style="width:5%;" class="text-center"><input type='checkbox' name='noList' value='${vo.no}' class="chk"/></li>
-                                    <li style="width:19%;" class="text-center">${vo.title}</li>
-                                    <li style="width:19%;" class="text-center">${vo.region}</li>
-                                    <li style="width:19%;" class="text-center">${vo.nickname}</li>
-                                    <li style="width:19%;" class="text-center">${vo.time}</li>
-                                    <li style="width:19%;" class="text-center">${vo.max}</li>
+                                    <li style="width:10%;" class="text-center">${vo.no}</li>
+                                    <li style="width:17%;" class="text-center">${vo.title}</li>
+                                    <li style="width:17%;" class="text-center">${vo.region}</li>
+                                    <li style="width:17%;" class="text-center">${vo.nickname}</li>
+                                    <li style="width:17%;" class="text-center">${vo.time}</li>
+                                    <li style="width:17%;" class="text-center">${vo.max}</li>
                                 </c:forEach>
                             </div>
                         </ul>
