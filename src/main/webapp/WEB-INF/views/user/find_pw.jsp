@@ -14,13 +14,15 @@
 </head>
 
 <script>
-    function emailAuth(){
-        if(confirm("입력하신 이메일로 인증 번호가 전송되었습니다.")){
+    function emailAuth() {
+        if (confirm("입력하신 이메일로 인증 번호가 전송되었습니다.")) {
             $(".find-clean>form>input[id='emailCode']").show();
-        }else{
+        } else {
             return false;
         }
     }
+
+
 </script>
 
 <body>
@@ -46,12 +48,27 @@
             <h5>비밀번호는 가입시 입력하신 이메일을 통해 찾을 수 있습니다.</h5>
             <form method="get" action="/findPw/byEmail">
                 <div class="email_box">
-                    <input type="text" id="form_email2" name="email"  required="/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)?$/i" placeholder="이메일"/>
-                    <input type="button" id="emailAuthReqBtn" value="인증번호 받기" onclick="emailAuth()"/>
+                    <input type="text" id="form_email2" name="email"
+                           required="/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)?$/i"
+                           placeholder="이메일"/>
+                    <input type="submit" id="emailAuthReqBtn" value="인증번호 받기" onclick="emailAuth()"/>
                 </div>
+            </form>
+            <form class="code-sent">
                 <input style="display: none;" type="text" name="code" id="emailCode" placeholder="인증번호"/>
                 <button class="find_btn" type="submit">찾기</button>
             </form>
+            <script>
+                $(".find_btn").click(function submitCheck() {
+                    if (${num} ===
+                    document.getElementById("emailCode").value
+                )
+                    {
+                        alert("메일 인증이 완료되지 않았습니다.");
+                        return false;
+                    }
+                })
+            </script>
         </div>
     </div>
 </div>

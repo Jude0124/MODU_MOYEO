@@ -39,12 +39,12 @@ public class UserServiceImpl implements UserService {
 
     public String emailDuplicateCheck(String email) {
         if (userDAO.findByEmail(email)!=null){
-            return "true";
-        }
+            return "true";}
         return "false";
     }
 
-    public UserVO getUserByEmail(String email){return userDAO.findByEmail(email)}
+    public UserVO getUserByEmail(String email){return userDAO.findByEmail(email);}
+
 
 
     public UserVO getUser(UserVO loginUser) {
