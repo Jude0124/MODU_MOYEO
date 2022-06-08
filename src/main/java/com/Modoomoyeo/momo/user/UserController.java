@@ -5,7 +5,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.annotation.Validated;
@@ -94,17 +93,21 @@ public class UserController {
     @GetMapping("/findId")
     public ModelAndView findId() {
         ModelAndView mav = new ModelAndView();
-
         mav.setViewName("user/find_id");
         return mav;
     }
 
-    @PostMapping("/findId/{param}")
-    public ModelAndView findIdByParam(@PathVariable String param) {
-        ModelAndView mav = new ModelAndView();
-        /* param에 따라 구분하여 id 찾는 로직 구현 필요 */
-        mav.setViewName("user/find_id_result");
-        return mav;
+    @PostMapping("/findId")
+    @ResponseBody
+    public String findIdByParam(@RequestParam String email){
+        System.out.println(email);
+        String message = userServiceImpl.findIdByEmail(email);
+
+        return "<script>"
+                +"alert(\"" +message +"\");"
+                +"history.back();"
+                +"</script>";
+
     }
 
     @GetMapping("/findPw")
@@ -118,7 +121,6 @@ public class UserController {
     @GetMapping("/findPw/byEmail")
     public ModelAndView findPwDetails() {
         ModelAndView mav = new ModelAndView();
-
         mav.setViewName("user/find_pw_email");
         return mav;
     }
@@ -126,7 +128,6 @@ public class UserController {
     @PostMapping("/findPw/reset")
     public ModelAndView resetPw() {
         ModelAndView mav = new ModelAndView();
-
         mav.setViewName("user/find_pw_reset");
         return mav;
     }
