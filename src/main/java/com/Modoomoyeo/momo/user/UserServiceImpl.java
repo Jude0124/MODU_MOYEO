@@ -1,11 +1,8 @@
 package com.Modoomoyeo.momo.user;
 
 import lombok.RequiredArgsConstructor;
-import org.apache.catalina.core.StandardPipeline;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
@@ -52,10 +49,12 @@ public class UserServiceImpl implements UserService {
 
     public String emailDuplicateCheck(String email) {
         if (userDAO.findByEmail(email)!=null){
-            return "true";
-        }
+            return "true";}
         return "false";
     }
+
+    public UserVO getUserByEmail(String email){return userDAO.findByEmail(email);}
+
 
 
     public String findIdByEmail(String email){
