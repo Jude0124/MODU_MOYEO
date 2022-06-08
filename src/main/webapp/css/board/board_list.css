@@ -384,7 +384,7 @@ html, body {
 }
 .btn_box_mobile, .btn_box_mobile2{
     display: none;
-    width: 100%;
+    width: 100vw;
     height: 40px;
     position: relative;
 }
@@ -422,9 +422,11 @@ html, body {
     left: 20px;
 }
 #searchFrm_mobile{
+    width: 100vw;
     position: absolute;
     top: 0;
     left: 20px;
+    text-align: left;
 }
 #searchFrm_mobile>select{
     width: 60px;
@@ -583,13 +585,18 @@ html, body {
         width: 70vw;
     }
 
-    #listMenuFE li:nth-child(4n+1),
+    #listMenuFE li:nth-child(4n+1){
+        width: 65%;
+        border: none;
+    }
+
     #listMenuFE li:nth-child(4n+2){
-        width: 50%;
+        width: 35%;
         border: none;
     }
     #listMenuFE li:nth-child(4n+3){
-        text-align: right;
+        text-align: left;
+        padding-left: 110px;
     }
     #listMenuFE li:nth-child(4n+3),
     #listMenuFE li:nth-child(4n) {

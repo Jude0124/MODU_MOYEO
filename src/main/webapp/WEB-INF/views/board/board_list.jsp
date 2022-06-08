@@ -426,7 +426,7 @@
                 <a href="/boardWrite" id="writeBtn_mobile" >글쓰기</a>
             </c:if>
             <c:if test="${sessionScope.loginUser==null}">
-                <a href="#" id="writeBtn_mobile" style="opacity: 0.5; cursor: default;" >글쓰기</a>
+                <a href="#" id="writeBtn_mobile" style="opacity: 0.5; cursor: default;" onclick="need_login()">글쓰기</a>
             </c:if>
         </div>
 
@@ -449,6 +449,9 @@
 
                     <c:set var = "time" value="${vo.time}"/>
                     <c:choose>
+                        <c:when test="${fn:substring(time, 12, 13) == ':'}">
+                            <li>0${fn:substring(time, 11, 15)}</li>
+                        </c:when>
                         <c:when test="${fn:startsWith(time, today)}">
                             <li>${fn:substring(time, 11, 16)}</li>
                         </c:when>
