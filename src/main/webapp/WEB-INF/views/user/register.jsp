@@ -28,7 +28,6 @@
 
         <div class="register-clean">
             <form id="signUp-form" method="post" action="/register">
-
                 <label for="userId">아이디</label>
                 <span class="msgError"></span><br/>
                 <div class="id_box">
