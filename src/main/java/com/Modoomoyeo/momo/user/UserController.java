@@ -12,8 +12,16 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.mail.Authenticator;
+import javax.mail.Message;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.Properties;
+import java.util.Random;
 
 @Controller
 @RequiredArgsConstructor
@@ -120,6 +128,7 @@ public class UserController {
     }
 
     @GetMapping("/findPw/byEmail")
+    @ResponseBody
     public String findPwDetails(HttpServletRequest request){
 
 //        ModelAndView mav = new ModelAndView();
@@ -128,72 +137,69 @@ public class UserController {
         UserVO vo = userServiceImpl.getUserByEmail(email);
 
         String num = "";
-//        if (vo != null) {
-//            Random r = new Random();
-//            num = String.valueOf(r.nextInt(999999)); //랜덤난수설정
-////            mav.addObject("num", num);
-//
-//            String mailProtocol = "smtp";
-//            String mailHost = "smtp.naver.com";
-//            String mailPort = "587";
-//            String mailId = "momo5684268"; // 네이버계정
-//            String mailPassword = "momoommo2022^"; // 네이버계정 비밀번호
-//
-//            String fromName = "모두모여";
-//            String fromEmail = "momo5684268@naver.com"; // 보내는 사람 메일
-//            String toName = "회신불필요";
-//            String toEmail = email; // 받는사람메일
-//            String mailTitle = "[모두모여] 비밀번호 재설정 임시번호 입니다.";
-//            String mailContents = "안녕하세요 회원님" + "모두모여  비밀번호찾기(변경) 인증번호는" + num + "입니다.";
-//            String debugMode = "false";
-//            String authMode = "true";
-//            try {
-//                boolean debug = Boolean.valueOf(debugMode).booleanValue();
-//                Properties mailProps = new Properties();
-//                mailProps.put("mail.smtp.starttls.enable", "true");
-//                mailProps.setProperty("mail.transport.protocol", mailProtocol);
-//                mailProps.put("mail.debug", debugMode);
-//                mailProps.put("mail.smtp.host", mailHost);
-//                mailProps.put("mail.smtp.port", mailPort);
-//                mailProps.put("mail.smtp.connectiontimeout", "5000");
-//                mailProps.put("mail.smtp.timeout", "5000");
-//                mailProps.put("mail.smtp.auth", authMode);
-//                Session msgSession = null;
-//
-//                if (authMode.equals("true")) {
-//                    Authenticator auth = new PWAuthentication(mailId, mailPassword);
-//                    msgSession = Session.getInstance(mailProps, auth);
-//                } else {
-//                    msgSession = Session.getInstance(mailProps, null);
-//                }
-//                msgSession.setDebug(debug);
-//                MimeMessage msg = new MimeMessage(msgSession);
-//                msg.setFrom(new InternetAddress(fromEmail, fromName));
-//                msg.setRecipient(Message.RecipientType.TO, new InternetAddress(toEmail, toName));
-//                msg.setSubject(mailTitle);
-//                msg.setContent(mailContents, "text/html; charset=euc-kr");// 스태틱함수로 직접 보내지 않고 객체를 이용해서 보내고 객체를 닫아준다.
-//                Transport t = msgSession.getTransport(mailProtocol);
-//                try {
-//                    t.connect();
-//                    t.sendMessage(msg, msg.getAllRecipients());
-//                } finally {
-//                    t.close();
-//                }
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//        }
-    return num;
+        if (vo != null) {
+            Random r = new Random();
+            num = String.valueOf(r.nextInt(999999)); //랜덤난수설정
+//            mav.addObject("num", num);
 
+            String mailProtocol = "smtp";
+            String mailHost = "smtp.naver.com";
+            String mailPort = "587";
+            String mailId = "momo5684268"; // 네이버계정
+            String mailPassword = "momoommo2022^"; // 네이버계정 비밀번호
+
+            String fromName = "모두모여";
+            String fromEmail = "momo5684268@naver.com"; // 보내는 사람 메일
+            String toName = "회신불필요";
+            String toEmail = email; // 받는사람메일
+            String mailTitle = "[모두모여] 비밀번호 재설정 임시번호 입니다.";
+            String mailContents = "안녕하세요 회원님" + "모두모여  비밀번호찾기(변경) 인증번호는" + num + "입니다.";
+            String debugMode = "false";
+            String authMode = "true";
+            try {
+                boolean debug = Boolean.valueOf(debugMode).booleanValue();
+                Properties mailProps = new Properties();
+                mailProps.put("mail.smtp.starttls.enable", "true");
+                mailProps.setProperty("mail.transport.protocol", mailProtocol);
+                mailProps.put("mail.debug", debugMode);
+                mailProps.put("mail.smtp.host", mailHost);
+                mailProps.put("mail.smtp.port", mailPort);
+                mailProps.put("mail.smtp.connectiontimeout", "5000");
+                mailProps.put("mail.smtp.timeout", "5000");
+                mailProps.put("mail.smtp.auth", authMode);
+                Session msgSession = null;
+
+                if (authMode.equals("true")) {
+                    Authenticator auth = new PWAuthentication(mailId, mailPassword);
+                    msgSession = Session.getInstance(mailProps, auth);
+                } else {
+                    msgSession = Session.getInstance(mailProps, null);
+                }
+                msgSession.setDebug(debug);
+                MimeMessage msg = new MimeMessage(msgSession);
+                msg.setFrom(new InternetAddress(fromEmail, fromName));
+                msg.setRecipient(Message.RecipientType.TO, new InternetAddress(toEmail, toName));
+                msg.setSubject(mailTitle);
+                msg.setContent(mailContents, "text/html; charset=euc-kr");// 스태틱함수로 직접 보내지 않고 객체를 이용해서 보내고 객체를 닫아준다.
+                Transport t = msgSession.getTransport(mailProtocol);
+                try {
+                    t.connect();
+                    t.sendMessage(msg, msg.getAllRecipients());
+                } finally {
+                    t.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    return num;
     }
 
 
 
     @PostMapping("/findPw/reset")
-    public ModelAndView resetPw() {
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("user/find_pw_reset");
-        return mav;
+    public String resetPw() {
+        return "user/find_pw_reset";
     }
 
     @PostMapping("/changePw")
