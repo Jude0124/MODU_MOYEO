@@ -7,6 +7,7 @@
     position: relative;
     transform: translateY(-100%);
     text-align: right;
+    z-index: -1;
 }
 .footA, .footB{
     height: 25px;
@@ -121,8 +122,7 @@ a:link, a:visited {
 }
 .category_list>li a:hover{
     color: #009d5a;
-    font-weight: 700;
-    font-size: 20px;
+    font-weight: 800;
 }
 
 #mobile_search_box{

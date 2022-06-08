@@ -78,6 +78,8 @@ html, body {
     position: absolute;
     right: 0;
     top: 0;
+    text-align: center;
+    line-height: 40px;
 }
 .btn_register{
     margin-top: 30px;
@@ -108,11 +110,12 @@ html, body {
 @media screen and (max-width:767px) {
     #register_box{
         width: 300px;
+        margin-top: 0;
     }
     #signUp-form{
         width: 300px;
     }
-    #userId, #nickname{
+    #userId, #nickname, #email{
         width: 190px;
     }
     .msgError{

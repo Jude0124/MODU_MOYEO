@@ -11,39 +11,75 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.List;
 
-
-@Getter
-@Setter
-@NoArgsConstructor
-@Entity
-@Table(name="board")
 public class BoardVO {
-    @Id
-    @Column
-    private String nickname;            //작성자
+    private int no;
 
-    @Column
-    private String no;                  //글번호
-
-    @Column
-    private String title;               //내용
-
-    @Column
-    private String time;                //작성일 (시간)
-
-    @Column
-    private String region;              //지역
-
-    @Column
-    private int max;   // 모임최대인원
-
-    @Builder
-    public BoardVO(String nickname, String no, String title, String time, String region, int max) {
-        this.nickname = nickname;
-        this.no = no;
-        this.title = title;
-        this.time = time;
-        this.region = region;
-        this.max= max;
+    public int getNo() {
+        return no;
     }
+
+    public void setNo(int no) {
+        this.no = no;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getRegion() {
+        return region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public int getMax() {
+        return max;
+    }
+
+    public void setMax(int max) {
+        this.max = max;
+    }
+
+    private String nickname;
+    private String title;
+    private String region;
+    private String time;
+    private int max;
+
+    public int getNum() {
+        return num;
+    }
+
+    public void setNum(int num) {
+        this.num = num;
+    }
+
+    private int num;
+
+
+
+
+
 }
