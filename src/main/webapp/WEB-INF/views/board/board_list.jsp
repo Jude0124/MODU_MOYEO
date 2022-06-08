@@ -507,25 +507,30 @@
 
 
                                     <div class="participate_cancel">
-                                        <c:if test="${sessionScope.loginUser==null}">
-                                            <button id="par_btn_null" style="opacity: 0.5;">참여하기</button>
-                                        </c:if>
-                                        <c:if test="${sessionScope.loginUser!=null}">
-                                            <form action="/participateInsert" method="post" id="participateInsert${vo.no}" name="participateInsert">
-                                                <input type="hidden" id="no" name="no" value="${vo.no}">
-                                                <input type="hidden" id="participatenickname" name="nickname" value="${userInfo.nickname}" />
-                                                <button class="participate_btn par_btn" id="participate_btn${vo.no}" type="submit" onclick="if(!confirm('참여하시겠습니까?')){return false;}" >
-                                                    참여하기
-                                                </button>
-                                            </form>
-                                            <form action="/participateCancel" method="post" id="participateCancel" name="participateCancel">
-                                                <input type="hidden" id="cancelno" name="no" value="${vo.no}" />
-                                                <input type="hidden" id="cancelnickname" name="nickname" value="${userInfo.nickname}" />
-                                                <button class="cancel_btn par_btn" id="cancel_btn${vo.no}" type="submit" onclick="if(!confirm('취소하시겠습니까?')){return false;}">
-                                                    참여취소
-                                                </button>
-                                            </form>
-                                        </c:if>
+                                        <c:choose>
+                                            <c:when test="${sessionScope.loginUser.getNickname()==vo.nickname}">
+
+                                            </c:when>
+                                            <c:when test="${userInfo.nickname==null}">
+                                                <button id="par_btn_null" style="opacity: 0.5;">참여하기</button>
+                                            </c:when>
+                                            <c:when test="${userInfo.nickname!=null}">
+                                                <form action="/participateInsert" method="post" id="participateInsert${vo.no}" name="participateInsert">
+                                                    <input type="hidden" id="no" name="no" value="${vo.no}">
+                                                    <input type="hidden" id="participatenickname" name="nickname" value="${userInfo.nickname}" />
+                                                    <button class="participate_btn par_btn" id="participate_btn${vo.no}" type="submit" onclick="if(!confirm('참여하시겠습니까?')){return false;}" >
+                                                        참여하기
+                                                    </button>
+                                                </form>
+                                                <form action="/participateCancel" method="post" id="participateCancel" name="participateCancel">
+                                                    <input type="hidden" id="cancelno" name="no" value="${vo.no}" />
+                                                    <input type="hidden" id="cancelnickname" name="nickname" value="${userInfo.nickname}" />
+                                                    <button class="cancel_btn par_btn" id="cancel_btn${vo.no}" type="submit" onclick="if(!confirm('취소하시겠습니까?')){return false;}">
+                                                        참여취소
+                                                    </button>
+                                                </form>
+                                            </c:when>
+                                        </c:choose>
                                     </div>
                             </div>
 

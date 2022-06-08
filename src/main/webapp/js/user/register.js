@@ -407,7 +407,6 @@ function nicknameCheck() {
         success: function(result) {
             if(result.toString()==="false") {
                 error[3].style.display = "none";
-                alert('사용 가능한 닉네임입니다.');
                 $('#nicknameCheckResult').val('success');
             } else{
                 alert('이미 사용중인 닉네임입니다. 다른 닉네임을 설정해주세요.');
