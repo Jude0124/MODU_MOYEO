@@ -1,0 +1,204 @@
+@charset "UTF-8";
+
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+/* 데스크탑 */
+#admin * {
+    font-family: 'Nanum Gothic', sans-serif;
+}
+html, body {
+    margin: 0;
+    height: 100%
+}
+#admin{
+    height: 100vh !important;
+    min-height: calc(100vh - 180px);
+    padding-top: 50px;
+    padding-bottom: 50px;
+    overflow: auto;
+}
+
+#admin_box{
+    text-align: center;
+    width: 1200px;
+    margin: 0 auto 100px;
+    position: relative;
+}
+#Show1{
+    position: absolute;
+    top: 80px;
+    right: 12px;
+}
+.Btn1{
+    position: absolute;
+    width: 400px;
+    height: 530px;
+    line-height:520px;
+    background: rgba(0, 196, 113, 0.6);
+    font-size: 48px;
+    border: 1px solid #d0d0d0;
+    box-sizing: border-box;
+    left: 0;
+    top: 80px;
+}
+.Btn1:hover{
+    background: #ff3b8e;
+}
+.Btn2{
+    position: absolute;
+    width: 400px;
+    height: 200px;
+    line-height: 200px;
+    font-size: 48px;
+    top: 610px;
+    left: 0;
+    border: 1px solid #d0d0d0;
+    box-sizing: border-box;
+    background: rgba(0, 196, 113, 0.6);
+}
+.Btn2:hover{
+    background: #ff3b8e;
+}
+.Btn3{
+    position: absolute;
+    width: 800px;
+    height: 200px;
+    line-height: 200px;
+    font-size: 48px;
+    top: 610px;
+    right: 0;
+    border: 1px solid #d0d0d0;
+    box-sizing: border-box;
+    background: rgba(0, 196, 113, 0.6);
+}
+.Btn3:hover{
+    background: #ff3b8e;
+}
+
+.title img{
+    width: 200px;
+    margin: 0 auto 30px;
+}
+.multiDeleteAllCheck{
+    position: absolute;
+    top: 60px;
+    right: 20px;
+}
+#multiDel{
+    background-color:#626262;
+    color:white;
+    padding:0 10px;
+}
+a, a:visited, a:link, a:hover{
+    color : black;
+    text-decoration: none;
+}
+a:active {
+    color : #00C471;
+}
+#searchWord{
+    border: 2px solid black;
+    outline: none;
+}
+.paging{
+
+    text-align:center;
+    height: 30px;
+    overflow: auto;
+}
+.paging>li{
+    width:30px;
+    display:inline-block;
+}
+.paging #prevBtn, .paging #nextBtn {
+    visibility: hidden;
+}
+.paging #pagingNumberStyle {
+    background-color:white;font-weight:bold;font-size: 1.1em;
+}
+li {
+    margin:0;
+    padding:0;
+    list-style-type: none;
+}
+#listMenu{
+    overflow:auto;
+}
+.listMenu>li:nth-child(5n+1) {
+    width:8%;
+}
+.listMenu>.listMenuFE>li:nth-child(5n+1) {
+    width:8%;
+}
+.listMenu>li, .listMenu>.listMenuFE>li{
+    float:left;
+    height: 30px;
+    line-height: 30px;
+    width:23%;
+    text-align: center;/*left*/
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding:0px 5px;
+}
+.listMenu>li{
+    font-weight: bold;
+}
+.listMenu>.listMenuFE>li{
+    font-weight: normal;
+}
+body {
+    font-family:  'Nanum Gothic', sans-serif;
+    font-weight: bolder;
+}
+.reset-a {
+    color: #fff;
+    text-decoration: none;
+    outline: none;
+}
+.reset-a:hover,
+.reset-a:active {
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+}
+h4 {
+    color: #00C471;
+    font-family:  'Nanum Gothic', sans-serif;
+    font-weight: bolder;
+    margin-bottom: 20px;
+}
+input[type=search]{
+    border : 2px solid black;
+    outline : none;
+}
+input[type=submit]{
+    border : 0px;
+    background-color: #00C471;
+    font-family:  'Nanum Gothic', sans-serif;
+    font-weight: bolder;
+    color : white;
+}
+input:focus {
+    outline: none;
+}
+.forbidden{
+    display: none;
+}
+
+/* 타블렛 */
+@media screen and (max-width:1023px) {
+    #admin_box{
+        width: 100vw;
+        margin-top:0;
+    }
+    .forbidden{
+        display: block;
+    }
+    #admin_menu{
+        display: none;
+    }
+    #Show1{
+        display: none;
+    }
+}

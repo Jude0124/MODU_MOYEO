@@ -23,6 +23,7 @@
 	<div id="write_box">
 		<div class="title">
 			<img src="/img/main/logo.png">
+			<img src="/img/main/write.png">
 		</div>
 
 		<form class="form-group" id="writeForm" name="writeForm" method="post" action="/boardWriteOK">
