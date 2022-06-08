@@ -37,7 +37,6 @@ public class UserController {
     public String userLogin(@Validated LoginDTO loginDTO, BindingResult bindingResult,
                             HttpServletRequest request) {
         if (bindingResult.hasErrors()) {
-            System.out.println(bindingResult.hasErrors());
             bindingResult.addError(new FieldError("loginError", "loginError", "아이디 또는 비밀번호를 입력해주세요."));
             return "user/login";
         }
@@ -109,7 +108,6 @@ public class UserController {
     @PostMapping("/findId")
     @ResponseBody
     public String findIdByParam(@RequestParam String email){
-        System.out.println(email);
         String message = userServiceImpl.findIdByEmail(email);
 
         return "<script>"
@@ -145,7 +143,7 @@ public class UserController {
             String mailProtocol = "smtp";
             String mailHost = "smtp.naver.com";
             String mailPort = "587";
-            String mailId = "momo5684268"; // 네이버계정
+            String mailId = "momo5684268"; // 네q이버계정
             String mailPassword = "momoommo2022^"; // 네이버계정 비밀번호
 
             String fromName = "모두모여";
@@ -198,21 +196,29 @@ public class UserController {
 
 
     @PostMapping("/findPw/reset")
-    public String resetPw() {
+    public String resetPw(HttpServletRequest request ,Model model) {
+        String email = request.getParameter("email");
+        model.addAttribute("email",email);
+
         return "user/find_pw_reset";
     }
 
     @PostMapping("/changePw")
-    public String changePw() {
-        return "redirect:/";
+    @ResponseBody
+    public String changePw(HttpServletRequest request) {
+        String email = request.getParameter("email");
+        String PW = request.getParameter("password");
+        userServiceImpl.changePW(email, PW);
+        return "<script>" +
+                "alert(\"비밀번호변경이 완료되었습니다.\");" +
+                "location.href = \"/\";" +
+                "</script>";
     }
 
     @GetMapping("/personalInfo")
     public String goPersonalInfo(@SessionAttribute(name = SessionConst.LOGIN_USER, required = false) UserVO loginUser, Model model) {
         UserVO userInfo = userServiceImpl.getUser(loginUser);
         model.addAttribute("userInfo", userInfo);
-        System.out.println(userInfo.getId());
-
         return "user/personal_info";
     }
 

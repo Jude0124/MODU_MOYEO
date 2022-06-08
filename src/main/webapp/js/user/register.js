@@ -390,7 +390,7 @@ function nicknameCheck() {
     ]
 
     const random1 = Math.floor(Math.random()*185);
-    console.log(random1);
+
     const random2 = Math.floor(Math.random()*2437);
 
     $("#nickname").val(front[random1] + " " + back[random2]);

@@ -33,7 +33,6 @@ public class CommentController {
 
     @GetMapping("/commentDel")
     public int commentDel(Integer comment_no) {
-        System.out.println("no: " + comment_no);
         return service.commentDel(comment_no);
     }
 

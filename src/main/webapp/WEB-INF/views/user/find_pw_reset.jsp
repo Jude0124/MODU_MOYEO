@@ -51,11 +51,11 @@
         </div>
 
         <div class="find_menu">
-            <div style="background:#00C471;">
-                <a href="/findId" style="color:#fff; font-weight:bold;">아이디 찾기</a>
+            <div >
+                <a href="/findId" >아이디 찾기</a>
             </div>
-            <div>
-                <a href="/findPw">비밀번호 찾기 </a>
+            <div style="background:#00C471;">
+                <a href="/findPw" style="color:#fff; font-weight:bold;">비밀번호 찾기 </a>
             </div>
         </div>
 
@@ -64,7 +64,7 @@
             <h5>새로운 비밀번호를 입력해주세요.</h5>
 
             <form method="post" action="/changePw" id="form_change_pw">
-                <input type="hidden" value="${userId}" name="id" id="id">
+                <input type = "hidden" name = "email" value = ${email}>
                 <input type="password" class="find-input" name="password" id="form_pw"
                        placeholder="새 비밀번호">
 
