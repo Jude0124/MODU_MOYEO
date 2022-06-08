@@ -89,7 +89,8 @@ html, body {
     right: 0;
     top: 0;
 }
-#form_email, #emailCode{
+#form_email, #emailCode,
+#form_pw, #form_pw2{
     width: 288px;
     height: 40px;
     margin-bottom: 15px;
@@ -133,7 +134,8 @@ html, body {
         font-size: 10px;
     }
 
-    #form_email, #emailCode{
+    #form_email, #emailCode,
+    #form_pw, #form_pw2{
         width: 200px;
     }
     .email_box{
