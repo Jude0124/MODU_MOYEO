@@ -32,6 +32,25 @@
     </insert>
 
     <delete id="contentDelete">
-        delete from board where no = #{no}
+        delete from board where no = #{no};
     </delete>
+
+    <delete id="parDelete">
+        delete from participate where no = #{no}
+    </delete>
+
+    <insert id="participateInsert" parameterType="com.Modoomoyeo.momo.board.BoardVO">
+        INSERT INTO participate(no, nickname)
+        VALUES (#{no}, #{nickname})
+    </insert>
+
+    <delete id="participateCancel">
+        delete from participate where nickname = #{nickname} and no = #{no}
+    </delete>
+
+    <select id="participateList" resultType="com.Modoomoyeo.momo.board.BoardVO">
+        select no, nickname from participate
+    </select>
+
+
 </mapper>

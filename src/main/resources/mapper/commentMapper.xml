@@ -12,7 +12,7 @@
 
     <insert id="commentWrite">
         insert into comment (no, nickname, comment, time)
-        values (#{no}, (select nickname from user where id=#{id}), #{comment}, now())
+        values (#{no}, (select nickname from user where id=#{id}), #{comment}, #{time})
     </insert>
 
     <delete id="commentDel">

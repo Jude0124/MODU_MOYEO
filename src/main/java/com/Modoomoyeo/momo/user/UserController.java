@@ -2,8 +2,9 @@ package com.Modoomoyeo.momo.user;
 
 import com.Modoomoyeo.momo.session.SessionConst;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.annotation.Validated;
@@ -60,12 +61,12 @@ public class UserController {
 
     @PostMapping("/register")   // 회원가입
     public String userRegister(@Validated UserVO userVO, BindingResult bindingResult) {
-        System.out.println(userVO);
         if (bindingResult.hasErrors()) {
             return "user/register";
         }
         userServiceImpl.joinUser(userVO);
-        return "redirect:/";
+
+        return "redirect:/login";
     }
 
     @PostMapping("/register/idDuplicateCheck")
@@ -92,17 +93,21 @@ public class UserController {
     @GetMapping("/findId")
     public ModelAndView findId() {
         ModelAndView mav = new ModelAndView();
-
         mav.setViewName("user/find_id");
         return mav;
     }
 
-    @PostMapping("/findId/{param}")
-    public ModelAndView findIdByParam(@PathVariable String param) {
-        ModelAndView mav = new ModelAndView();
-        /* param에 따라 구분하여 id 찾는 로직 구현 필요 */
-        mav.setViewName("user/find_id_result");
-        return mav;
+    @PostMapping("/findId")
+    @ResponseBody
+    public String findIdByParam(@RequestParam String email){
+        System.out.println(email);
+        String message = userServiceImpl.findIdByEmail(email);
+
+        return "<script>"
+                +"alert(\"" +message +"\");"
+                +"history.back();"
+                +"</script>";
+
     }
 
     @GetMapping("/findPw")
@@ -186,6 +191,9 @@ public class UserController {
     public ModelAndView resetPw() {
         ModelAndView mav = new ModelAndView();
 
+    @PostMapping("/findPw/reset")
+    public ModelAndView resetPw() {
+        ModelAndView mav = new ModelAndView();
         mav.setViewName("user/find_pw_reset");
         return mav;
     }
@@ -212,6 +220,21 @@ public class UserController {
         userServiceImpl.updateUser(userVO);
         mav.setViewName("user/personal_info");
         return "redirect:/personalInfo";
+    }
+
+    @PostMapping("/deleteUser")
+    public ResponseEntity<String> deleteUser(@RequestParam String userId, HttpServletRequest request) {
+        userServiceImpl.deleteUser(userId);
+
+        HttpSession session = request.getSession(false);
+        if (session != null) {
+            session.invalidate();
+        }
+
+        ResponseEntity<String> entity = null;
+        String msg = "<script>alert('정상적으로 탈퇴되었습니다.'); location.href='/';</script>";
+        entity = new ResponseEntity<String>(msg, HttpStatus.OK);
+        return entity;
     }
 }
 

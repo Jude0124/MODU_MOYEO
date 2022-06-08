@@ -40,7 +40,26 @@ public class BoardServiceImpl implements BoardService{
     public int contentDelete(Integer no) {
         return dao.contentDelete(no);
     }
+
+    @Override
+    public int parDelete(Integer no) {
+        return dao.parDelete(no);
+    }
 //    private final BoardDAO dao;
+
+    @Override
+    public int participateInsert(BoardVO bvo) {
+        return dao.participateInsert(bvo);
+    }
+
+    @Override
+    public int participateCancel(String nickname, int no) { return dao.participateCancel(nickname, no); }
+
+    @Override
+    public List<BoardVO> participateList(BoardPagingVO bpvo) {
+        return dao.participateList(bpvo);
+    }
+
 
 //
 //

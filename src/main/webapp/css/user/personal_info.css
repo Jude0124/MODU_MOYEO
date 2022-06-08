@@ -71,6 +71,21 @@ html, body {
     font-weight: 700;
     line-height: 60px;
     border-radius: 5px;
+    cursor: pointer;
+}
+.btn_delete{
+    margin-top: 50px;
+    width: 100px;
+    height: 30px;
+    background: #c41500;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 30px;
+    border-radius: 5px;
+    float: right;
+    cursor: pointer;
 }
 .msgError{
     width: calc(100% - 120px);
@@ -103,6 +118,7 @@ html, body {
     position: absolute;
     right: 0;
     top: 0;
+    cursor: pointer;
 }
 
 /* 타블렛 */
@@ -124,7 +140,12 @@ html, body {
     .btn_edit{
         width: 300px;
     }
-
+    .btn_delete{
+        width: 100px;
+    }
+    #email{
+        width: 190px;
+    }
     .title img:nth-child(1){
         display: none;
     }

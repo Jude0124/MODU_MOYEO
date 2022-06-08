@@ -20,6 +20,7 @@
     <div id="find_box">
         <div class="title">
             <img src="/img/main/logo.png">
+            <img src="/img/user/find.png">
         </div>
 
         <div class="find_menu">
@@ -34,7 +35,7 @@
         <div class="find-clean">
             <h1>아이디 찾기</h1>
             <h5>아이디는 가입시 입력하신 이메일을 통해 찾을 수 있습니다.</h5>
-            <form method="post" action="/findId/byEmail">
+            <form method="post" action="/findId">
                 <input type="email" id="form_email" name="email" placeholder="이메일"/>
                 <button class="find_btn" type="submit">찾기</button>
             </form>

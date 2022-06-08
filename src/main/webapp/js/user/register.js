@@ -1,10 +1,10 @@
 $(()=>{
     /* id, email input 값 변경 시 중복체크한 내용 사라짐 */
     $("#userId").change(function(){
-        $('#idCheckResult').val('')
+        $('#idCheckResult').val('');
     });
     $("#email").change(function(){
-        $('#emailCheckResult').val('')
+        $('#emailCheckResult').val('');
     });
 
     /* form submit 유효성 체크 */
@@ -153,10 +153,10 @@ function idCheck() {
             success: function(result) {
                 if(result.toString()==="false") {
                     error[0].style.display = "none";
-                    alert('사용 가능한 ID입니다.')
-                    $('#idCheckResult').val('success')
+                    alert('사용 가능한 ID입니다.');
+                    $('#idCheckResult').val('success');
                 } else{
-                    alert('이미 사용중인 ID입니다. 다른 ID를 입력해주세요.')
+                    alert('이미 사용중인 ID입니다. 다른 ID를 입력해주세요.');
                 }
             },
             error: function (request, status, error) {
@@ -407,10 +407,10 @@ function nicknameCheck() {
         success: function(result) {
             if(result.toString()==="false") {
                 error[3].style.display = "none";
-                alert('사용 가능한 닉네임입니다.')
-                $('#nicknameCheckResult').val('success')
+                $('#nicknameCheckResult').val('success');
             } else{
-                alert('이미 사용중인 닉네임입니다. 다른 닉네임을 설정해주세요.')
+                alert('이미 사용중인 닉네임입니다. 다른 닉네임을 설정해주세요.');
+                $('#nicknameCheckResult').val('');
             }
         },
         error: function (request, status, error) {
@@ -444,10 +444,10 @@ function emailCheck() {
             success: function(result) {
                 if(result.toString()==="false") {
                     error[4].style.display = "none";
-                    alert('사용 가능한 이메일입니다.')
-                    $('#emailCheckResult').val('success')
+                    alert('사용 가능한 이메일입니다.');
+                    $('#emailCheckResult').val('success');
                 } else{
-                    alert('이미 사용중인 이메일입니다. 다른 이메일을 입력해주세요.')
+                    alert('이미 사용중인 이메일입니다. 다른 이메일을 입력해주세요.');
                 }
             },
             error: function (request, status, error) {
