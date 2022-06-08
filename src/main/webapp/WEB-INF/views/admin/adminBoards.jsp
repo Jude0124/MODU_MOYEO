@@ -66,6 +66,7 @@
                         <a href="/adminBoards" style="color: #00C471;">게시글 관리</a>
                     </h4>
                 </div>
+              
                 <form action="/adminBoards" method="get" id="searchFrm" style="width: 800px;">
                     <div class="d-flex justify-content-start">
                         <select name="searchKey" style="width: 80px; text-align: center;">
@@ -90,20 +91,22 @@
                         <form method="post" action="/adminBoardsDel" class="listMenuFrm">
                             <ul class="listMenu">
                                 <li style="width:5%; border-bottom: 3px solid #ddd;">&nbsp;</li>
-                                <li style="width:19%; border-bottom: 3px solid #ddd;">글제목</li>
-                                <li style="width:19%; border-bottom: 3px solid #ddd;">지역</li>
-                                <li style="width:19%; border-bottom: 3px solid #ddd;">작성자</li>
-                                <li style="width:19%; border-bottom: 3px solid #ddd;">작성일</li>
-                                <li style="width:19%; border-bottom: 3px solid #ddd;">최대인원</li>
+                                <li style="width:10%; border-bottom: 3px solid #ddd;">글번호</li>
+                                <li style="width:17%; border-bottom: 3px solid #ddd;">글제목</li>
+                                <li style="width:17%; border-bottom: 3px solid #ddd;">지역</li>
+                                <li style="width:17%; border-bottom: 3px solid #ddd;">작성자</li>
+                                <li style="width:17%; border-bottom: 3px solid #ddd;">작성일</li>
+                                <li style="width:17%; border-bottom: 3px solid #ddd;">최대인원</li>
 
                                 <div class="listMenuFE">
                                     <c:forEach var="vo" items="${adminBoardList}">
-                                        <li style="width:5%;" class="text-center"><input type='checkbox' name='noList' value='${vo.no}' class="chk"/></li>
-                                        <li style="width:19%;" class="text-center">${vo.title}</li>
-                                        <li style="width:19%;" class="text-center">${vo.region}</li>
-                                        <li style="width:19%;" class="text-center">${vo.nickname}</li>
-                                        <li style="width:19%;" class="text-center">${vo.time}</li>
-                                        <li style="width:19%;" class="text-center">${vo.max}</li>
+                                      <li style="width:5%;" class="text-center"><input type='checkbox' name='noList' value='${vo.no}' class="chk"/></li>
+                                      <li style="width:10%;" class="text-center">${vo.no}</li>
+                                      <li style="width:17%;" class="text-center">${vo.title}</li>
+                                      <li style="width:17%;" class="text-center">${vo.region}</li>
+                                      <li style="width:17%;" class="text-center">${vo.nickname}</li>
+                                      <li style="width:17%;" class="text-center">${vo.time}</li>
+                                      <li style="width:17%;" class="text-center">${vo.max}</li>
                                     </c:forEach>
                                 </div>
                             </ul>
