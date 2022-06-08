@@ -54,6 +54,12 @@ html, body {
     padding: 10px;
 
 }
+.email_box{
+    width: 100%;
+    height: 40px;
+    margin: 10px 0 15px;
+    position: relative;
+}
 .btn_edit{
     margin-top: 30px;
     width: 518px;
@@ -65,6 +71,21 @@ html, body {
     font-weight: 700;
     line-height: 60px;
     border-radius: 5px;
+    cursor: pointer;
+}
+.btn_delete{
+    margin-top: 50px;
+    width: 100px;
+    height: 30px;
+    background: #c41500;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 30px;
+    border-radius: 5px;
+    float: right;
+    cursor: pointer;
 }
 .msgError{
     width: calc(100% - 120px);
@@ -78,6 +99,27 @@ html, body {
     pointer-events: none;
 }
 
+#email{
+    margin: 0;
+    width: 410px;
+    position: absolute;
+    left: 0;
+}
+
+.checkBtn{
+    float: right;
+    background: #00C471;
+    color: #fff;
+    width: 108px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    box-sizing:border-box;
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+}
 
 /* 타블렛 */
 @media screen and (max-width:1023px) {
@@ -98,7 +140,12 @@ html, body {
     .btn_edit{
         width: 300px;
     }
-
+    .btn_delete{
+        width: 100px;
+    }
+    #email{
+        width: 190px;
+    }
     .title img:nth-child(1){
         display: none;
     }

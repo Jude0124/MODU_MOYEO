@@ -13,6 +13,7 @@ public interface UserDAO extends JpaRepository<UserVO, String> {
 
     @Query(value = "SELECT a FROM UserVO a WHERE a.id = :id")
     UserVO findByUserId(@Param("id") String id);
-
+    UserVO findByNickname(String nickname);
     UserVO findByEmail(String email);
+
 }

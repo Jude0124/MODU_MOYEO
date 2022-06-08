@@ -27,6 +27,9 @@ html, body {
     width: 200px;
     margin: 0 auto 30px;
 }
+.title img:nth-child(2){
+    display: none;
+}
 .find_menu{
     width: 100%;
     height: 40px;
@@ -107,4 +110,57 @@ html, body {
     line-height: 40px;
     border-radius: 5px;
     margin-bottom: 30px;
+}
+
+/* 타블렛 */
+@media screen and (max-width:1023px) {
+}
+
+/* 모바일 */
+@media screen and (max-width:767px) {
+    #find_box{
+        width: 300px;
+        margin-top: 0;
+    }
+    .find_menu, .find-clean{
+        width: 300px;
+    }
+
+    .find-clean h1{
+       font-size: 20px;
+    }
+    .find-clean h5{
+        font-size: 10px;
+    }
+
+    #form_email, #emailCode{
+        width: 200px;
+    }
+    .email_box{
+        width: 242px;
+    }
+    #form_email2{
+        width: 118px;
+    }
+    #emailAuthReqBtn{
+        width: 82px;
+        font-size: 70%;
+    }
+    .find_btn{
+        width: 242px;
+    }
+    .find-clean>form input::-webkit-input-placeholder { font-size: 80%; }
+    .find-clean>form input::-moz-placeholder { font-size: 80%; }
+    .find-clean>form input:-ms-input-placeholder { font-size: 80%; }
+    .find-clean>form input:-moz-placeholder { font-size: 80%; }
+    .find-clean>form input::placeholder { font-size: 80%; }
+
+    .title img:nth-child(1){
+        display: none;
+    }
+    .title img:nth-child(2){
+        display: block;
+        width: 240px;
+        margin-bottom: 50px;
+    }
 }

@@ -43,12 +43,20 @@ public class UserServiceImpl implements UserService {
         return "false";
     }
 
+    public String nicknameDuplicateCheck(String nickname) {
+        if (userDAO.findByNickname(nickname)!=null){
+            return "true";
+        }
+        return "false";
+    }
+
     public String emailDuplicateCheck(String email) {
         if (userDAO.findByEmail(email)!=null){
             return "true";
         }
         return "false";
     }
+
 
     public String findIdByEmail(String email){
         String message;
@@ -58,5 +66,18 @@ public class UserServiceImpl implements UserService {
             message = "해당 이메일로 등록된 아이디가 존재하지않습니다.";
         }
         return message;
+
+    public UserVO getUser(UserVO loginUser) {
+        return userDAO.findByUserId(loginUser.getId());
+    }
+    @Transactional
+    public void updateUser(UserVO userVO) {
+        if (userDAO.findByUserId(userVO.getId()) != null)
+            userDAO.save(userVO);
+    }
+
+    public void deleteUser(String userId) {
+        userDAO.delete(userDAO.findByUserId(userId));
+
     }
 }
