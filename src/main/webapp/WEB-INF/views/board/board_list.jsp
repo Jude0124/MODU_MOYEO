@@ -439,6 +439,7 @@
             </div>
 
             <jsp:useBean id="now" class="java.util.Date" />
+            <fmt:setLocale value="ko_kr"/>
             <fmt:formatDate value="${now}" pattern="yyyy-MM-dd" var="today" />
 
             <c:forEach var="vo" items="${list}">
