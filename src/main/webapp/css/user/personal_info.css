@@ -3,14 +3,14 @@
 @import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
 /* 데스크탑 */
-#register * {
+#personal_info * {
     font-family: 'Nanum Gothic', sans-serif;
 }
 html, body {
     margin: 0;
     height: 100%
 }
-#register{
+#personal_info{
     height: auto !important;
     min-height: calc(100vh - 180px);
     padding-top: 50px;
@@ -18,7 +18,7 @@ html, body {
     overflow: auto;
 }
 
-#register_box{
+#personal_info_box{
     text-align: center;
     width: 520px;
     margin: 20px auto 100px;
@@ -32,7 +32,7 @@ html, body {
     display: none;
 }
 
-#signUp-form{
+#personal_info-form{
     border: 1px solid transparent;
     border-radius: 4px;
     width: 520px;
@@ -40,7 +40,7 @@ html, body {
     margin: 0 auto;
     text-align: left;
 }
-#signUp-form label{
+#personal_info-form label{
     font-size: 18px;
     font-weight: 700;
 }
@@ -54,32 +54,7 @@ html, body {
     padding: 10px;
 
 }
-.id_box, .nick_box, .email_box{
-    width: 100%;
-    height: 40px;
-    margin: 10px 0 15px;
-    position: relative;
-}
-#userId, #nickname, #email{
-    margin: 0;
-    width: 410px;
-    position: absolute;
-    left: 0;
-}
-.checkBtn{
-    float: right;
-    background: #00C471;
-    color: #fff;
-    width: 108px;
-    height: 40px;
-    border: none;
-    border-radius: 5px;
-    box-sizing:border-box;
-    position: absolute;
-    right: 0;
-    top: 0;
-}
-.btn_register{
+.btn_edit{
     margin-top: 30px;
     width: 518px;
     height: 60px;
@@ -98,6 +73,11 @@ html, body {
     display: none;
 }
 
+#userId, #nickname{
+    border: none;
+    pointer-events: none;
+}
+
 
 /* 타블렛 */
 @media screen and (max-width:1023px) {
@@ -106,19 +86,16 @@ html, body {
 
 /* 모바일 */
 @media screen and (max-width:767px) {
-    #register_box{
+    #personal_info_box{
         width: 300px;
     }
-    #signUp-form{
+    #personal_info-form{
         width: 300px;
-    }
-    #userId, #nickname{
-        width: 190px;
     }
     .msgError{
         font-size: 10px;
     }
-    .btn_register{
+    .btn_edit{
         width: 300px;
     }
 
@@ -134,10 +111,10 @@ html, body {
 
 /* 모바일 세로 */
 @media screen and (max-height:900px) {
-    #register{
+    #personal_info{
         min-height: 800px;
     }
-    #register_box{
+    #personal_info_box{
         top: 40%;
     }
 }

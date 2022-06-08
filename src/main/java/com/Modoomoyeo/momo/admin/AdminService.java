@@ -8,4 +8,5 @@ public interface AdminService {
 //    public int totalRecordUser();
 //    public List<UserVO> adminUsers();
 //    public int adminUsersDel(UserVO uvo);
+
 }

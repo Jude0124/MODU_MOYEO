@@ -25,18 +25,46 @@
     <div class="menu_wrap">
         <nav id="menu">
             <div id="mobile_logo"> <!--  로고 -->
-                <a href="/"><img src="/img/main/logo.png"/></a>
+                <a href="/"><img src="/img/main/logoside.png"/></a>
             </div>
 
             <div id="mo_menu">
-                <div id="login_box_footer"><a href="/login">로그인</a></div>
-                <div id="signup_box_footer"><a href="/register">회원가입</a></div>
+                <c:if test="${sessionScope.loginUser==null}">
+                    <div id="login_box_footer">
+                        <img src="/img/main/login_icon.png"/>
+                        <div>
+                            <a href="/login">로그인</a>
+                        </div>
+                    </div>
+                    <div id="signup_box_footer">
+                        <img src="/img/main/signup_icon.png"/>
+                        <div>
+                            <a href="/register">회원가입</a>
+                        </div>
+                    </div>
+                </c:if>
+                <c:if test="${sessionScope.loginUser!=null}">
+                    <div id="logout_box_footer">
+                        <img src="/img/main/logout_icon.png"/>
+                        <div>
+                            <a href="/logout">로그아웃</a>
+                        </div>
+                    </div>
+                    <div id="mypage_box_footer">
+                        <img src="/img/main/mypage_icon.png"/>
+                        <div>
+                            <a href="/personalInfo">내 정보</a>
+                        </div>
+                    </div>
+                </c:if>
             </div>
 
-            <form id="mobile_search_box">
-                <input type="text" placeholder="검색 지역을 입력해 주세요"/>
-                <button>검색</button>
-            </form>
+
+<%--            <form id="mobile_search_box">--%>
+<%--                <input type="text" placeholder="검색 지역을 입력해 주세요"/>--%>
+<%--                <button>검색</button>--%>
+<%--            </form>--%>
+
 
             <hr/>
 
