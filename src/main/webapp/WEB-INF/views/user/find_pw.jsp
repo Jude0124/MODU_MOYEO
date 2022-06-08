@@ -43,7 +43,6 @@
                             dataType: "json",
                             contentType: "application/json; charset=UTF-8",
                             success: function (result) {
-                                console.log(result)
                                 answer = result;
                                 alert('해당 이메일 주소로 인증번호가 발송되었습니다.');
 

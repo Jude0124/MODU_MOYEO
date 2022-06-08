@@ -23,14 +23,6 @@ public class UserServiceImpl implements UserService {
         return checkUser;
     }
 
-    public UserVO findID(String email){
-        UserVO userInfo = userDAO.findByEmail(email);
-
-        if (userInfo == null){
-            return null;
-        }
-        return userInfo;
-    }
 
 
     public String idDuplicateCheck(String id) {
@@ -79,5 +71,14 @@ public class UserServiceImpl implements UserService {
     public void deleteUser(String userId) {
         userDAO.delete(userDAO.findByUserId(userId));
 
+    }
+
+    public void changePW(String email, String pw) {
+        UserVO userInfo = userDAO.findByEmail(email);
+        if (userInfo == null){
+            return;
+        }
+        userInfo.setPassword(pw);
+        this.updateUser(userInfo);
     }
 }

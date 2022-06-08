@@ -121,7 +121,7 @@
             }else $('#checkEmailChange').val('');
 
             if ($('#region').val() !== "${userInfo.region}"){
-                console.log($('#region').val() )
+
                 $('#checkRegionChange').val('false');
             }else $('#checkRegionChange').val('');
         } );
