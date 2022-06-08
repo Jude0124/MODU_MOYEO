@@ -181,7 +181,7 @@ html, body {
     font-weight: bold;
     float: left;
 }
-.par_btn{
+.par_btn, #par_btn_null{
     background: #00C471;
     color: #fff;
     font-weight: 700;
@@ -192,6 +192,7 @@ html, body {
     margin-top: 10px;
     text-align: center;
     border: none;
+    cursor: pointer;
 }
 .cancel_btn{
     display: none;

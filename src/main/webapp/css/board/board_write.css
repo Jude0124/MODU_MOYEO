@@ -29,6 +29,9 @@ html, body {
     width: 200px;
     margin: 50px auto 30px;
 }
+.title img:nth-child(2){
+    display: none;
+}
 .nick_icon{
     background: #ff3b8e;
     border-radius: 50%;
@@ -58,7 +61,11 @@ html, body {
     line-height: 35px;
     background: transparent;
     width: auto;
+    max-width: calc(800px - 100px);
     pointer-events: none;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
 }
 #boardNickname{
     font-size: 18px;
@@ -131,4 +138,30 @@ html, body {
     height: 30px;
     line-height: 30px;
     text-align: center;
+}
+
+
+/* 타블렛 */
+@media screen and (max-width:1023px) {
+    #write_box{
+        width: 100vw;
+        top: 50%;
+        margin-top:0;
+    }
+    .title img:nth-child(1){
+        display: none;
+    }
+    .title img:nth-child(2){
+        display: block;
+        width: 130px;
+        margin-bottom: 50px;
+    }
+    #boardNickname,
+    #boardRegion{
+        max-width: calc(100vw - 100px);
+    }
+}
+
+/* 모바일 */
+@media screen and (max-width:767px) {
 }

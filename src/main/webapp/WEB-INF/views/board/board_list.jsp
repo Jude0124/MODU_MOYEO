@@ -23,9 +23,15 @@
             location.href="/board/contentDel?no="+no;
         }
     }
-
+    function need_login(){
+        alert("로그인이 필요한 서비스입니다");
+    }
 
     $(document).ready(function(){
+        $("button[id='par_btn_null']").click(function(){
+            alert("로그인이 필요한 서비스입니다");
+        })
+
         var leng = $("div[class='list_select']").length;
         var listarr = new Array(leng);
         var maxarr = new Array(leng);
@@ -40,7 +46,8 @@
             for(var j=0; j<nownum; j++) {
                 var participate_btn = document.getElementById("participate_btn"+listarr[i]);
                 var cancel_btn = document.getElementById("cancel_btn"+listarr[i]);
-                if($(".par_who"+ listarr[i] + " > li").eq(0).attr('class') === session_nickname){
+
+                if($(".par_who"+ listarr[i] + " > li").eq(j).attr('class') === session_nickname){
                     participate_btn.style.display='none';
                     cancel_btn.style.display='block';
                 }
@@ -358,7 +365,7 @@
                 <a href="/boardWrite" id="writeBtn" >글쓰기</a>
             </c:if>
             <c:if test="${sessionScope.loginUser==null}">
-                <a href="#" id="writeBtn" style="opacity: 0.5; cursor: default;" >글쓰기</a>
+                <a href="#" id="writeBtn" style="opacity: 0.5;" onclick="need_login()">글쓰기</a>
             </c:if>
         </div>
     </div>
@@ -483,7 +490,7 @@
                                 <b>${vo.nickname}</b><br/>
                                 <span class="content_time">${vo.time}</span>
                                 <c:if test="${sessionScope.loginUser.getNickname() == vo.nickname}">
-                                    <a class="content_edit_del" href="javascript:contentDelChk('${vo.no}')" style="color: #b1b1b1;">삭제</a>
+                                    <a class="content_edit_del" href="javascript:contentDelChk('${vo.no}')"href="javascript:contentDelChk('${vo.no}')" style="color: #b1b1b1;">삭제</a>
                                 </c:if>
 
                             </div>
@@ -498,21 +505,27 @@
                             <div class="participate_view_top">
                                 <span class="par_num">참여인원 : <span class="parnum${vo.no}"></span> / ${vo.max}</span>
 
+
                                     <div class="participate_cancel">
-                                        <form action="/participateInsert" method="post" id="participateInsert${vo.no}" name="participateInsert">
-                                            <input type="hidden" id="no" name="no" value="${vo.no}">
-                                            <input type="hidden" id="participatenickname" name="nickname" value="${userInfo.nickname}" />
-                                            <button class="participate_btn par_btn" id="participate_btn${vo.no}" type="submit" onclick="if(!confirm('참여하시겠습니까?')){return false;}" >
-                                                참여하기
-                                            </button>
-                                        </form>
-                                        <form action="/participateCancel" method="post" id="participateCancel" name="participateCancel">
-                                            <input type="hidden" id="cancelno" name="no" value="${vo.no}" />
-                                            <input type="hidden" id="cancelnickname" name="nickname" value="${userInfo.nickname}" />
-                                            <button class="cancel_btn par_btn" id="cancel_btn${vo.no}" type="submit" onclick="if(!confirm('취소하시겠습니까?')){return false;}">
-                                                참여취소
-                                            </button>
-                                        </form>
+                                        <c:if test="${sessionScope.loginUser==null}">
+                                            <button id="par_btn_null" style="opacity: 0.5;">참여하기</button>
+                                        </c:if>
+                                        <c:if test="${sessionScope.loginUser!=null}">
+                                            <form action="/participateInsert" method="post" id="participateInsert${vo.no}" name="participateInsert">
+                                                <input type="hidden" id="no" name="no" value="${vo.no}">
+                                                <input type="hidden" id="participatenickname" name="nickname" value="${userInfo.nickname}" />
+                                                <button class="participate_btn par_btn" id="participate_btn${vo.no}" type="submit" onclick="if(!confirm('참여하시겠습니까?')){return false;}" >
+                                                    참여하기
+                                                </button>
+                                            </form>
+                                            <form action="/participateCancel" method="post" id="participateCancel" name="participateCancel">
+                                                <input type="hidden" id="cancelno" name="no" value="${vo.no}" />
+                                                <input type="hidden" id="cancelnickname" name="nickname" value="${userInfo.nickname}" />
+                                                <button class="cancel_btn par_btn" id="cancel_btn${vo.no}" type="submit" onclick="if(!confirm('취소하시겠습니까?')){return false;}">
+                                                    참여취소
+                                                </button>
+                                            </form>
+                                        </c:if>
                                     </div>
                             </div>
 
