@@ -179,7 +179,7 @@
                     모집글 관리
                 </h5>
             </div>
-            <form action="/adminBoards" method="get" id="searchFrm">
+            <form action="/adminJoin" method="get" id="searchFrm">
                 <div class="d-flex justify-content-start">
                     <select name="searchKey">
                         <option value="nickname">닉네임</option>
