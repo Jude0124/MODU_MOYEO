@@ -112,16 +112,23 @@
 
             $(".reply_form" + idName).submit(function(){
                 event.preventDefault();
-                const now = new Date();
-                const year = now.getFullYear();
-                const month = now.getMonth()+1;
-                const date = now.getDate();
-                const hours = now.getHours();
-                const minutes = now.getMinutes();
-                const seconds = now.getSeconds();
 
-                const fulldate = year + "-" + (("0"+month.toString()).slice(-2)) + "-" + (("0"+date.toString()).slice(-2))
-                    + " " + hours + ":" + (("0"+minutes.toString()).slice(-2)) + ":" + (("0"+seconds.toString()).slice(-2));
+                const now = new Date();
+                const utc =
+                    now.getTime() +
+                    (now.getTimezoneOffset() * 60 * 1000);
+                const KR_TIME_DIFF = 9 * 60 * 60 * 1000;
+                const kr_curr =
+                    new Date(utc + (KR_TIME_DIFF));
+                const year = kr_curr.getFullYear();
+                const month = kr_curr.getMonth()+1;
+                const date = kr_curr.getDate();
+                const hours = kr_curr.getHours();
+                const minutes = kr_curr.getMinutes();
+                const seconds = kr_curr.getSeconds();
+
+                const fulldate = year + "-" + (("00"+month.toString()).slice(-2)) + "-" + (("00"+date.toString()).slice(-2))
+                    + " " + (("00"+hours.toString()).slice(-2)) + ":" + (("00"+minutes.toString()).slice(-2)) + ":" + (("00"+seconds.toString()).slice(-2));
 
                 $("#commentTime"  + idName).val(fulldate);
 
@@ -450,9 +457,6 @@
 
                     <c:set var = "time" value="${vo.time}"/>
                     <c:choose>
-                        <c:when test="${fn:substring(time, 12, 13) == ':'}">
-                            <li>0${fn:substring(time, 11, 15)}</li>
-                        </c:when>
                         <c:when test="${fn:startsWith(time, today)}">
                             <li>${fn:substring(time, 11, 16)}</li>
                         </c:when>
