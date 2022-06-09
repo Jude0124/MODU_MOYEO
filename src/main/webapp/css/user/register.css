@@ -1,25 +1,27 @@
+@charset "UTF-8";
+
 @import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
 /* 데스크탑 */
 #register * {
     font-family: 'Nanum Gothic', sans-serif;
 }
-
+html, body {
+    margin: 0;
+    height: 100%
+}
 #register{
-    height: calc(100vh - 450px);
-    padding-top: 150px;
-    padding-bottom: 150px;
-    position: relative;
+    height: auto !important;
+    min-height: calc(100vh - 180px);
+    padding-top: 50px;
+    padding-bottom: 50px;
     overflow: auto;
 }
 
 #register_box{
     text-align: center;
     width: 520px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin: 20px auto 100px;
 }
 .title img{
     width: 200px;
@@ -52,13 +54,13 @@
     padding: 10px;
 
 }
-.id_box, .nick_box{
+.id_box, .nick_box, .email_box{
     width: 100%;
     height: 40px;
     margin: 10px 0 15px;
     position: relative;
 }
-#userId, #nickname{
+#userId, #nickname, #email{
     margin: 0;
     width: 410px;
     position: absolute;
@@ -76,6 +78,8 @@
     position: absolute;
     right: 0;
     top: 0;
+    text-align: center;
+    line-height: 40px;
 }
 .btn_register{
     margin-top: 30px;
@@ -106,11 +110,12 @@
 @media screen and (max-width:767px) {
     #register_box{
         width: 300px;
+        margin-top: 0;
     }
     #signUp-form{
         width: 300px;
     }
-    #userId, #nickname{
+    #userId, #nickname, #email{
         width: 190px;
     }
     .msgError{

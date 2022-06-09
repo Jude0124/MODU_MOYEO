@@ -24,4 +24,5 @@ public interface AdminService {
     public int totalRecordComment(AdminPagingVO apvo);                  //댓글 페이징
     public List<AdminCommentVO> adminComment(AdminPagingVO apvo);       //댓글 목록
     public int adminCommentDel(AdminCommentVO cvo);                     //댓글 다중삭제
+
 }

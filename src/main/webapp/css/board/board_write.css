@@ -1,0 +1,176 @@
+@charset "UTF-8";
+
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+/* 데스크탑 */
+#write * {
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+html, body {
+    margin: 0;
+    height: 100%
+}
+.write{
+    height: auto !important;
+    min-height: calc(100vh - 180px);
+    padding-top: 50px;
+    padding-bottom: 50px;
+    overflow: auto;
+}
+
+#write_box{
+    text-align: center;
+    width: 800px;
+    margin: 0 auto 100px;
+}
+
+.title img{
+    width: 200px;
+    margin: 50px auto 30px;
+}
+.title img:nth-child(2){
+    display: none;
+}
+.nick_icon{
+    background: #ff3b8e;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    float: left;
+    margin: 10px 10px 0 0;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.write_top{
+    height: 70px;
+    line-height: 35px;
+    box-sizing: border-box;
+    border: 1px solid #d0d0d0;
+    text-align: left;
+    padding: 0 10px;
+    position: relative;
+}
+#boardNickname,
+#boardRegion{
+    border: none;
+    line-height: 35px;
+    background: transparent;
+    width: auto;
+    max-width: calc(800px - 100px);
+    pointer-events: none;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+#boardNickname{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.number_box{
+    position: absolute;
+    bottom: 5px;
+    right: 20px;
+    line-height: 40px;
+    font-weight: bold;
+}
+
+#boardMax{
+    width: 40px;
+    text-align: center;
+    border: none;
+    border-bottom: 1px solid black;
+    padding: 5px;
+}
+.write_bottom{
+    height: 150px;
+    box-sizing: border-box;
+    border-top: none;
+    position: relative;
+}
+#boardTitle{
+    width: 100%;
+    height: 100px;
+    box-sizing: border-box;
+    border: 1px solid #d0d0d0;
+    border-bottom: none;
+    border-top: none;
+    padding: 10px 20px;
+    line-height: 30px;
+    resize: none;
+}
+.btns{
+    box-sizing: border-box;
+    border: 1px solid #d0d0d0;
+    border-top: none;
+    height: 50px;
+    position: relative;
+}
+
+.btn_box{
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+}
+
+#writeBtn{
+    background: #00C471;
+    border: 1px solid #00C471;
+    border-radius: 10px;
+    width: 90px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+    font-weight: 700;
+}
+
+#resetBtn{
+    background: #fff;
+    border: 1px solid #000;
+    border-radius: 10px;
+    width: 90px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+
+
+/* 타블렛 */
+@media screen and (max-width:1023px) {
+    #write_box{
+        width: 100vw;
+        top: 50%;
+        margin-top:0;
+    }
+    .title img:nth-child(1){
+        display: none;
+    }
+    .title img:nth-child(2){
+        display: block;
+        width: 130px;
+        margin-bottom: 50px;
+    }
+    #boardNickname,
+    #boardRegion{
+        max-width: calc(100vw - 100px);
+    }
+    .btn_box{
+        width: 100vw;
+        text-align: right;
+    }
+    .number_box{
+        width: 100vw;
+        text-align: right;
+    }
+
+}
+
+/* 모바일 */
+@media screen and (max-width:767px) {
+}

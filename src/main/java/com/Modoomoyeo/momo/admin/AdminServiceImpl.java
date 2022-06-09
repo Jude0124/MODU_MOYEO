@@ -54,4 +54,5 @@ public class AdminServiceImpl implements AdminService {
     public int adminCommentDel(AdminCommentVO cvo) {                     //댓글 다중삭제
         return dao.adminCommentDel(cvo);
     }
+
 }

@@ -1,5 +1,7 @@
 package com.Modoomoyeo.momo.user;
 
-public interface UserService {
+import org.springframework.stereotype.Service;
 
+@Service
+public interface UserService {
 }
