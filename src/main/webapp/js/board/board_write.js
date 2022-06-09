@@ -19,7 +19,7 @@ $(()=>{
             + " " + (("00"+hours.toString()).slice(-2)) + ":" + (("00"+minutes.toString()).slice(-2)) + ":" + (("00"+seconds.toString()).slice(-2));
 
         $("#boardTime").val(fulldate);
-        console.log(kr_curr);
+        
         if($("#boardMax").val()==''){
             alert('참여인원을 설정해주세요.');
             return false;
