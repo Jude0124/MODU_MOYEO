@@ -70,8 +70,7 @@
                     <div class="d-flex justify-content-start">
                         <select name="searchKey"style="width: 80px; text-align: center;">
                             <option value="nickname">닉네임</option>
-                            <option value="title">제목</option>
-                            <option value="region">지역</option>
+                            <option value="no">번호</option>
                         </select>
                         <input
                                 class="w-auto" type="text" name="searchWord" id="searchWord"
