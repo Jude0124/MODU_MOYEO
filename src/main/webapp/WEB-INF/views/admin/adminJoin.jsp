@@ -183,8 +183,7 @@
                 <div class="d-flex justify-content-start">
                     <select name="searchKey">
                         <option value="nickname">닉네임</option>
-                        <option value="title">제목</option>
-                        <option value="region">지역</option>
+                        <option value="no">번호</option>
                     </select>
                     <input class="w-75" type="text" name="searchWord" id="searchWord" placeholder="삭제시키고자 하는 게시글 정보를 입력해주세요.">
                     <input class="w-25" type="submit" value="찾기" id="userSearch">
