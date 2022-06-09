@@ -1,10 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-
+<html lang="ko" >
 <head>
     <meta charset="UTF-8">
-    <title>admin</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>관리자페이지 - 모두모여</title>
+    <link rel="shorcut icon" type="image/x-icon" href="/img/main/favicon.ico">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -12,107 +16,8 @@
             integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
             crossorigin="anonymous"
     />
+    <link rel="stylesheet" type="text/css" href="/css/admin/adminJoin.css"/>
 
-    <style>
-        .multiDeleteAllCheck{
-            position: relative;
-            left:4%;
-        }
-        a, a:visited, a:link, a:hover{
-            color : black;
-            text-decoration: none;
-        }
-        a:active {
-            color : #00C471;
-        }
-        #searchWord{
-            border: 2px solid black;
-            outline: none;
-        }
-        .paging{
-
-            text-align:center;
-            height: 30px;
-            overflow: auto;
-        }
-        .paging>li{
-            width:30px;
-            display:inline-block;
-        }
-        .paging #prevBtn, .paging #nextBtn {
-            visibility: hidden;
-        }
-        .paging #pagingNumberStyle {
-            background-color:white;font-weight:bold;font-size: 1.1em;
-        }
-        li {
-            margin:0;
-            padding:0;
-            list-style-type: none;
-        }
-        #listMenu{
-            overflow:auto;
-        }
-        .listMenu>li:nth-child(5n+1) {
-            width:8%;
-        }
-        .listMenu>.listMenuFE>li:nth-child(5n+1) {
-            width:8%;
-        }
-        .listMenu>li, .listMenu>.listMenuFE>li{
-            float:left;
-            height: 30px;
-            line-height: 30px;
-            width:23%;
-            text-align: center;/*left*/
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            padding:0px 5px;
-        }
-        .listMenu>li{
-            font-weight: bold;
-        }
-        .listMenu>.listMenuFE>li{
-            font-weight: normal;
-        }
-        body {
-            font-family:  'Nanum Gothic', sans-serif;
-            font-weight: bolder;
-        }
-        .reset-a {
-            color: #fff;
-            text-decoration: none;
-            outline: none;
-        }
-        .reset-a:hover,
-        .reset-a:active {
-            text-decoration: none;
-            color: #fff;
-            cursor: pointer;
-        }
-        h5 {
-            color: #00C471;
-            font-family:  'Nanum Gothic', sans-serif;
-            font-weight: bolder;
-        }
-        input[type=search]{
-            border : 2px solid black;
-            outline : none;
-        }
-        input[type=submit]{
-            border : 0px;
-            background-color: #00C471;
-            font-family:  'Nanum Gothic', sans-serif;
-            font-weight: bolder;
-            color : white;
-        }
-        input:focus {
-            outline: none;
-        }
-
-
-    </style>
     <script>
         $(function(){
 

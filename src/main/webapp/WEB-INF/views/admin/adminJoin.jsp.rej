@@ -1,0 +1,235 @@
+diff a/src/main/webapp/WEB-INF/views/admin/adminJoin.jsp b/src/main/webapp/WEB-INF/views/admin/adminJoin.jsp	(rejected hunks)
+@@ -43,120 +138,132 @@
+     </script>
+ </head>
+ <body>
+-<%@ include file="../main/main_header.jsp" %>
++<div class="container">
++    <div class="row m-4">
++        <div class="col-12"></div>
+ 
+-<div id="admin">
+-
+-    <div id="admin_box">
+-        <div class="title">
+-            <img src="/img/main/logo2.png"/>
+-        </div>
+-        <div class="forbidden">
+-            <h3>해당 기기로는 관리자페이지 접속이 불가합니다.</h3>
++        <div class="col-12 d-flex justify-content-center">
++            <a href="/" class="d-inline-flex justify-content-center align-items-center reset-a" id="brand">
++                <img src="/img/main/logo2.png" style="max-width: 70%; height: auto;">
++            </a>
+         </div>
+-        <div id="admin_menu">
+-            <a href="/admin" style="color:white;" class="Btn1">유저관리</a>
+-            <a href="/adminBoards" style="color:white;" class="Btn2">모집글관리</a>
+-            <a href="/adminComment" style="color:white;" class="Btn3">댓글관리</a>
++
++        <div class="row">
++            <div class="col-3">
++                <ul>
++                    <li class="w-100"  style="height:70px;line-height:70px;text-align:center;border:2px solid black;background-color:#00C471;"><a href="/admin" style="color:white;" class="delBtn">유저관리</a></li>
++                </ul>
++            </div>
++            <div class="col-3">
++                <ul>
++                    <li class="w-100"  style="height:70px;line-height:70px;text-align:center;border:2px solid black;background-color:#00C471;"><a href="/adminBoards" style="color:white;" class="delBtn">모집글관리</a></li>
++                </ul>
++            </div>
++            <div class="col-3">
++                <ul>
++                    <li class="w-100"  style="height:70px;line-height:70px;text-align:center;border:2px solid black;background-color:#00C471;"><a href="/adminJoin" style="color:white;" class="delBtn">참여관리</a></li>
++                </ul>
++            </div>
++            <div class="col-3">
++                <ul>
++                    <li class="w-100"  style="height:70px;line-height:70px;text-align:center;border:2px solid black;background-color:#00C471;"><a href="/adminComment" style="color:white;" class="delBtn">댓글관리</a></li>
++                </ul>
++            </div>
+         </div>
+-        <div id="Show1" class="row mb-3" style="border:1px solid #d0d0d0; padding:10px; width: 800px; height: 530px;">
+-            <div class="col-12 d-flex flex-column justify-content-start" style="height: 500px">
+-                <div style="width: 800px;">
+-                    <h4 style="text-align: left;">
+-                        <a href="/adminJoin" style="color: #00C471;">참여관리</a>
+-                    </h4>
++    </div>
++
++    <div class="row mb-3">
++        <div class="col-12 d-flex flex-column justify-content-start" style="height: 500px">
++            <div>
++                <h5>
++                    모집글 관리
++                </h5>
++            </div>
++            <form action="/adminBoards" method="get" id="searchFrm">
++                <div class="d-flex justify-content-start">
++                    <select name="searchKey">
++                        <option value="nickname">닉네임</option>
++                        <option value="no">번호</option>
++                    </select>
++                    <input class="w-75" type="text" name="searchWord" id="searchWord" placeholder="삭제시키고자 하는 게시글 정보를 입력해주세요.">
++                    <input class="w-25" type="submit" value="찾기" id="userSearch">
++                </div>
++            </form>
++            <div> <%-- class="overflow-auto"--%>
++                <div class="multiDeleteAllCheck">
++                    &nbsp;<input type="checkbox" id="allCheck" />전체선택
++                    <input type="button" value="선택삭제" id="multiDel"/>
+                 </div>
+-                <form action="/adminJoin" method="get" id="searchFrm">
+-                    <div class="d-flex justify-content-start">
+-                        <select name="searchKey"style="width: 80px; text-align: center;">
+-                            <option value="nickname">닉네임</option>
+-                            <option value="title">제목</option>
+-                            <option value="region">지역</option>
+-                        </select>
+-                        <input
+-                                class="w-auto" type="text" name="searchWord" id="searchWord"
+-                                placeholder="전체 참여 검색"
+-                        >
+-                        <input class="w-auto" type="submit" value="찾기" id="userSearch" style="padding:0 15px;">
+-                    </div>
+-                </form>
+-                <div> <%-- class="overflow-auto"--%>
+-                    <div class="multiDeleteAllCheck">
+-                &nbsp;       <input type="checkbox" id="allCheck" />전체선택
+-                        <input type="button" value="선택삭제" id="multiDel"/>
+-                    </div>
+-                    <div style="margin-top:40px;" class="w-100">
+-                        <form method="post" action="/adminJoinDel" class="listMenuFrm">
+-                            <ul class="listMenu">
+-                                <li style="width:5%; border-bottom: 3px solid #ddd;">&nbsp;</li>
+-                                <li style="width:15%; border-bottom: 3px solid #ddd;">모집글번호</li>
+-                                <li style="width:80%;text-align: left; border-bottom: 3px solid #ddd;">닉네임</li>
++                <div class="w-100">
++                    <form method="post" action="/adminJoinDel" class="listMenuFrm">
++                        <ul class="listMenu">
++                            <li style="width:5%;">&nbsp;</li>
++                            <li style="width:10%;">모집글번호</li>
++                            <li style="width:85%;text-align: left;">닉네임</li>
+ 
+-                                <div class="listMenuFE">
+-                                    <c:forEach var="vo" items="${adminJoinList}">
+-                                        <li style="width:5%;" class="text-center"><input type='checkbox' name='noList' value='${vo.no}' class="chk"/></li>
+-                                        <li style="width:15%;" class="text-center">${vo.no}</li>
+-                                        <li style="width:80%;text-align: left;">${vo.nickname}</li>
+-                                    </c:forEach>
+-                                </div>
+-                            </ul>
+-                        </form>
+-                        <ul class="paging">
+-                            <!-- 이전페이지 -->
+-                            <c:if test="${apvo.pageNum==1}">
+-                                <li id="prevBtn">◀</li>
+-                            </c:if>
+-                            <c:if test="${apvo.pageNum>1}">
+-                                <li><a href="/adminJoin?pageNum=${apvo.pageNum-1}
+-                                                <c:if test='${apvo.searchWord!=null}'>
+-                                                &searchKey=${apvo.searchKey}
+-                                                &searchWord=${apvo.searchWord}
+-                                                </c:if>
+-                                            ">
+-                                    ◀</a></li>
+-                            </c:if>
++                            <div class="listMenuFE">
++                                <c:forEach var="vo" items="${adminJoinList}">
++                                    <li style="width:5%;" class="text-center"><input type='checkbox' name='noList' value='${vo.no}' class="chk"/></li>
++                                    <li style="width:10%;" class="text-center">${vo.no}</li>
++                                    <li style="width:85%;text-align: left;">${vo.nickname}</li>
++                                </c:forEach>
++                            </div>
++                        </ul>
++                    </form>
++                    <ul class="paging">
++                        <!-- 이전페이지 -->
++                        <c:if test="${apvo.pageNum==1}">
++                            <li id="prevBtn">◀</li>
++                        </c:if>
++                        <c:if test="${apvo.pageNum>1}">
++                            <li><a href="/adminJoin?pageNum=${apvo.pageNum-1}
++											<c:if test='${apvo.searchWord!=null}'>
++											&searchKey=${apvo.searchKey}
++											&searchWord=${apvo.searchWord}
++											</c:if>
++                                        ">
++                                ◀</a></li>
++                        </c:if>
+ 
+-                            <!-- 페이지번호 -->
+-                            <!-- ${apvo.startPage} ${apvo.startPage+apvo.onePageCount-1}-->
+-                            <c:forEach var="p" begin="${apvo.startPage}" end="${apvo.startPage+apvo.onePageCount-1}">
+-                                <!--  총 페이지수보다 출력할 페이지번호가 작을때 -->
+-                                <c:if test="${p<=apvo.totalPage}">
+-                                    <c:if test="${p==apvo.pageNum}">
+-                                        <li id="pagingNumberStyle">
+-                                    </c:if>
+-                                    <c:if test="${p!=apvo.pageNum}">
+-                                        <li>
+-                                    </c:if>
+-                                    <a href="/adminJoin?pageNum=${p}
+-                                                <c:if test='${apvo.searchWord!=null}'>
+-                                                &searchKey=${apvo.searchKey}
+-                                                &searchWord=${apvo.searchWord}
+-                                                </c:if>">
+-                                            ${p}</a></li>
++                        <!-- 페이지번호 -->
++                        <!-- ${apvo.startPage} ${apvo.startPage+apvo.onePageCount-1}-->
++                        <c:forEach var="p" begin="${apvo.startPage}" end="${apvo.startPage+apvo.onePageCount-1}">
++                            <!--  총 페이지수보다 출력할 페이지번호가 작을때 -->
++                            <c:if test="${p<=apvo.totalPage}">
++                                <c:if test="${p==apvo.pageNum}">
++                                    <li id="pagingNumberStyle">
++                                </c:if>
++                                <c:if test="${p!=apvo.pageNum}">
++                                    <li>
+                                 </c:if>
+-                            </c:forEach>
++                                <a href="/adminJoin?pageNum=${p}
++											<c:if test='${apvo.searchWord!=null}'>
++											&searchKey=${apvo.searchKey}
++											&searchWord=${apvo.searchWord}
++											</c:if>">
++                                        ${p}</a></li>
++                            </c:if>
++                        </c:forEach>
+ 
+-                            <!-- 다음페이지 -->
++                        <!-- 다음페이지 -->
+ 
+-                            <c:if test="${apvo.pageNum == apvo.totalPage}">
+-                                <li id="nextBtn">▶</li>
+-                            </c:if>
+-                            <c:if test="${apvo.pageNum < apvo.totalPage}">
+-                                <li><a href="/adminJoin?pageNum=${apvo.pageNum+1}
+-                                                <c:if test='${apvo.searchWord!=null}'>
+-                                                &searchKey=${apvo.searchKey}
+-                                                &searchWord=${apvo.searchWord}
+-                                                </c:if>">
+-                                    ▶</a></li>
+-                            </c:if>
+-                        </ul>
+-                    </div>
++                        <c:if test="${apvo.pageNum == apvo.totalPage}">
++                            <li id="nextBtn">▶</li>
++                        </c:if>
++                        <c:if test="${apvo.pageNum < apvo.totalPage}">
++                            <li><a href="/adminJoin?pageNum=${apvo.pageNum+1}
++											<c:if test='${apvo.searchWord!=null}'>
++											&searchKey=${apvo.searchKey}
++											&searchWord=${apvo.searchWord}
++											</c:if>">
++                                ▶</a></li>
++                        </c:if>
++                    </ul>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>
+-
+-<%@ include file="../main/main_footer.jsp" %>
+ </body>
+ </html>
++
