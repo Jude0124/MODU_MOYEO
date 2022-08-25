@@ -1,7 +1,11 @@
 <!-- ![header](https://capsule-render.vercel.app/api?color=01a0ff&text=GUKBIT&fontSize=40&type=Waving&height=200&fontColor=FFFFFF&fontAlignY=35) -->
 
 
-<img src="https://user-images.githubusercontent.com/49088112/186560534-2395d008-1f5c-480b-82b7-906d38d0625c.png" align ="center")
+<div align="center">
+<img src="https://user-images.githubusercontent.com/49088112/186560534-2395d008-1f5c-480b-82b7-906d38d0625c.png">
+</div>
+
+<br>
 
 <!-- 프로젝트 URL : www.gukbit.com <br> -->
 <!-- (일시적으로 서버가 중단될 경우 접속이 원할하지 않을 수 있습니다.) -->
@@ -44,7 +48,9 @@
 
 ## 2. 프로젝트 소개 및 개요
 
-국비교육 블라인드 커뮤니티 웹 프로젝트는 주기능으로 인증기능을 도입하여 인증된 기수강생이 교육에 대해 후기, 별점을 작성하여 예비수강생에게 과목, 학원 평가에 대한 정보를 제공해주고 부기능으로 각 학원별 커뮤니티, 채팅등을 통한 수강생간 소통, 학원 비교, 성향테스트 등을 제공하고 있습니다.
+프로젝트 모두모여는 공동 구매, 취미 활동 등을 할 수 있는 동네 주민들 간의 소통 커뮤니티입니다.
+지역에 기반한 커뮤니티 게시글 작성을 통하여 모임을 개설하고, 기존의 개설된 모임에 참여할 수 있는 기능을 제공합니다.
+
 
 <br>
 
@@ -52,19 +58,14 @@
 
 - 주제 선정 배경
 
-|[링크1](http://pr.khu.ac.kr/mailing/0123_11.html) |[링크2](https://news.sktelecom.com/123940)|[링크3](https://weekly.donga.com/3/search/11/913169/1)|
-|-|-|-|
-|<img src="https://user-images.githubusercontent.com/49088112/173503537-63a42aea-500c-48bd-8ece-d28ae0a0741a.png"  width="300" height="250" />|<img src="https://user-images.githubusercontent.com/49088112/173503575-34f015b7-f398-424a-9686-a1005a5eda6b.png"  width="300" height="250" />|<img src="https://user-images.githubusercontent.com/49088112/173503589-f67c9ae8-f496-45e1-b974-ecbecfb0d114.png"  width="300" height="250" />|
-
-> 아이티 교육에 대한 수요는 증가하고 있지만 양질의 교육에 대한 정보와 신뢰성이 부족하여 
+>
+> 5명의 팀원 모두 공동구매와 취미활동을 하고있지만 함께할 사람을 찾는데 어려움을 느낀 경험이 있음
 > 
-> 국비교육 블라인드 커뮤니티 사이트를 기획하였음.
+> 이를 해소하고 지역내의 코로나19로 인해 도래한 언택트시대에 모임 활성화와 소통채널을 제공하고자 지역기반 모임 커뮤니티로 주제를 선정하였음.
+>
 
-- 페르소나 선정
 
-<img src="https://user-images.githubusercontent.com/49088112/173506178-c4cb2ce6-6183-4d39-b43a-d815be0fa1c1.png" width = "95%" height = "95%" /> 
 
-<br>
 
 ## 4. 팀원 소개 
 
