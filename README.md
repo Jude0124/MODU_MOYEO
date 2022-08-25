@@ -83,7 +83,7 @@
 
 [피그마 링크](https://www.figma.com/file/jwSQYG8RtANHFnxAwDsUEg/MOMO?node-id=0%3A1)
 
-|<img src="https://user-images.githubusercontent.com/49088112/186563820-b34f1c8a-9ce4-4b4a-8a06-3b340f6cc87c.png" width= "650" height="650"/>|
+|<img src="https://user-images.githubusercontent.com/49088112/186582757-38130760-8c8a-4dad-a21d-64e0356daebd.png" width= "650" height="650"/>|
 
 
 ## 6. 원활한 협업을 위한 Notion 페이지
