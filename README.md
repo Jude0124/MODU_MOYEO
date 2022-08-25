@@ -16,7 +16,7 @@
 
 <hr>
 
-## 💚 프로젝트 소개 및 개요
+## 💚 프로젝트 소개 및 개요 💚
 
 ### 프로젝트 일정 : 22.05.25 ~ 22.06.09
 
@@ -29,7 +29,7 @@
 
 <br>
 
-## 🥇 기획의도 및 배경
+## 🎯 기획의도 및 배경
 
 >
 > 5명의 팀원 모두 공동구매와 취미활동을 하고있지만 함께할 사람을 찾는데 어려움을 느낀 경험이 보유
@@ -44,7 +44,7 @@
 
 
 
-## 3. 기술스택
+## 📚 기술스택
 \- IDE
  
 ![IntelliJ IDEA](https://img.shields.io/badge/IntelliJ%20IDEA-000000?style=flat-square&logo=IntelliJIDEA&logoColor=white)
@@ -81,7 +81,7 @@
 <br>
 
 
-## 4. 팀원 소개 
+## 👨‍👩‍👦‍👦 팀원 소개 
 
 
 |🐶권지훈|🐱김남은|🐭양지석|🐹유승아|🐰정중헌|
@@ -93,14 +93,14 @@
 
 <br>
 
-## 5. figma를 이용한레이아웃 및 와이어 프레임 설계
+## 🕸 figma를 이용한레이아웃 및 와이어 프레임 설계
 
 [피그마로 이동](https://www.figma.com/file/jwSQYG8RtANHFnxAwDsUEg/MOMO?node-id=0%3A1)
 
 |<img src="https://user-images.githubusercontent.com/49088112/186582757-38130760-8c8a-4dad-a21d-64e0356daebd.png" width= "650" height="650"/>|
 
 
-## 6. 원활한 협업을 위한 Notion 페이지
+## ✨ 원활한 협업을 위한 Notion 페이지
 
 [Notion 페이지 들어가기 ](https://linen-reptile-107.notion.site/1-f5caba1d55c54d829f3155419b0f5848)
 
@@ -111,7 +111,7 @@
 
 <br>
 
-## 7. 상세 페이지
+## 🔎 상세 페이지
 \- 메인페이지
 <br>
 
