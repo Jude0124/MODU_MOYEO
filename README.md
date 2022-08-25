@@ -65,21 +65,16 @@
 >
 
 
-
+<br>
 
 ## 4. 팀원 소개 
 
 
-
-<div class="team-info">
- 
-
-|<img src="https://user-images.githubusercontent.com/96171462/173505483-cc67f262-f525-4689-8a56-23981a0b22bf.png"  width="125" height="135"/>|<img src="https://user-images.githubusercontent.com/96171462/173505562-944cda30-f617-4171-8bcf-8e57b6687e85.png"  width="125" height="135"/>|<img src="https://user-images.githubusercontent.com/96171462/173505600-59c4522a-5777-4500-958a-fecdd930ae4c.png"  width="125" height="135"/> |<img src="https://user-images.githubusercontent.com/96171462/173505623-16649c1d-50d7-43ed-944c-aff04da96d2f.png"  width="125" height="135"/>|<img src="https://user-images.githubusercontent.com/96171462/173505649-6021dd74-ac05-41b7-b709-a420f94ac03b.png"  width="125" height="135"/>|<img src="https://user-images.githubusercontent.com/96171462/173505690-6ecb6a5f-1c34-4f34-8ef6-e3c9e8f5b1dd.png"  width="125" height="135"/>
- |:------:|:-------:|:-------:|:------:|:-------:|:-------:|
-|<a href="https://github.com/Jude0124"> <img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white"/> </a> <br> <a href="https://velog.io/@jude0124"> <img src="https://img.shields.io/badge/Velog-20C997?style=flat-square&logo=Velog&logoColor=white"/></a> | <a href="https://github.com/Perhona"> <img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white"/> </a>  | <a href="https://github.com/m16khb"> <img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white"/> </a> | <a href="https://github.com/Sam-Oh1227"> <img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white"/></a> <br> <a href="https://samori.tistory.com/"> <img src="https://img.shields.io/badge/tistory-181717?style=flat-square&logo=tistory&logoColor=white"/> </a> | <a href="https://github.com/GIT-SIK"> <img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white"/></a> <br> <a href="https://deve1oper.tistory.com"> <img src="https://img.shields.io/badge/tistory-181717?style=flat-square&logo=tistory&logoColor=white"/> </a> | <a href="https://github.com/narwhal1123"> <img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white"/> </a>  |
-
-</div>
-
+|🐶권지훈|🐱김남은|🐭양지석|🐹유승아|🐰정중헌|
+ |:------:|:-------:|:-------:|:------:|:-------:|
+![Back End](https://img.shields.io/badge/-BackEnd-blue?style=flat-square&)<br>메인페이지 검색<br>댓글 등록/삭제|![Back End](https://img.shields.io/badge/-BackEnd-blue?style=flat-square&)<br>로그인<br>회원가입/탈퇴|![Back End](https://img.shields.io/badge/-BackEnd-blue?style=flat-square&)<br>관리자 기능<br>(회원/게시물/댓글 관리)|![Back End](https://img.shields.io/badge/-BackEnd-blue?style=flat-square&)<br>게시글 작성<br>모임 참여/취소|![Back End](https://img.shields.io/badge/-BackEnd-blue?style=flat-square&)<br>회원관리<br>(ID/PW찾기)|
+![Back End](https://img.shields.io/badge/-FrontEnd-00C471?style=flat-square&)<br>전체 디자인 총괄<br>메인페이지<br>닉네임 랜덤 생성|![Back End](https://img.shields.io/badge/-FrontEnd-00C471?style=flat-square&)<br>회원관리<br>(ID/PW찾기)<br><br>|![Back End](https://img.shields.io/badge/-FrontEnd-00C471?style=flat-square&)<br>게시글 목록<br>게시글 상세<br><br>|![Back End](https://img.shields.io/badge/-FrontEnd-00C471?style=flat-square&)<br>회원관리<br>(로그인/회원가입)<br><br>|![Back End](https://img.shields.io/badge/-FrontEnd-00C471?style=flat-square&)<br><br>관리자 페이지<br><br>|
+|||![Back End](https://img.shields.io/badge/-Etc-lightgray?style=flat-square&)<br>전체 기획 총괄||![Back End](https://img.shields.io/badge/-Etc-lightgray?style=flat-square&)<br>AWS EC2 서버구축<br>DB설계 및 구축|
 
 
 <br>
@@ -100,7 +95,7 @@
 
 <br>
 
-
+## 6. 상세 페이지
 <br><br>
 
 
