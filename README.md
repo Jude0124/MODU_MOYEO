@@ -13,7 +13,7 @@
 <br>
 
 ## 1. 기술스택 및 협업 툴
- \- IDE
+\- IDE
  
 ![IntelliJ IDEA](https://img.shields.io/badge/IntelliJ%20IDEA-000000?style=flat-square&logo=IntelliJIDEA&logoColor=white)
 ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-007ACC?style=flat-square&logo=Visual%20Studio%20Code&logoColor=white)
@@ -33,10 +33,12 @@
 
 \- Back End
 
-![Gradle](https://img.shields.io/badge/Gradle-02303A?style=flat-square&logo=Gradle&logoColor=white)
 ![Java](https://img.shields.io/badge/Java-007396?style=flat-square&logo=Java&logoColor=white)
+![Gradle](https://img.shields.io/badge/Gradle-02303A?style=flat-square&logo=Gradle&logoColor=white)
 ![Spring](https://img.shields.io/badge/Spring-6DB33F?style=flat-square&logo=Spring&logoColor=white)
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=flat-square&logo=SpringBoot&logoColor=white)
+![SpringDataJPA](https://img.shields.io/badge/Spring%20Data%20JPA-6DB33F?style=flat-square&logo=JSP&logoColor=white)
+![MyBatis](https://img.shields.io/badge/MyBatis-000000?style=flat-square&logo=JSP&logoColor=white)
 
 \- Server
 
@@ -72,8 +74,8 @@
 
 |🐶권지훈|🐱김남은|🐭양지석|🐹유승아|🐰정중헌|
  |:------:|:-------:|:-------:|:------:|:-------:|
-![Back End](https://img.shields.io/badge/-BackEnd-blue?style=flat-square&)<br>메인페이지 검색<br>댓글 등록/삭제|![Back End](https://img.shields.io/badge/-BackEnd-blue?style=flat-square&)<br>로그인<br>회원가입/탈퇴|![Back End](https://img.shields.io/badge/-BackEnd-blue?style=flat-square&)<br>관리자 기능<br>(회원/게시물/댓글 관리)|![Back End](https://img.shields.io/badge/-BackEnd-blue?style=flat-square&)<br>게시글 작성<br>모임 참여/취소|![Back End](https://img.shields.io/badge/-BackEnd-blue?style=flat-square&)<br>회원관리<br>(ID/PW찾기)|
-![Back End](https://img.shields.io/badge/-FrontEnd-00C471?style=flat-square&)<br>전체 디자인 총괄<br>메인페이지<br>닉네임 랜덤 생성|![Back End](https://img.shields.io/badge/-FrontEnd-00C471?style=flat-square&)<br>회원관리<br>(ID/PW찾기)<br><br>|![Back End](https://img.shields.io/badge/-FrontEnd-00C471?style=flat-square&)<br>게시글 목록<br>게시글 상세<br><br>|![Back End](https://img.shields.io/badge/-FrontEnd-00C471?style=flat-square&)<br>회원관리<br>(로그인/회원가입)<br><br>|![Back End](https://img.shields.io/badge/-FrontEnd-00C471?style=flat-square&)<br><br>관리자 페이지<br><br>|
+![Back End](https://img.shields.io/badge/-BackEnd-blue?style=flat-square&)<br>메인페이지 검색<br>댓글 등록/삭제<br><br>|![Back End](https://img.shields.io/badge/-BackEnd-blue?style=flat-square&)<br>로그인<br>회원가입/탈퇴<br>회원정보 수정|![Back End](https://img.shields.io/badge/-BackEnd-blue?style=flat-square&)<br>관리자 기능<br>(회원/게시물/댓글 관리)<br><br>|![Back End](https://img.shields.io/badge/-BackEnd-blue?style=flat-square&)<br>게시글 작성<br>모임 참여/취소<br><br>|![Back End](https://img.shields.io/badge/-BackEnd-blue?style=flat-square&)<br>회원관리<br>(ID/PW찾기)<br><br>|
+![Back End](https://img.shields.io/badge/-FrontEnd-00C471?style=flat-square&)<br>전체 디자인 총괄<br>메인페이지<br>닉네임 랜덤 생성|![Back End](https://img.shields.io/badge/-FrontEnd-00C471?style=flat-square&)<br>회원관리<br>(ID/PW찾기)<br>회원정보 수정<br>|![Back End](https://img.shields.io/badge/-FrontEnd-00C471?style=flat-square&)<br>게시글 목록<br>게시글 상세<br><br>|![Back End](https://img.shields.io/badge/-FrontEnd-00C471?style=flat-square&)<br>회원관리<br>(로그인/회원가입)<br><br>|![Back End](https://img.shields.io/badge/-FrontEnd-00C471?style=flat-square&)<br><br>관리자 페이지<br><br>|
 |||![Back End](https://img.shields.io/badge/-Etc-lightgray?style=flat-square&)<br>전체 기획 총괄||![Back End](https://img.shields.io/badge/-Etc-lightgray?style=flat-square&)<br>AWS EC2 서버구축<br>DB설계 및 구축|
 
 
