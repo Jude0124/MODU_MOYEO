@@ -81,14 +81,14 @@
 
 ## 5. figma를 이용한레이아웃 및 와이어 프레임 설계
 
-[피그마 링크](https://www.figma.com/file/jwSQYG8RtANHFnxAwDsUEg/MOMO?node-id=0%3A1)
+[피그마로 이동](https://www.figma.com/file/jwSQYG8RtANHFnxAwDsUEg/MOMO?node-id=0%3A1)
 
 |<img src="https://user-images.githubusercontent.com/49088112/186582757-38130760-8c8a-4dad-a21d-64e0356daebd.png" width= "650" height="650"/>|
 
 
 ## 6. 원활한 협업을 위한 Notion 페이지
 
-[Notion 링크](https://linen-reptile-107.notion.site/1-f5caba1d55c54d829f3155419b0f5848)
+[Notion 페이지 들어가기 ](https://linen-reptile-107.notion.site/1-f5caba1d55c54d829f3155419b0f5848)
 
 <img src="https://user-images.githubusercontent.com/49088112/186582320-d96da725-1307-44fc-b323-89d8430c530a.png"/>
 
