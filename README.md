@@ -1,6 +1,7 @@
 <!-- ![header](https://capsule-render.vercel.app/api?color=01a0ff&text=GUKBIT&fontSize=40&type=Waving&height=200&fontColor=FFFFFF&fontAlignY=35) -->
 
-# ⛳모두모여
+
+<img src="https://user-images.githubusercontent.com/49088112/186560534-2395d008-1f5c-480b-82b7-906d38d0625c.png" align ="center")
 
 <!-- 프로젝트 URL : www.gukbit.com <br> -->
 <!-- (일시적으로 서버가 중단될 경우 접속이 원할하지 않을 수 있습니다.) -->
