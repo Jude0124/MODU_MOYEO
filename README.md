@@ -90,7 +90,7 @@
 
 [Notion 링크](https://linen-reptile-107.notion.site/1-f5caba1d55c54d829f3155419b0f5848)
 
-|<img src="https://user-images.githubusercontent.com/49088112/186582320-d96da725-1307-44fc-b323-89d8430c530a.png"/>|
+<img src="https://user-images.githubusercontent.com/49088112/186582320-d96da725-1307-44fc-b323-89d8430c530a.png"/>
 
 
 
