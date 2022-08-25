@@ -29,7 +29,7 @@
 
 <br>
 
-## 🎯 기획의도 및 배경
+## 🏞 기획의도 및 배경
 
 >
 > 5명의 팀원 모두 공동구매와 취미활동을 하고있지만 함께할 사람을 찾는데 어려움을 느낀 경험이 보유
@@ -89,6 +89,21 @@
 ![Back End](https://img.shields.io/badge/-BackEnd-blue?style=flat-square&)<br>메인페이지 검색<br>댓글 등록/삭제<br><br>|![Back End](https://img.shields.io/badge/-BackEnd-blue?style=flat-square&)<br>로그인<br>회원가입/탈퇴<br>회원정보 수정|![Back End](https://img.shields.io/badge/-BackEnd-blue?style=flat-square&)<br>관리자 기능<br>(회원/게시물/댓글 관리)<br><br>|![Back End](https://img.shields.io/badge/-BackEnd-blue?style=flat-square&)<br>게시글 작성<br>모임 참여/취소<br><br>|![Back End](https://img.shields.io/badge/-BackEnd-blue?style=flat-square&)<br>회원관리<br>(ID/PW찾기)<br><br>|
 ![Back End](https://img.shields.io/badge/-FrontEnd-00C471?style=flat-square&)<br>전체 디자인 총괄<br>메인페이지<br>닉네임 랜덤 생성|![Back End](https://img.shields.io/badge/-FrontEnd-00C471?style=flat-square&)<br>회원관리<br>(ID/PW찾기)<br>회원정보 수정<br>|![Back End](https://img.shields.io/badge/-FrontEnd-00C471?style=flat-square&)<br>게시글 목록<br>게시글 상세<br><br>|![Back End](https://img.shields.io/badge/-FrontEnd-00C471?style=flat-square&)<br>회원관리<br>(로그인/회원가입)<br><br>|![Back End](https://img.shields.io/badge/-FrontEnd-00C471?style=flat-square&)<br><br>관리자 페이지<br><br>|
 |||![Back End](https://img.shields.io/badge/-Etc-lightgray?style=flat-square&)<br>전체 기획 총괄||![Back End](https://img.shields.io/badge/-Etc-lightgray?style=flat-square&)<br>AWS EC2 서버구축<br>DB설계 및 구축|
+
+
+## 🎯 핵심기능
+
+*메인페이지*
+
+- 통합검색을 통해 지역구, 글제목, 작성자가 입력한 키워드와 일치하는 파티 모집 글 조회기능 제공 (비로그인 권한)
+
+_모두의 이야기_
+
+- 검색한 모집글들에 대한 결과 페이지 및 상세 글로 보여주기 기능 
+
+*관리자 페이지*
+
+- 회원, 게시글 , 댓글 , 모임에 대한 관리자의 관리 기능 
 
 
 <br>
