@@ -12,7 +12,7 @@
 
 <br>
 
-## 1. 기술스택 및 협업 툴
+## 1. 기술스택
 \- IDE
  
 ![IntelliJ IDEA](https://img.shields.io/badge/IntelliJ%20IDEA-000000?style=flat-square&logo=IntelliJIDEA&logoColor=white)
