@@ -100,6 +100,37 @@
 <br>
 
 ## 7. 상세 페이지
+\- 메인페이지
+<br>
+
+<img src="https://user-images.githubusercontent.com/95855455/186584737-0db0425e-83dd-4825-b730-6a852d63d686.png"  width="" height="400"> <img src="https://user-images.githubusercontent.com/95855455/186584812-833f2d09-1f4a-436e-bbf7-88b385808c9c.png"  width="" height="400">
+
+<!-- ![image](https://user-images.githubusercontent.com/95855455/186584812-833f2d09-1f4a-436e-bbf7-88b385808c9c.png) -->
+<br>
+
+\- 모두의 이야기 (게시판)
+<br>
+
+<img src="https://user-images.githubusercontent.com/95855455/186584996-3b46a47b-830a-4808-85f8-51bd37411013.png"  width="" height="400">
+<!-- ![image](https://user-images.githubusercontent.com/95855455/186584996-3b46a47b-830a-4808-85f8-51bd37411013.png) -->
+<br>
+
+\- 관리자 페이지
+<br>
+
+<img src="https://user-images.githubusercontent.com/95855455/186585701-511f0693-ea6f-4fb7-8b1f-cb47404ab7fe.png"  width="" height="400"> <img src="https://user-images.githubusercontent.com/95855455/186585944-f8186443-23a6-445c-8e0c-64a89ea0629a.png"  width="" height="400">
+<!-- ![image](https://user-images.githubusercontent.com/95855455/186585701-511f0693-ea6f-4fb7-8b1f-cb47404ab7fe.png)
+![image](https://user-images.githubusercontent.com/95855455/186585944-f8186443-23a6-445c-8e0c-64a89ea0629a.png) -->
+<br>
+
+\- 회원가입/로그인
+<br>
+
+<img src="https://user-images.githubusercontent.com/95855455/186586026-ba333700-c69c-4805-8622-46b6739c6bc0.png"  width="" height="400"> <img src="https://user-images.githubusercontent.com/95855455/186586098-768dd4b8-9824-4918-9f0d-8e8877e30e2c.png"  width="" height="400">
+<!-- ![image](https://user-images.githubusercontent.com/95855455/186586026-ba333700-c69c-4805-8622-46b6739c6bc0.png)
+![image](https://user-images.githubusercontent.com/95855455/186586098-768dd4b8-9824-4918-9f0d-8e8877e30e2c.png) -->
+
+
 <br><br>
 
 
