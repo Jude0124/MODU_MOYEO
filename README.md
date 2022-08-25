@@ -93,7 +93,7 @@
 |Jira|Notion|
 |:------:|:-------:|
 |<img src="https://user-images.githubusercontent.com/96171462/173496664-79e75e2a-b546-41ed-9a46-c284ce82c130.png"  width="350" height="300"/>|<img src="https://user-images.githubusercontent.com/96171462/173497034-bac8fbd2-7b97-430e-b4cb-8af323c4d166.png"  width="350" height="300"/>|
-|Gather|Figma|
+|Gather|[Figma](https://www.figma.com/file/jwSQYG8RtANHFnxAwDsUEg/MOMO?node-id=0%3A1ㅍ)|
 |<img src="https://user-images.githubusercontent.com/96171462/173497852-096839b9-b152-4a8b-b709-f145b8d3eb2a.gif"  width="350" height="300"/>|<img src="https://user-images.githubusercontent.com/49088112/186563820-b34f1c8a-9ce4-4b4a-8a06-3b340f6cc87c.png" width= "350" height="300"/>|
 
 
